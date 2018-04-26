@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -38,7 +37,7 @@ instance encodeAliasNameOrListAll :: Encode AliasNameOrListAll where encode = ge
 
 -- | <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
 newtype BadRequestException = BadRequestException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeBadRequestException :: Newtype BadRequestException _
 derive instance repGenericBadRequestException :: Generic BadRequestException _
@@ -48,24 +47,24 @@ instance encodeBadRequestException :: Encode BadRequestException where encode = 
 
 -- | Constructs BadRequestException from required parameters
 newBadRequestException :: BadRequestException
-newBadRequestException  = BadRequestException { "message": (NullOrUndefined Nothing) }
+newBadRequestException  = BadRequestException { "message": Nothing }
 
 -- | Constructs BadRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBadRequestException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> BadRequestException
-newBadRequestException'  customize = (BadRequestException <<< customize) { "message": (NullOrUndefined Nothing) }
+newBadRequestException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> BadRequestException
+newBadRequestException'  customize = (BadRequestException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Provides information about a bot alias.</p>
 newtype BotAliasMetadata = BotAliasMetadata 
-  { "name" :: NullOrUndefined (AliasName)
-  , "description" :: NullOrUndefined (Description)
-  , "botVersion" :: NullOrUndefined (Version)
-  , "botName" :: NullOrUndefined (BotName)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "checksum" :: NullOrUndefined (String)
+  { "name" :: Maybe (AliasName)
+  , "description" :: Maybe (Description)
+  , "botVersion" :: Maybe (Version)
+  , "botName" :: Maybe (BotName)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeBotAliasMetadata :: Newtype BotAliasMetadata _
 derive instance repGenericBotAliasMetadata :: Generic BotAliasMetadata _
@@ -75,12 +74,12 @@ instance encodeBotAliasMetadata :: Encode BotAliasMetadata where encode = generi
 
 -- | Constructs BotAliasMetadata from required parameters
 newBotAliasMetadata :: BotAliasMetadata
-newBotAliasMetadata  = BotAliasMetadata { "botName": (NullOrUndefined Nothing), "botVersion": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newBotAliasMetadata  = BotAliasMetadata { "botName": Nothing, "botVersion": Nothing, "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing }
 
 -- | Constructs BotAliasMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBotAliasMetadata' :: ( { "name" :: NullOrUndefined (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: NullOrUndefined (Version) , "botName" :: NullOrUndefined (BotName) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "checksum" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: NullOrUndefined (Version) , "botName" :: NullOrUndefined (BotName) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "checksum" :: NullOrUndefined (String) } ) -> BotAliasMetadata
-newBotAliasMetadata'  customize = (BotAliasMetadata <<< customize) { "botName": (NullOrUndefined Nothing), "botVersion": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newBotAliasMetadata' :: ( { "name" :: Maybe (AliasName) , "description" :: Maybe (Description) , "botVersion" :: Maybe (Version) , "botName" :: Maybe (BotName) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "checksum" :: Maybe (String) } -> {"name" :: Maybe (AliasName) , "description" :: Maybe (Description) , "botVersion" :: Maybe (Version) , "botName" :: Maybe (BotName) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "checksum" :: Maybe (String) } ) -> BotAliasMetadata
+newBotAliasMetadata'  customize = (BotAliasMetadata <<< customize) { "botName": Nothing, "botVersion": Nothing, "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing }
 
 
 
@@ -95,15 +94,15 @@ instance encodeBotAliasMetadataList :: Encode BotAliasMetadataList where encode 
 
 -- | <p>Represents an association between an Amazon Lex bot and an external messaging platform.</p>
 newtype BotChannelAssociation = BotChannelAssociation 
-  { "name" :: NullOrUndefined (BotChannelName)
-  , "description" :: NullOrUndefined (Description)
-  , "botAlias" :: NullOrUndefined (AliasName)
-  , "botName" :: NullOrUndefined (BotName)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "type" :: NullOrUndefined (ChannelType)
-  , "botConfiguration" :: NullOrUndefined (ChannelConfigurationMap)
-  , "status" :: NullOrUndefined (ChannelStatus)
-  , "failureReason" :: NullOrUndefined (String)
+  { "name" :: Maybe (BotChannelName)
+  , "description" :: Maybe (Description)
+  , "botAlias" :: Maybe (AliasName)
+  , "botName" :: Maybe (BotName)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "type" :: Maybe (ChannelType)
+  , "botConfiguration" :: Maybe (ChannelConfigurationMap)
+  , "status" :: Maybe (ChannelStatus)
+  , "failureReason" :: Maybe (String)
   }
 derive instance newtypeBotChannelAssociation :: Newtype BotChannelAssociation _
 derive instance repGenericBotChannelAssociation :: Generic BotChannelAssociation _
@@ -113,12 +112,12 @@ instance encodeBotChannelAssociation :: Encode BotChannelAssociation where encod
 
 -- | Constructs BotChannelAssociation from required parameters
 newBotChannelAssociation :: BotChannelAssociation
-newBotChannelAssociation  = BotChannelAssociation { "botAlias": (NullOrUndefined Nothing), "botConfiguration": (NullOrUndefined Nothing), "botName": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newBotChannelAssociation  = BotChannelAssociation { "botAlias": Nothing, "botConfiguration": Nothing, "botName": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "name": Nothing, "status": Nothing, "type": Nothing }
 
 -- | Constructs BotChannelAssociation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBotChannelAssociation' :: ( { "name" :: NullOrUndefined (BotChannelName) , "description" :: NullOrUndefined (Description) , "botAlias" :: NullOrUndefined (AliasName) , "botName" :: NullOrUndefined (BotName) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "type" :: NullOrUndefined (ChannelType) , "botConfiguration" :: NullOrUndefined (ChannelConfigurationMap) , "status" :: NullOrUndefined (ChannelStatus) , "failureReason" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (BotChannelName) , "description" :: NullOrUndefined (Description) , "botAlias" :: NullOrUndefined (AliasName) , "botName" :: NullOrUndefined (BotName) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "type" :: NullOrUndefined (ChannelType) , "botConfiguration" :: NullOrUndefined (ChannelConfigurationMap) , "status" :: NullOrUndefined (ChannelStatus) , "failureReason" :: NullOrUndefined (String) } ) -> BotChannelAssociation
-newBotChannelAssociation'  customize = (BotChannelAssociation <<< customize) { "botAlias": (NullOrUndefined Nothing), "botConfiguration": (NullOrUndefined Nothing), "botName": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newBotChannelAssociation' :: ( { "name" :: Maybe (BotChannelName) , "description" :: Maybe (Description) , "botAlias" :: Maybe (AliasName) , "botName" :: Maybe (BotName) , "createdDate" :: Maybe (Types.Timestamp) , "type" :: Maybe (ChannelType) , "botConfiguration" :: Maybe (ChannelConfigurationMap) , "status" :: Maybe (ChannelStatus) , "failureReason" :: Maybe (String) } -> {"name" :: Maybe (BotChannelName) , "description" :: Maybe (Description) , "botAlias" :: Maybe (AliasName) , "botName" :: Maybe (BotName) , "createdDate" :: Maybe (Types.Timestamp) , "type" :: Maybe (ChannelType) , "botConfiguration" :: Maybe (ChannelConfigurationMap) , "status" :: Maybe (ChannelStatus) , "failureReason" :: Maybe (String) } ) -> BotChannelAssociation
+newBotChannelAssociation'  customize = (BotChannelAssociation <<< customize) { "botAlias": Nothing, "botConfiguration": Nothing, "botName": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "name": Nothing, "status": Nothing, "type": Nothing }
 
 
 
@@ -142,12 +141,12 @@ instance encodeBotChannelName :: Encode BotChannelName where encode = genericEnc
 
 -- | <p>Provides information about a bot. .</p>
 newtype BotMetadata = BotMetadata 
-  { "name" :: NullOrUndefined (BotName)
-  , "description" :: NullOrUndefined (Description)
-  , "status" :: NullOrUndefined (Status)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
+  { "name" :: Maybe (BotName)
+  , "description" :: Maybe (Description)
+  , "status" :: Maybe (Status)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
   }
 derive instance newtypeBotMetadata :: Newtype BotMetadata _
 derive instance repGenericBotMetadata :: Generic BotMetadata _
@@ -157,12 +156,12 @@ instance encodeBotMetadata :: Encode BotMetadata where encode = genericEncode op
 
 -- | Constructs BotMetadata from required parameters
 newBotMetadata :: BotMetadata
-newBotMetadata  = BotMetadata { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newBotMetadata  = BotMetadata { "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "status": Nothing, "version": Nothing }
 
 -- | Constructs BotMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBotMetadata' :: ( { "name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "status" :: NullOrUndefined (Status) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) } -> {"name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "status" :: NullOrUndefined (Status) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) } ) -> BotMetadata
-newBotMetadata'  customize = (BotMetadata <<< customize) { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newBotMetadata' :: ( { "name" :: Maybe (BotName) , "description" :: Maybe (Description) , "status" :: Maybe (Status) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) } -> {"name" :: Maybe (BotName) , "description" :: Maybe (Description) , "status" :: Maybe (Status) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) } ) -> BotMetadata
+newBotMetadata'  customize = (BotMetadata <<< customize) { "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "status": Nothing, "version": Nothing }
 
 
 
@@ -195,8 +194,8 @@ instance encodeBotVersions :: Encode BotVersions where encode = genericEncode op
 
 -- | <p>Provides metadata for a built-in intent.</p>
 newtype BuiltinIntentMetadata = BuiltinIntentMetadata 
-  { "signature" :: NullOrUndefined (BuiltinIntentSignature)
-  , "supportedLocales" :: NullOrUndefined (LocaleList)
+  { "signature" :: Maybe (BuiltinIntentSignature)
+  , "supportedLocales" :: Maybe (LocaleList)
   }
 derive instance newtypeBuiltinIntentMetadata :: Newtype BuiltinIntentMetadata _
 derive instance repGenericBuiltinIntentMetadata :: Generic BuiltinIntentMetadata _
@@ -206,12 +205,12 @@ instance encodeBuiltinIntentMetadata :: Encode BuiltinIntentMetadata where encod
 
 -- | Constructs BuiltinIntentMetadata from required parameters
 newBuiltinIntentMetadata :: BuiltinIntentMetadata
-newBuiltinIntentMetadata  = BuiltinIntentMetadata { "signature": (NullOrUndefined Nothing), "supportedLocales": (NullOrUndefined Nothing) }
+newBuiltinIntentMetadata  = BuiltinIntentMetadata { "signature": Nothing, "supportedLocales": Nothing }
 
 -- | Constructs BuiltinIntentMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBuiltinIntentMetadata' :: ( { "signature" :: NullOrUndefined (BuiltinIntentSignature) , "supportedLocales" :: NullOrUndefined (LocaleList) } -> {"signature" :: NullOrUndefined (BuiltinIntentSignature) , "supportedLocales" :: NullOrUndefined (LocaleList) } ) -> BuiltinIntentMetadata
-newBuiltinIntentMetadata'  customize = (BuiltinIntentMetadata <<< customize) { "signature": (NullOrUndefined Nothing), "supportedLocales": (NullOrUndefined Nothing) }
+newBuiltinIntentMetadata' :: ( { "signature" :: Maybe (BuiltinIntentSignature) , "supportedLocales" :: Maybe (LocaleList) } -> {"signature" :: Maybe (BuiltinIntentSignature) , "supportedLocales" :: Maybe (LocaleList) } ) -> BuiltinIntentMetadata
+newBuiltinIntentMetadata'  customize = (BuiltinIntentMetadata <<< customize) { "signature": Nothing, "supportedLocales": Nothing }
 
 
 
@@ -235,7 +234,7 @@ instance encodeBuiltinIntentSignature :: Encode BuiltinIntentSignature where enc
 
 -- | <p>Provides information about a slot used in a built-in intent.</p>
 newtype BuiltinIntentSlot = BuiltinIntentSlot 
-  { "name" :: NullOrUndefined (String)
+  { "name" :: Maybe (String)
   }
 derive instance newtypeBuiltinIntentSlot :: Newtype BuiltinIntentSlot _
 derive instance repGenericBuiltinIntentSlot :: Generic BuiltinIntentSlot _
@@ -245,12 +244,12 @@ instance encodeBuiltinIntentSlot :: Encode BuiltinIntentSlot where encode = gene
 
 -- | Constructs BuiltinIntentSlot from required parameters
 newBuiltinIntentSlot :: BuiltinIntentSlot
-newBuiltinIntentSlot  = BuiltinIntentSlot { "name": (NullOrUndefined Nothing) }
+newBuiltinIntentSlot  = BuiltinIntentSlot { "name": Nothing }
 
 -- | Constructs BuiltinIntentSlot's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBuiltinIntentSlot' :: ( { "name" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (String) } ) -> BuiltinIntentSlot
-newBuiltinIntentSlot'  customize = (BuiltinIntentSlot <<< customize) { "name": (NullOrUndefined Nothing) }
+newBuiltinIntentSlot' :: ( { "name" :: Maybe (String) } -> {"name" :: Maybe (String) } ) -> BuiltinIntentSlot
+newBuiltinIntentSlot'  customize = (BuiltinIntentSlot <<< customize) { "name": Nothing }
 
 
 
@@ -265,8 +264,8 @@ instance encodeBuiltinIntentSlotList :: Encode BuiltinIntentSlotList where encod
 
 -- | <p>Provides information about a built in slot type.</p>
 newtype BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata 
-  { "signature" :: NullOrUndefined (BuiltinSlotTypeSignature)
-  , "supportedLocales" :: NullOrUndefined (LocaleList)
+  { "signature" :: Maybe (BuiltinSlotTypeSignature)
+  , "supportedLocales" :: Maybe (LocaleList)
   }
 derive instance newtypeBuiltinSlotTypeMetadata :: Newtype BuiltinSlotTypeMetadata _
 derive instance repGenericBuiltinSlotTypeMetadata :: Generic BuiltinSlotTypeMetadata _
@@ -276,12 +275,12 @@ instance encodeBuiltinSlotTypeMetadata :: Encode BuiltinSlotTypeMetadata where e
 
 -- | Constructs BuiltinSlotTypeMetadata from required parameters
 newBuiltinSlotTypeMetadata :: BuiltinSlotTypeMetadata
-newBuiltinSlotTypeMetadata  = BuiltinSlotTypeMetadata { "signature": (NullOrUndefined Nothing), "supportedLocales": (NullOrUndefined Nothing) }
+newBuiltinSlotTypeMetadata  = BuiltinSlotTypeMetadata { "signature": Nothing, "supportedLocales": Nothing }
 
 -- | Constructs BuiltinSlotTypeMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBuiltinSlotTypeMetadata' :: ( { "signature" :: NullOrUndefined (BuiltinSlotTypeSignature) , "supportedLocales" :: NullOrUndefined (LocaleList) } -> {"signature" :: NullOrUndefined (BuiltinSlotTypeSignature) , "supportedLocales" :: NullOrUndefined (LocaleList) } ) -> BuiltinSlotTypeMetadata
-newBuiltinSlotTypeMetadata'  customize = (BuiltinSlotTypeMetadata <<< customize) { "signature": (NullOrUndefined Nothing), "supportedLocales": (NullOrUndefined Nothing) }
+newBuiltinSlotTypeMetadata' :: ( { "signature" :: Maybe (BuiltinSlotTypeSignature) , "supportedLocales" :: Maybe (LocaleList) } -> {"signature" :: Maybe (BuiltinSlotTypeSignature) , "supportedLocales" :: Maybe (LocaleList) } ) -> BuiltinSlotTypeMetadata
+newBuiltinSlotTypeMetadata'  customize = (BuiltinSlotTypeMetadata <<< customize) { "signature": Nothing, "supportedLocales": Nothing }
 
 
 
@@ -354,7 +353,7 @@ newCodeHook' _messageVersion _uri customize = (CodeHook <<< customize) { "messag
 
 -- | <p> There was a conflict processing the request. Try your request again. </p>
 newtype ConflictException = ConflictException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeConflictException :: Newtype ConflictException _
 derive instance repGenericConflictException :: Generic ConflictException _
@@ -364,12 +363,12 @@ instance encodeConflictException :: Encode ConflictException where encode = gene
 
 -- | Constructs ConflictException from required parameters
 newConflictException :: ConflictException
-newConflictException  = ConflictException { "message": (NullOrUndefined Nothing) }
+newConflictException  = ConflictException { "message": Nothing }
 
 -- | Constructs ConflictException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConflictException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ConflictException
-newConflictException'  customize = (ConflictException <<< customize) { "message": (NullOrUndefined Nothing) }
+newConflictException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ConflictException
+newConflictException'  customize = (ConflictException <<< customize) { "message": Nothing }
 
 
 
@@ -402,7 +401,7 @@ instance encodeCount :: Encode Count where encode = genericEncode options
 
 newtype CreateBotVersionRequest = CreateBotVersionRequest 
   { "name" :: (BotName)
-  , "checksum" :: NullOrUndefined (String)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeCreateBotVersionRequest :: Newtype CreateBotVersionRequest _
 derive instance repGenericCreateBotVersionRequest :: Generic CreateBotVersionRequest _
@@ -412,31 +411,31 @@ instance encodeCreateBotVersionRequest :: Encode CreateBotVersionRequest where e
 
 -- | Constructs CreateBotVersionRequest from required parameters
 newCreateBotVersionRequest :: BotName -> CreateBotVersionRequest
-newCreateBotVersionRequest _name = CreateBotVersionRequest { "name": _name, "checksum": (NullOrUndefined Nothing) }
+newCreateBotVersionRequest _name = CreateBotVersionRequest { "name": _name, "checksum": Nothing }
 
 -- | Constructs CreateBotVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBotVersionRequest' :: BotName -> ( { "name" :: (BotName) , "checksum" :: NullOrUndefined (String) } -> {"name" :: (BotName) , "checksum" :: NullOrUndefined (String) } ) -> CreateBotVersionRequest
-newCreateBotVersionRequest' _name customize = (CreateBotVersionRequest <<< customize) { "name": _name, "checksum": (NullOrUndefined Nothing) }
+newCreateBotVersionRequest' :: BotName -> ( { "name" :: (BotName) , "checksum" :: Maybe (String) } -> {"name" :: (BotName) , "checksum" :: Maybe (String) } ) -> CreateBotVersionRequest
+newCreateBotVersionRequest' _name customize = (CreateBotVersionRequest <<< customize) { "name": _name, "checksum": Nothing }
 
 
 
 newtype CreateBotVersionResponse = CreateBotVersionResponse 
-  { "name" :: NullOrUndefined (BotName)
-  , "description" :: NullOrUndefined (Description)
-  , "intents" :: NullOrUndefined (IntentList)
-  , "clarificationPrompt" :: NullOrUndefined (Prompt)
-  , "abortStatement" :: NullOrUndefined (Statement)
-  , "status" :: NullOrUndefined (Status)
-  , "failureReason" :: NullOrUndefined (String)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL)
-  , "voiceId" :: NullOrUndefined (String)
-  , "checksum" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (Version)
-  , "locale" :: NullOrUndefined (Locale)
-  , "childDirected" :: NullOrUndefined (Boolean)
+  { "name" :: Maybe (BotName)
+  , "description" :: Maybe (Description)
+  , "intents" :: Maybe (IntentList)
+  , "clarificationPrompt" :: Maybe (Prompt)
+  , "abortStatement" :: Maybe (Statement)
+  , "status" :: Maybe (Status)
+  , "failureReason" :: Maybe (String)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "idleSessionTTLInSeconds" :: Maybe (SessionTTL)
+  , "voiceId" :: Maybe (String)
+  , "checksum" :: Maybe (String)
+  , "version" :: Maybe (Version)
+  , "locale" :: Maybe (Locale)
+  , "childDirected" :: Maybe (Boolean)
   }
 derive instance newtypeCreateBotVersionResponse :: Newtype CreateBotVersionResponse _
 derive instance repGenericCreateBotVersionResponse :: Generic CreateBotVersionResponse _
@@ -446,18 +445,18 @@ instance encodeCreateBotVersionResponse :: Encode CreateBotVersionResponse where
 
 -- | Constructs CreateBotVersionResponse from required parameters
 newCreateBotVersionResponse :: CreateBotVersionResponse
-newCreateBotVersionResponse  = CreateBotVersionResponse { "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "childDirected": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newCreateBotVersionResponse  = CreateBotVersionResponse { "abortStatement": Nothing, "checksum": Nothing, "childDirected": Nothing, "clarificationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "lastUpdatedDate": Nothing, "locale": Nothing, "name": Nothing, "status": Nothing, "version": Nothing, "voiceId": Nothing }
 
 -- | Constructs CreateBotVersionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBotVersionResponse' :: ( { "name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "status" :: NullOrUndefined (Status) , "failureReason" :: NullOrUndefined (String) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Version) , "locale" :: NullOrUndefined (Locale) , "childDirected" :: NullOrUndefined (Boolean) } -> {"name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "status" :: NullOrUndefined (Status) , "failureReason" :: NullOrUndefined (String) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Version) , "locale" :: NullOrUndefined (Locale) , "childDirected" :: NullOrUndefined (Boolean) } ) -> CreateBotVersionResponse
-newCreateBotVersionResponse'  customize = (CreateBotVersionResponse <<< customize) { "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "childDirected": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newCreateBotVersionResponse' :: ( { "name" :: Maybe (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "status" :: Maybe (Status) , "failureReason" :: Maybe (String) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "version" :: Maybe (Version) , "locale" :: Maybe (Locale) , "childDirected" :: Maybe (Boolean) } -> {"name" :: Maybe (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "status" :: Maybe (Status) , "failureReason" :: Maybe (String) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "version" :: Maybe (Version) , "locale" :: Maybe (Locale) , "childDirected" :: Maybe (Boolean) } ) -> CreateBotVersionResponse
+newCreateBotVersionResponse'  customize = (CreateBotVersionResponse <<< customize) { "abortStatement": Nothing, "checksum": Nothing, "childDirected": Nothing, "clarificationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "lastUpdatedDate": Nothing, "locale": Nothing, "name": Nothing, "status": Nothing, "version": Nothing, "voiceId": Nothing }
 
 
 
 newtype CreateIntentVersionRequest = CreateIntentVersionRequest 
   { "name" :: (IntentName)
-  , "checksum" :: NullOrUndefined (String)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeCreateIntentVersionRequest :: Newtype CreateIntentVersionRequest _
 derive instance repGenericCreateIntentVersionRequest :: Generic CreateIntentVersionRequest _
@@ -467,31 +466,31 @@ instance encodeCreateIntentVersionRequest :: Encode CreateIntentVersionRequest w
 
 -- | Constructs CreateIntentVersionRequest from required parameters
 newCreateIntentVersionRequest :: IntentName -> CreateIntentVersionRequest
-newCreateIntentVersionRequest _name = CreateIntentVersionRequest { "name": _name, "checksum": (NullOrUndefined Nothing) }
+newCreateIntentVersionRequest _name = CreateIntentVersionRequest { "name": _name, "checksum": Nothing }
 
 -- | Constructs CreateIntentVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateIntentVersionRequest' :: IntentName -> ( { "name" :: (IntentName) , "checksum" :: NullOrUndefined (String) } -> {"name" :: (IntentName) , "checksum" :: NullOrUndefined (String) } ) -> CreateIntentVersionRequest
-newCreateIntentVersionRequest' _name customize = (CreateIntentVersionRequest <<< customize) { "name": _name, "checksum": (NullOrUndefined Nothing) }
+newCreateIntentVersionRequest' :: IntentName -> ( { "name" :: (IntentName) , "checksum" :: Maybe (String) } -> {"name" :: (IntentName) , "checksum" :: Maybe (String) } ) -> CreateIntentVersionRequest
+newCreateIntentVersionRequest' _name customize = (CreateIntentVersionRequest <<< customize) { "name": _name, "checksum": Nothing }
 
 
 
 newtype CreateIntentVersionResponse = CreateIntentVersionResponse 
-  { "name" :: NullOrUndefined (IntentName)
-  , "description" :: NullOrUndefined (Description)
-  , "slots" :: NullOrUndefined (SlotList)
-  , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList)
-  , "confirmationPrompt" :: NullOrUndefined (Prompt)
-  , "rejectionStatement" :: NullOrUndefined (Statement)
-  , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt)
-  , "conclusionStatement" :: NullOrUndefined (Statement)
-  , "dialogCodeHook" :: NullOrUndefined (CodeHook)
-  , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity)
-  , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
-  , "checksum" :: NullOrUndefined (String)
+  { "name" :: Maybe (IntentName)
+  , "description" :: Maybe (Description)
+  , "slots" :: Maybe (SlotList)
+  , "sampleUtterances" :: Maybe (IntentUtteranceList)
+  , "confirmationPrompt" :: Maybe (Prompt)
+  , "rejectionStatement" :: Maybe (Statement)
+  , "followUpPrompt" :: Maybe (FollowUpPrompt)
+  , "conclusionStatement" :: Maybe (Statement)
+  , "dialogCodeHook" :: Maybe (CodeHook)
+  , "fulfillmentActivity" :: Maybe (FulfillmentActivity)
+  , "parentIntentSignature" :: Maybe (BuiltinIntentSignature)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeCreateIntentVersionResponse :: Newtype CreateIntentVersionResponse _
 derive instance repGenericCreateIntentVersionResponse :: Generic CreateIntentVersionResponse _
@@ -501,18 +500,18 @@ instance encodeCreateIntentVersionResponse :: Encode CreateIntentVersionResponse
 
 -- | Constructs CreateIntentVersionResponse from required parameters
 newCreateIntentVersionResponse :: CreateIntentVersionResponse
-newCreateIntentVersionResponse  = CreateIntentVersionResponse { "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newCreateIntentVersionResponse  = CreateIntentVersionResponse { "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing, "version": Nothing }
 
 -- | Constructs CreateIntentVersionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateIntentVersionResponse' :: ( { "name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) } ) -> CreateIntentVersionResponse
-newCreateIntentVersionResponse'  customize = (CreateIntentVersionResponse <<< customize) { "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newCreateIntentVersionResponse' :: ( { "name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) } -> {"name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) } ) -> CreateIntentVersionResponse
+newCreateIntentVersionResponse'  customize = (CreateIntentVersionResponse <<< customize) { "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing, "version": Nothing }
 
 
 
 newtype CreateSlotTypeVersionRequest = CreateSlotTypeVersionRequest 
   { "name" :: (SlotTypeName)
-  , "checksum" :: NullOrUndefined (String)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeCreateSlotTypeVersionRequest :: Newtype CreateSlotTypeVersionRequest _
 derive instance repGenericCreateSlotTypeVersionRequest :: Generic CreateSlotTypeVersionRequest _
@@ -522,24 +521,24 @@ instance encodeCreateSlotTypeVersionRequest :: Encode CreateSlotTypeVersionReque
 
 -- | Constructs CreateSlotTypeVersionRequest from required parameters
 newCreateSlotTypeVersionRequest :: SlotTypeName -> CreateSlotTypeVersionRequest
-newCreateSlotTypeVersionRequest _name = CreateSlotTypeVersionRequest { "name": _name, "checksum": (NullOrUndefined Nothing) }
+newCreateSlotTypeVersionRequest _name = CreateSlotTypeVersionRequest { "name": _name, "checksum": Nothing }
 
 -- | Constructs CreateSlotTypeVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateSlotTypeVersionRequest' :: SlotTypeName -> ( { "name" :: (SlotTypeName) , "checksum" :: NullOrUndefined (String) } -> {"name" :: (SlotTypeName) , "checksum" :: NullOrUndefined (String) } ) -> CreateSlotTypeVersionRequest
-newCreateSlotTypeVersionRequest' _name customize = (CreateSlotTypeVersionRequest <<< customize) { "name": _name, "checksum": (NullOrUndefined Nothing) }
+newCreateSlotTypeVersionRequest' :: SlotTypeName -> ( { "name" :: (SlotTypeName) , "checksum" :: Maybe (String) } -> {"name" :: (SlotTypeName) , "checksum" :: Maybe (String) } ) -> CreateSlotTypeVersionRequest
+newCreateSlotTypeVersionRequest' _name customize = (CreateSlotTypeVersionRequest <<< customize) { "name": _name, "checksum": Nothing }
 
 
 
 newtype CreateSlotTypeVersionResponse = CreateSlotTypeVersionResponse 
-  { "name" :: NullOrUndefined (SlotTypeName)
-  , "description" :: NullOrUndefined (Description)
-  , "enumerationValues" :: NullOrUndefined (EnumerationValues)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
-  , "checksum" :: NullOrUndefined (String)
-  , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy)
+  { "name" :: Maybe (SlotTypeName)
+  , "description" :: Maybe (Description)
+  , "enumerationValues" :: Maybe (EnumerationValues)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
+  , "checksum" :: Maybe (String)
+  , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy)
   }
 derive instance newtypeCreateSlotTypeVersionResponse :: Newtype CreateSlotTypeVersionResponse _
 derive instance repGenericCreateSlotTypeVersionResponse :: Generic CreateSlotTypeVersionResponse _
@@ -549,12 +548,12 @@ instance encodeCreateSlotTypeVersionResponse :: Encode CreateSlotTypeVersionResp
 
 -- | Constructs CreateSlotTypeVersionResponse from required parameters
 newCreateSlotTypeVersionResponse :: CreateSlotTypeVersionResponse
-newCreateSlotTypeVersionResponse  = CreateSlotTypeVersionResponse { "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newCreateSlotTypeVersionResponse  = CreateSlotTypeVersionResponse { "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "enumerationValues": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "valueSelectionStrategy": Nothing, "version": Nothing }
 
 -- | Constructs CreateSlotTypeVersionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateSlotTypeVersionResponse' :: ( { "name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) } -> {"name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) } ) -> CreateSlotTypeVersionResponse
-newCreateSlotTypeVersionResponse'  customize = (CreateSlotTypeVersionResponse <<< customize) { "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newCreateSlotTypeVersionResponse' :: ( { "name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) } -> {"name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) } ) -> CreateSlotTypeVersionResponse
+newCreateSlotTypeVersionResponse'  customize = (CreateSlotTypeVersionResponse <<< customize) { "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "enumerationValues": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "valueSelectionStrategy": Nothing, "version": Nothing }
 
 
 
@@ -766,7 +765,7 @@ instance encodeDescription :: Encode Description where encode = genericEncode op
 -- | <p>Each slot type can have a set of values. Each enumeration value represents a value the slot type can take. </p> <p>For example, a pizza ordering bot could have a slot type that specifies the type of crust that the pizza should have. The slot type could include the values </p> <ul> <li> <p>thick</p> </li> <li> <p>thin</p> </li> <li> <p>stuffed</p> </li> </ul>
 newtype EnumerationValue = EnumerationValue 
   { "value" :: (Value)
-  , "synonyms" :: NullOrUndefined (SynonymList)
+  , "synonyms" :: Maybe (SynonymList)
   }
 derive instance newtypeEnumerationValue :: Newtype EnumerationValue _
 derive instance repGenericEnumerationValue :: Generic EnumerationValue _
@@ -776,12 +775,12 @@ instance encodeEnumerationValue :: Encode EnumerationValue where encode = generi
 
 -- | Constructs EnumerationValue from required parameters
 newEnumerationValue :: Value -> EnumerationValue
-newEnumerationValue _value = EnumerationValue { "value": _value, "synonyms": (NullOrUndefined Nothing) }
+newEnumerationValue _value = EnumerationValue { "value": _value, "synonyms": Nothing }
 
 -- | Constructs EnumerationValue's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEnumerationValue' :: Value -> ( { "value" :: (Value) , "synonyms" :: NullOrUndefined (SynonymList) } -> {"value" :: (Value) , "synonyms" :: NullOrUndefined (SynonymList) } ) -> EnumerationValue
-newEnumerationValue' _value customize = (EnumerationValue <<< customize) { "value": _value, "synonyms": (NullOrUndefined Nothing) }
+newEnumerationValue' :: Value -> ( { "value" :: (Value) , "synonyms" :: Maybe (SynonymList) } -> {"value" :: (Value) , "synonyms" :: Maybe (SynonymList) } ) -> EnumerationValue
+newEnumerationValue' _value customize = (EnumerationValue <<< customize) { "value": _value, "synonyms": Nothing }
 
 
 
@@ -837,7 +836,7 @@ newFollowUpPrompt' _prompt _rejectionStatement customize = (FollowUpPrompt <<< c
 -- | <p> Describes how the intent is fulfilled after the user provides all of the information required for the intent. You can provide a Lambda function to process the intent, or you can return the intent information to the client application. We recommend that you use a Lambda function so that the relevant logic lives in the Cloud and limit the client-side code primarily to presentation. If you need to update the logic, you only update the Lambda function; you don't need to upgrade your client application. </p> <p>Consider the following examples:</p> <ul> <li> <p>In a pizza ordering application, after the user provides all of the information for placing an order, you use a Lambda function to place an order with a pizzeria. </p> </li> <li> <p>In a gaming application, when a user says "pick up a rock," this information must go back to the client application so that it can perform the operation and update the graphics. In this case, you want Amazon Lex to return the intent data to the client. </p> </li> </ul>
 newtype FulfillmentActivity = FulfillmentActivity 
   { "type" :: (FulfillmentActivityType)
-  , "codeHook" :: NullOrUndefined (CodeHook)
+  , "codeHook" :: Maybe (CodeHook)
   }
 derive instance newtypeFulfillmentActivity :: Newtype FulfillmentActivity _
 derive instance repGenericFulfillmentActivity :: Generic FulfillmentActivity _
@@ -847,12 +846,12 @@ instance encodeFulfillmentActivity :: Encode FulfillmentActivity where encode = 
 
 -- | Constructs FulfillmentActivity from required parameters
 newFulfillmentActivity :: FulfillmentActivityType -> FulfillmentActivity
-newFulfillmentActivity _type = FulfillmentActivity { "type": _type, "codeHook": (NullOrUndefined Nothing) }
+newFulfillmentActivity _type = FulfillmentActivity { "type": _type, "codeHook": Nothing }
 
 -- | Constructs FulfillmentActivity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFulfillmentActivity' :: FulfillmentActivityType -> ( { "type" :: (FulfillmentActivityType) , "codeHook" :: NullOrUndefined (CodeHook) } -> {"type" :: (FulfillmentActivityType) , "codeHook" :: NullOrUndefined (CodeHook) } ) -> FulfillmentActivity
-newFulfillmentActivity' _type customize = (FulfillmentActivity <<< customize) { "type": _type, "codeHook": (NullOrUndefined Nothing) }
+newFulfillmentActivity' :: FulfillmentActivityType -> ( { "type" :: (FulfillmentActivityType) , "codeHook" :: Maybe (CodeHook) } -> {"type" :: (FulfillmentActivityType) , "codeHook" :: Maybe (CodeHook) } ) -> FulfillmentActivity
+newFulfillmentActivity' _type customize = (FulfillmentActivity <<< customize) { "type": _type, "codeHook": Nothing }
 
 
 
@@ -887,13 +886,13 @@ newGetBotAliasRequest' _botName _name customize = (GetBotAliasRequest <<< custom
 
 
 newtype GetBotAliasResponse = GetBotAliasResponse 
-  { "name" :: NullOrUndefined (AliasName)
-  , "description" :: NullOrUndefined (Description)
-  , "botVersion" :: NullOrUndefined (Version)
-  , "botName" :: NullOrUndefined (BotName)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "checksum" :: NullOrUndefined (String)
+  { "name" :: Maybe (AliasName)
+  , "description" :: Maybe (Description)
+  , "botVersion" :: Maybe (Version)
+  , "botName" :: Maybe (BotName)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeGetBotAliasResponse :: Newtype GetBotAliasResponse _
 derive instance repGenericGetBotAliasResponse :: Generic GetBotAliasResponse _
@@ -903,20 +902,20 @@ instance encodeGetBotAliasResponse :: Encode GetBotAliasResponse where encode = 
 
 -- | Constructs GetBotAliasResponse from required parameters
 newGetBotAliasResponse :: GetBotAliasResponse
-newGetBotAliasResponse  = GetBotAliasResponse { "botName": (NullOrUndefined Nothing), "botVersion": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newGetBotAliasResponse  = GetBotAliasResponse { "botName": Nothing, "botVersion": Nothing, "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing }
 
 -- | Constructs GetBotAliasResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotAliasResponse' :: ( { "name" :: NullOrUndefined (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: NullOrUndefined (Version) , "botName" :: NullOrUndefined (BotName) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "checksum" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: NullOrUndefined (Version) , "botName" :: NullOrUndefined (BotName) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "checksum" :: NullOrUndefined (String) } ) -> GetBotAliasResponse
-newGetBotAliasResponse'  customize = (GetBotAliasResponse <<< customize) { "botName": (NullOrUndefined Nothing), "botVersion": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newGetBotAliasResponse' :: ( { "name" :: Maybe (AliasName) , "description" :: Maybe (Description) , "botVersion" :: Maybe (Version) , "botName" :: Maybe (BotName) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "checksum" :: Maybe (String) } -> {"name" :: Maybe (AliasName) , "description" :: Maybe (Description) , "botVersion" :: Maybe (Version) , "botName" :: Maybe (BotName) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "checksum" :: Maybe (String) } ) -> GetBotAliasResponse
+newGetBotAliasResponse'  customize = (GetBotAliasResponse <<< customize) { "botName": Nothing, "botVersion": Nothing, "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing }
 
 
 
 newtype GetBotAliasesRequest = GetBotAliasesRequest 
   { "botName" :: (BotName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
-  , "nameContains" :: NullOrUndefined (AliasName)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
+  , "nameContains" :: Maybe (AliasName)
   }
 derive instance newtypeGetBotAliasesRequest :: Newtype GetBotAliasesRequest _
 derive instance repGenericGetBotAliasesRequest :: Generic GetBotAliasesRequest _
@@ -926,18 +925,18 @@ instance encodeGetBotAliasesRequest :: Encode GetBotAliasesRequest where encode 
 
 -- | Constructs GetBotAliasesRequest from required parameters
 newGetBotAliasesRequest :: BotName -> GetBotAliasesRequest
-newGetBotAliasesRequest _botName = GetBotAliasesRequest { "botName": _botName, "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotAliasesRequest _botName = GetBotAliasesRequest { "botName": _botName, "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotAliasesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotAliasesRequest' :: BotName -> ( { "botName" :: (BotName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (AliasName) } -> {"botName" :: (BotName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (AliasName) } ) -> GetBotAliasesRequest
-newGetBotAliasesRequest' _botName customize = (GetBotAliasesRequest <<< customize) { "botName": _botName, "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotAliasesRequest' :: BotName -> ( { "botName" :: (BotName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (AliasName) } -> {"botName" :: (BotName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (AliasName) } ) -> GetBotAliasesRequest
+newGetBotAliasesRequest' _botName customize = (GetBotAliasesRequest <<< customize) { "botName": _botName, "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetBotAliasesResponse = GetBotAliasesResponse 
-  { "BotAliases" :: NullOrUndefined (BotAliasMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "BotAliases" :: Maybe (BotAliasMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetBotAliasesResponse :: Newtype GetBotAliasesResponse _
 derive instance repGenericGetBotAliasesResponse :: Generic GetBotAliasesResponse _
@@ -947,12 +946,12 @@ instance encodeGetBotAliasesResponse :: Encode GetBotAliasesResponse where encod
 
 -- | Constructs GetBotAliasesResponse from required parameters
 newGetBotAliasesResponse :: GetBotAliasesResponse
-newGetBotAliasesResponse  = GetBotAliasesResponse { "BotAliases": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotAliasesResponse  = GetBotAliasesResponse { "BotAliases": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotAliasesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotAliasesResponse' :: ( { "BotAliases" :: NullOrUndefined (BotAliasMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"BotAliases" :: NullOrUndefined (BotAliasMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetBotAliasesResponse
-newGetBotAliasesResponse'  customize = (GetBotAliasesResponse <<< customize) { "BotAliases": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotAliasesResponse' :: ( { "BotAliases" :: Maybe (BotAliasMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"BotAliases" :: Maybe (BotAliasMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetBotAliasesResponse
+newGetBotAliasesResponse'  customize = (GetBotAliasesResponse <<< customize) { "BotAliases": Nothing, "nextToken": Nothing }
 
 
 
@@ -979,15 +978,15 @@ newGetBotChannelAssociationRequest' _botAlias _botName _name customize = (GetBot
 
 
 newtype GetBotChannelAssociationResponse = GetBotChannelAssociationResponse 
-  { "name" :: NullOrUndefined (BotChannelName)
-  , "description" :: NullOrUndefined (Description)
-  , "botAlias" :: NullOrUndefined (AliasName)
-  , "botName" :: NullOrUndefined (BotName)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "type" :: NullOrUndefined (ChannelType)
-  , "botConfiguration" :: NullOrUndefined (ChannelConfigurationMap)
-  , "status" :: NullOrUndefined (ChannelStatus)
-  , "failureReason" :: NullOrUndefined (String)
+  { "name" :: Maybe (BotChannelName)
+  , "description" :: Maybe (Description)
+  , "botAlias" :: Maybe (AliasName)
+  , "botName" :: Maybe (BotName)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "type" :: Maybe (ChannelType)
+  , "botConfiguration" :: Maybe (ChannelConfigurationMap)
+  , "status" :: Maybe (ChannelStatus)
+  , "failureReason" :: Maybe (String)
   }
 derive instance newtypeGetBotChannelAssociationResponse :: Newtype GetBotChannelAssociationResponse _
 derive instance repGenericGetBotChannelAssociationResponse :: Generic GetBotChannelAssociationResponse _
@@ -997,21 +996,21 @@ instance encodeGetBotChannelAssociationResponse :: Encode GetBotChannelAssociati
 
 -- | Constructs GetBotChannelAssociationResponse from required parameters
 newGetBotChannelAssociationResponse :: GetBotChannelAssociationResponse
-newGetBotChannelAssociationResponse  = GetBotChannelAssociationResponse { "botAlias": (NullOrUndefined Nothing), "botConfiguration": (NullOrUndefined Nothing), "botName": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newGetBotChannelAssociationResponse  = GetBotChannelAssociationResponse { "botAlias": Nothing, "botConfiguration": Nothing, "botName": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "name": Nothing, "status": Nothing, "type": Nothing }
 
 -- | Constructs GetBotChannelAssociationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotChannelAssociationResponse' :: ( { "name" :: NullOrUndefined (BotChannelName) , "description" :: NullOrUndefined (Description) , "botAlias" :: NullOrUndefined (AliasName) , "botName" :: NullOrUndefined (BotName) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "type" :: NullOrUndefined (ChannelType) , "botConfiguration" :: NullOrUndefined (ChannelConfigurationMap) , "status" :: NullOrUndefined (ChannelStatus) , "failureReason" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (BotChannelName) , "description" :: NullOrUndefined (Description) , "botAlias" :: NullOrUndefined (AliasName) , "botName" :: NullOrUndefined (BotName) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "type" :: NullOrUndefined (ChannelType) , "botConfiguration" :: NullOrUndefined (ChannelConfigurationMap) , "status" :: NullOrUndefined (ChannelStatus) , "failureReason" :: NullOrUndefined (String) } ) -> GetBotChannelAssociationResponse
-newGetBotChannelAssociationResponse'  customize = (GetBotChannelAssociationResponse <<< customize) { "botAlias": (NullOrUndefined Nothing), "botConfiguration": (NullOrUndefined Nothing), "botName": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newGetBotChannelAssociationResponse' :: ( { "name" :: Maybe (BotChannelName) , "description" :: Maybe (Description) , "botAlias" :: Maybe (AliasName) , "botName" :: Maybe (BotName) , "createdDate" :: Maybe (Types.Timestamp) , "type" :: Maybe (ChannelType) , "botConfiguration" :: Maybe (ChannelConfigurationMap) , "status" :: Maybe (ChannelStatus) , "failureReason" :: Maybe (String) } -> {"name" :: Maybe (BotChannelName) , "description" :: Maybe (Description) , "botAlias" :: Maybe (AliasName) , "botName" :: Maybe (BotName) , "createdDate" :: Maybe (Types.Timestamp) , "type" :: Maybe (ChannelType) , "botConfiguration" :: Maybe (ChannelConfigurationMap) , "status" :: Maybe (ChannelStatus) , "failureReason" :: Maybe (String) } ) -> GetBotChannelAssociationResponse
+newGetBotChannelAssociationResponse'  customize = (GetBotChannelAssociationResponse <<< customize) { "botAlias": Nothing, "botConfiguration": Nothing, "botName": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "name": Nothing, "status": Nothing, "type": Nothing }
 
 
 
 newtype GetBotChannelAssociationsRequest = GetBotChannelAssociationsRequest 
   { "botName" :: (BotName)
   , "botAlias" :: (AliasNameOrListAll)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
-  , "nameContains" :: NullOrUndefined (BotChannelName)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
+  , "nameContains" :: Maybe (BotChannelName)
   }
 derive instance newtypeGetBotChannelAssociationsRequest :: Newtype GetBotChannelAssociationsRequest _
 derive instance repGenericGetBotChannelAssociationsRequest :: Generic GetBotChannelAssociationsRequest _
@@ -1021,18 +1020,18 @@ instance encodeGetBotChannelAssociationsRequest :: Encode GetBotChannelAssociati
 
 -- | Constructs GetBotChannelAssociationsRequest from required parameters
 newGetBotChannelAssociationsRequest :: AliasNameOrListAll -> BotName -> GetBotChannelAssociationsRequest
-newGetBotChannelAssociationsRequest _botAlias _botName = GetBotChannelAssociationsRequest { "botAlias": _botAlias, "botName": _botName, "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotChannelAssociationsRequest _botAlias _botName = GetBotChannelAssociationsRequest { "botAlias": _botAlias, "botName": _botName, "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotChannelAssociationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotChannelAssociationsRequest' :: AliasNameOrListAll -> BotName -> ( { "botName" :: (BotName) , "botAlias" :: (AliasNameOrListAll) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (BotChannelName) } -> {"botName" :: (BotName) , "botAlias" :: (AliasNameOrListAll) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (BotChannelName) } ) -> GetBotChannelAssociationsRequest
-newGetBotChannelAssociationsRequest' _botAlias _botName customize = (GetBotChannelAssociationsRequest <<< customize) { "botAlias": _botAlias, "botName": _botName, "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotChannelAssociationsRequest' :: AliasNameOrListAll -> BotName -> ( { "botName" :: (BotName) , "botAlias" :: (AliasNameOrListAll) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (BotChannelName) } -> {"botName" :: (BotName) , "botAlias" :: (AliasNameOrListAll) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (BotChannelName) } ) -> GetBotChannelAssociationsRequest
+newGetBotChannelAssociationsRequest' _botAlias _botName customize = (GetBotChannelAssociationsRequest <<< customize) { "botAlias": _botAlias, "botName": _botName, "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse 
-  { "botChannelAssociations" :: NullOrUndefined (BotChannelAssociationList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "botChannelAssociations" :: Maybe (BotChannelAssociationList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetBotChannelAssociationsResponse :: Newtype GetBotChannelAssociationsResponse _
 derive instance repGenericGetBotChannelAssociationsResponse :: Generic GetBotChannelAssociationsResponse _
@@ -1042,12 +1041,12 @@ instance encodeGetBotChannelAssociationsResponse :: Encode GetBotChannelAssociat
 
 -- | Constructs GetBotChannelAssociationsResponse from required parameters
 newGetBotChannelAssociationsResponse :: GetBotChannelAssociationsResponse
-newGetBotChannelAssociationsResponse  = GetBotChannelAssociationsResponse { "botChannelAssociations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotChannelAssociationsResponse  = GetBotChannelAssociationsResponse { "botChannelAssociations": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotChannelAssociationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotChannelAssociationsResponse' :: ( { "botChannelAssociations" :: NullOrUndefined (BotChannelAssociationList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"botChannelAssociations" :: NullOrUndefined (BotChannelAssociationList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetBotChannelAssociationsResponse
-newGetBotChannelAssociationsResponse'  customize = (GetBotChannelAssociationsResponse <<< customize) { "botChannelAssociations": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotChannelAssociationsResponse' :: ( { "botChannelAssociations" :: Maybe (BotChannelAssociationList) , "nextToken" :: Maybe (NextToken) } -> {"botChannelAssociations" :: Maybe (BotChannelAssociationList) , "nextToken" :: Maybe (NextToken) } ) -> GetBotChannelAssociationsResponse
+newGetBotChannelAssociationsResponse'  customize = (GetBotChannelAssociationsResponse <<< customize) { "botChannelAssociations": Nothing, "nextToken": Nothing }
 
 
 
@@ -1073,21 +1072,21 @@ newGetBotRequest' _name _versionOrAlias customize = (GetBotRequest <<< customize
 
 
 newtype GetBotResponse = GetBotResponse 
-  { "name" :: NullOrUndefined (BotName)
-  , "description" :: NullOrUndefined (Description)
-  , "intents" :: NullOrUndefined (IntentList)
-  , "clarificationPrompt" :: NullOrUndefined (Prompt)
-  , "abortStatement" :: NullOrUndefined (Statement)
-  , "status" :: NullOrUndefined (Status)
-  , "failureReason" :: NullOrUndefined (String)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL)
-  , "voiceId" :: NullOrUndefined (String)
-  , "checksum" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (Version)
-  , "locale" :: NullOrUndefined (Locale)
-  , "childDirected" :: NullOrUndefined (Boolean)
+  { "name" :: Maybe (BotName)
+  , "description" :: Maybe (Description)
+  , "intents" :: Maybe (IntentList)
+  , "clarificationPrompt" :: Maybe (Prompt)
+  , "abortStatement" :: Maybe (Statement)
+  , "status" :: Maybe (Status)
+  , "failureReason" :: Maybe (String)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "idleSessionTTLInSeconds" :: Maybe (SessionTTL)
+  , "voiceId" :: Maybe (String)
+  , "checksum" :: Maybe (String)
+  , "version" :: Maybe (Version)
+  , "locale" :: Maybe (Locale)
+  , "childDirected" :: Maybe (Boolean)
   }
 derive instance newtypeGetBotResponse :: Newtype GetBotResponse _
 derive instance repGenericGetBotResponse :: Generic GetBotResponse _
@@ -1097,19 +1096,19 @@ instance encodeGetBotResponse :: Encode GetBotResponse where encode = genericEnc
 
 -- | Constructs GetBotResponse from required parameters
 newGetBotResponse :: GetBotResponse
-newGetBotResponse  = GetBotResponse { "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "childDirected": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newGetBotResponse  = GetBotResponse { "abortStatement": Nothing, "checksum": Nothing, "childDirected": Nothing, "clarificationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "lastUpdatedDate": Nothing, "locale": Nothing, "name": Nothing, "status": Nothing, "version": Nothing, "voiceId": Nothing }
 
 -- | Constructs GetBotResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotResponse' :: ( { "name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "status" :: NullOrUndefined (Status) , "failureReason" :: NullOrUndefined (String) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Version) , "locale" :: NullOrUndefined (Locale) , "childDirected" :: NullOrUndefined (Boolean) } -> {"name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "status" :: NullOrUndefined (Status) , "failureReason" :: NullOrUndefined (String) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Version) , "locale" :: NullOrUndefined (Locale) , "childDirected" :: NullOrUndefined (Boolean) } ) -> GetBotResponse
-newGetBotResponse'  customize = (GetBotResponse <<< customize) { "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "childDirected": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newGetBotResponse' :: ( { "name" :: Maybe (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "status" :: Maybe (Status) , "failureReason" :: Maybe (String) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "version" :: Maybe (Version) , "locale" :: Maybe (Locale) , "childDirected" :: Maybe (Boolean) } -> {"name" :: Maybe (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "status" :: Maybe (Status) , "failureReason" :: Maybe (String) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "version" :: Maybe (Version) , "locale" :: Maybe (Locale) , "childDirected" :: Maybe (Boolean) } ) -> GetBotResponse
+newGetBotResponse'  customize = (GetBotResponse <<< customize) { "abortStatement": Nothing, "checksum": Nothing, "childDirected": Nothing, "clarificationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "lastUpdatedDate": Nothing, "locale": Nothing, "name": Nothing, "status": Nothing, "version": Nothing, "voiceId": Nothing }
 
 
 
 newtype GetBotVersionsRequest = GetBotVersionsRequest 
   { "name" :: (BotName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeGetBotVersionsRequest :: Newtype GetBotVersionsRequest _
 derive instance repGenericGetBotVersionsRequest :: Generic GetBotVersionsRequest _
@@ -1119,18 +1118,18 @@ instance encodeGetBotVersionsRequest :: Encode GetBotVersionsRequest where encod
 
 -- | Constructs GetBotVersionsRequest from required parameters
 newGetBotVersionsRequest :: BotName -> GetBotVersionsRequest
-newGetBotVersionsRequest _name = GetBotVersionsRequest { "name": _name, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotVersionsRequest _name = GetBotVersionsRequest { "name": _name, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotVersionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotVersionsRequest' :: BotName -> ( { "name" :: (BotName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"name" :: (BotName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> GetBotVersionsRequest
-newGetBotVersionsRequest' _name customize = (GetBotVersionsRequest <<< customize) { "name": _name, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotVersionsRequest' :: BotName -> ( { "name" :: (BotName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } -> {"name" :: (BotName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } ) -> GetBotVersionsRequest
+newGetBotVersionsRequest' _name customize = (GetBotVersionsRequest <<< customize) { "name": _name, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetBotVersionsResponse = GetBotVersionsResponse 
-  { "bots" :: NullOrUndefined (BotMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "bots" :: Maybe (BotMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetBotVersionsResponse :: Newtype GetBotVersionsResponse _
 derive instance repGenericGetBotVersionsResponse :: Generic GetBotVersionsResponse _
@@ -1140,19 +1139,19 @@ instance encodeGetBotVersionsResponse :: Encode GetBotVersionsResponse where enc
 
 -- | Constructs GetBotVersionsResponse from required parameters
 newGetBotVersionsResponse :: GetBotVersionsResponse
-newGetBotVersionsResponse  = GetBotVersionsResponse { "bots": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotVersionsResponse  = GetBotVersionsResponse { "bots": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotVersionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotVersionsResponse' :: ( { "bots" :: NullOrUndefined (BotMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"bots" :: NullOrUndefined (BotMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetBotVersionsResponse
-newGetBotVersionsResponse'  customize = (GetBotVersionsResponse <<< customize) { "bots": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotVersionsResponse' :: ( { "bots" :: Maybe (BotMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"bots" :: Maybe (BotMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetBotVersionsResponse
+newGetBotVersionsResponse'  customize = (GetBotVersionsResponse <<< customize) { "bots": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetBotsRequest = GetBotsRequest 
-  { "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
-  , "nameContains" :: NullOrUndefined (BotName)
+  { "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
+  , "nameContains" :: Maybe (BotName)
   }
 derive instance newtypeGetBotsRequest :: Newtype GetBotsRequest _
 derive instance repGenericGetBotsRequest :: Generic GetBotsRequest _
@@ -1162,18 +1161,18 @@ instance encodeGetBotsRequest :: Encode GetBotsRequest where encode = genericEnc
 
 -- | Constructs GetBotsRequest from required parameters
 newGetBotsRequest :: GetBotsRequest
-newGetBotsRequest  = GetBotsRequest { "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotsRequest  = GetBotsRequest { "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotsRequest' :: ( { "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (BotName) } -> {"nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (BotName) } ) -> GetBotsRequest
-newGetBotsRequest'  customize = (GetBotsRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotsRequest' :: ( { "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (BotName) } -> {"nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (BotName) } ) -> GetBotsRequest
+newGetBotsRequest'  customize = (GetBotsRequest <<< customize) { "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetBotsResponse = GetBotsResponse 
-  { "bots" :: NullOrUndefined (BotMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "bots" :: Maybe (BotMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetBotsResponse :: Newtype GetBotsResponse _
 derive instance repGenericGetBotsResponse :: Generic GetBotsResponse _
@@ -1183,12 +1182,12 @@ instance encodeGetBotsResponse :: Encode GetBotsResponse where encode = genericE
 
 -- | Constructs GetBotsResponse from required parameters
 newGetBotsResponse :: GetBotsResponse
-newGetBotsResponse  = GetBotsResponse { "bots": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotsResponse  = GetBotsResponse { "bots": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBotsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBotsResponse' :: ( { "bots" :: NullOrUndefined (BotMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"bots" :: NullOrUndefined (BotMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetBotsResponse
-newGetBotsResponse'  customize = (GetBotsResponse <<< customize) { "bots": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBotsResponse' :: ( { "bots" :: Maybe (BotMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"bots" :: Maybe (BotMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetBotsResponse
+newGetBotsResponse'  customize = (GetBotsResponse <<< customize) { "bots": Nothing, "nextToken": Nothing }
 
 
 
@@ -1213,9 +1212,9 @@ newGetBuiltinIntentRequest' _signature customize = (GetBuiltinIntentRequest <<< 
 
 
 newtype GetBuiltinIntentResponse = GetBuiltinIntentResponse 
-  { "signature" :: NullOrUndefined (BuiltinIntentSignature)
-  , "supportedLocales" :: NullOrUndefined (LocaleList)
-  , "slots" :: NullOrUndefined (BuiltinIntentSlotList)
+  { "signature" :: Maybe (BuiltinIntentSignature)
+  , "supportedLocales" :: Maybe (LocaleList)
+  , "slots" :: Maybe (BuiltinIntentSlotList)
   }
 derive instance newtypeGetBuiltinIntentResponse :: Newtype GetBuiltinIntentResponse _
 derive instance repGenericGetBuiltinIntentResponse :: Generic GetBuiltinIntentResponse _
@@ -1225,20 +1224,20 @@ instance encodeGetBuiltinIntentResponse :: Encode GetBuiltinIntentResponse where
 
 -- | Constructs GetBuiltinIntentResponse from required parameters
 newGetBuiltinIntentResponse :: GetBuiltinIntentResponse
-newGetBuiltinIntentResponse  = GetBuiltinIntentResponse { "signature": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "supportedLocales": (NullOrUndefined Nothing) }
+newGetBuiltinIntentResponse  = GetBuiltinIntentResponse { "signature": Nothing, "slots": Nothing, "supportedLocales": Nothing }
 
 -- | Constructs GetBuiltinIntentResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBuiltinIntentResponse' :: ( { "signature" :: NullOrUndefined (BuiltinIntentSignature) , "supportedLocales" :: NullOrUndefined (LocaleList) , "slots" :: NullOrUndefined (BuiltinIntentSlotList) } -> {"signature" :: NullOrUndefined (BuiltinIntentSignature) , "supportedLocales" :: NullOrUndefined (LocaleList) , "slots" :: NullOrUndefined (BuiltinIntentSlotList) } ) -> GetBuiltinIntentResponse
-newGetBuiltinIntentResponse'  customize = (GetBuiltinIntentResponse <<< customize) { "signature": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "supportedLocales": (NullOrUndefined Nothing) }
+newGetBuiltinIntentResponse' :: ( { "signature" :: Maybe (BuiltinIntentSignature) , "supportedLocales" :: Maybe (LocaleList) , "slots" :: Maybe (BuiltinIntentSlotList) } -> {"signature" :: Maybe (BuiltinIntentSignature) , "supportedLocales" :: Maybe (LocaleList) , "slots" :: Maybe (BuiltinIntentSlotList) } ) -> GetBuiltinIntentResponse
+newGetBuiltinIntentResponse'  customize = (GetBuiltinIntentResponse <<< customize) { "signature": Nothing, "slots": Nothing, "supportedLocales": Nothing }
 
 
 
 newtype GetBuiltinIntentsRequest = GetBuiltinIntentsRequest 
-  { "locale" :: NullOrUndefined (Locale)
-  , "signatureContains" :: NullOrUndefined (String)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "locale" :: Maybe (Locale)
+  , "signatureContains" :: Maybe (String)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeGetBuiltinIntentsRequest :: Newtype GetBuiltinIntentsRequest _
 derive instance repGenericGetBuiltinIntentsRequest :: Generic GetBuiltinIntentsRequest _
@@ -1248,18 +1247,18 @@ instance encodeGetBuiltinIntentsRequest :: Encode GetBuiltinIntentsRequest where
 
 -- | Constructs GetBuiltinIntentsRequest from required parameters
 newGetBuiltinIntentsRequest :: GetBuiltinIntentsRequest
-newGetBuiltinIntentsRequest  = GetBuiltinIntentsRequest { "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "signatureContains": (NullOrUndefined Nothing) }
+newGetBuiltinIntentsRequest  = GetBuiltinIntentsRequest { "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing, "signatureContains": Nothing }
 
 -- | Constructs GetBuiltinIntentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBuiltinIntentsRequest' :: ( { "locale" :: NullOrUndefined (Locale) , "signatureContains" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"locale" :: NullOrUndefined (Locale) , "signatureContains" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> GetBuiltinIntentsRequest
-newGetBuiltinIntentsRequest'  customize = (GetBuiltinIntentsRequest <<< customize) { "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "signatureContains": (NullOrUndefined Nothing) }
+newGetBuiltinIntentsRequest' :: ( { "locale" :: Maybe (Locale) , "signatureContains" :: Maybe (String) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } -> {"locale" :: Maybe (Locale) , "signatureContains" :: Maybe (String) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } ) -> GetBuiltinIntentsRequest
+newGetBuiltinIntentsRequest'  customize = (GetBuiltinIntentsRequest <<< customize) { "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing, "signatureContains": Nothing }
 
 
 
 newtype GetBuiltinIntentsResponse = GetBuiltinIntentsResponse 
-  { "intents" :: NullOrUndefined (BuiltinIntentMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "intents" :: Maybe (BuiltinIntentMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetBuiltinIntentsResponse :: Newtype GetBuiltinIntentsResponse _
 derive instance repGenericGetBuiltinIntentsResponse :: Generic GetBuiltinIntentsResponse _
@@ -1269,20 +1268,20 @@ instance encodeGetBuiltinIntentsResponse :: Encode GetBuiltinIntentsResponse whe
 
 -- | Constructs GetBuiltinIntentsResponse from required parameters
 newGetBuiltinIntentsResponse :: GetBuiltinIntentsResponse
-newGetBuiltinIntentsResponse  = GetBuiltinIntentsResponse { "intents": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBuiltinIntentsResponse  = GetBuiltinIntentsResponse { "intents": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetBuiltinIntentsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBuiltinIntentsResponse' :: ( { "intents" :: NullOrUndefined (BuiltinIntentMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"intents" :: NullOrUndefined (BuiltinIntentMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetBuiltinIntentsResponse
-newGetBuiltinIntentsResponse'  customize = (GetBuiltinIntentsResponse <<< customize) { "intents": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetBuiltinIntentsResponse' :: ( { "intents" :: Maybe (BuiltinIntentMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"intents" :: Maybe (BuiltinIntentMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetBuiltinIntentsResponse
+newGetBuiltinIntentsResponse'  customize = (GetBuiltinIntentsResponse <<< customize) { "intents": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetBuiltinSlotTypesRequest = GetBuiltinSlotTypesRequest 
-  { "locale" :: NullOrUndefined (Locale)
-  , "signatureContains" :: NullOrUndefined (String)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "locale" :: Maybe (Locale)
+  , "signatureContains" :: Maybe (String)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeGetBuiltinSlotTypesRequest :: Newtype GetBuiltinSlotTypesRequest _
 derive instance repGenericGetBuiltinSlotTypesRequest :: Generic GetBuiltinSlotTypesRequest _
@@ -1292,18 +1291,18 @@ instance encodeGetBuiltinSlotTypesRequest :: Encode GetBuiltinSlotTypesRequest w
 
 -- | Constructs GetBuiltinSlotTypesRequest from required parameters
 newGetBuiltinSlotTypesRequest :: GetBuiltinSlotTypesRequest
-newGetBuiltinSlotTypesRequest  = GetBuiltinSlotTypesRequest { "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "signatureContains": (NullOrUndefined Nothing) }
+newGetBuiltinSlotTypesRequest  = GetBuiltinSlotTypesRequest { "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing, "signatureContains": Nothing }
 
 -- | Constructs GetBuiltinSlotTypesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBuiltinSlotTypesRequest' :: ( { "locale" :: NullOrUndefined (Locale) , "signatureContains" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"locale" :: NullOrUndefined (Locale) , "signatureContains" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> GetBuiltinSlotTypesRequest
-newGetBuiltinSlotTypesRequest'  customize = (GetBuiltinSlotTypesRequest <<< customize) { "locale": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "signatureContains": (NullOrUndefined Nothing) }
+newGetBuiltinSlotTypesRequest' :: ( { "locale" :: Maybe (Locale) , "signatureContains" :: Maybe (String) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } -> {"locale" :: Maybe (Locale) , "signatureContains" :: Maybe (String) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } ) -> GetBuiltinSlotTypesRequest
+newGetBuiltinSlotTypesRequest'  customize = (GetBuiltinSlotTypesRequest <<< customize) { "locale": Nothing, "maxResults": Nothing, "nextToken": Nothing, "signatureContains": Nothing }
 
 
 
 newtype GetBuiltinSlotTypesResponse = GetBuiltinSlotTypesResponse 
-  { "slotTypes" :: NullOrUndefined (BuiltinSlotTypeMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "slotTypes" :: Maybe (BuiltinSlotTypeMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetBuiltinSlotTypesResponse :: Newtype GetBuiltinSlotTypesResponse _
 derive instance repGenericGetBuiltinSlotTypesResponse :: Generic GetBuiltinSlotTypesResponse _
@@ -1313,12 +1312,12 @@ instance encodeGetBuiltinSlotTypesResponse :: Encode GetBuiltinSlotTypesResponse
 
 -- | Constructs GetBuiltinSlotTypesResponse from required parameters
 newGetBuiltinSlotTypesResponse :: GetBuiltinSlotTypesResponse
-newGetBuiltinSlotTypesResponse  = GetBuiltinSlotTypesResponse { "nextToken": (NullOrUndefined Nothing), "slotTypes": (NullOrUndefined Nothing) }
+newGetBuiltinSlotTypesResponse  = GetBuiltinSlotTypesResponse { "nextToken": Nothing, "slotTypes": Nothing }
 
 -- | Constructs GetBuiltinSlotTypesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetBuiltinSlotTypesResponse' :: ( { "slotTypes" :: NullOrUndefined (BuiltinSlotTypeMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"slotTypes" :: NullOrUndefined (BuiltinSlotTypeMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetBuiltinSlotTypesResponse
-newGetBuiltinSlotTypesResponse'  customize = (GetBuiltinSlotTypesResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "slotTypes": (NullOrUndefined Nothing) }
+newGetBuiltinSlotTypesResponse' :: ( { "slotTypes" :: Maybe (BuiltinSlotTypeMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"slotTypes" :: Maybe (BuiltinSlotTypeMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetBuiltinSlotTypesResponse
+newGetBuiltinSlotTypesResponse'  customize = (GetBuiltinSlotTypesResponse <<< customize) { "nextToken": Nothing, "slotTypes": Nothing }
 
 
 
@@ -1346,13 +1345,13 @@ newGetExportRequest' _exportType _name _resourceType _version customize = (GetEx
 
 
 newtype GetExportResponse = GetExportResponse 
-  { "name" :: NullOrUndefined (Name)
-  , "version" :: NullOrUndefined (NumericalVersion)
-  , "resourceType" :: NullOrUndefined (ResourceType)
-  , "exportType" :: NullOrUndefined (ExportType)
-  , "exportStatus" :: NullOrUndefined (ExportStatus)
-  , "failureReason" :: NullOrUndefined (String)
-  , "url" :: NullOrUndefined (String)
+  { "name" :: Maybe (Name)
+  , "version" :: Maybe (NumericalVersion)
+  , "resourceType" :: Maybe (ResourceType)
+  , "exportType" :: Maybe (ExportType)
+  , "exportStatus" :: Maybe (ExportStatus)
+  , "failureReason" :: Maybe (String)
+  , "url" :: Maybe (String)
   }
 derive instance newtypeGetExportResponse :: Newtype GetExportResponse _
 derive instance repGenericGetExportResponse :: Generic GetExportResponse _
@@ -1362,12 +1361,12 @@ instance encodeGetExportResponse :: Encode GetExportResponse where encode = gene
 
 -- | Constructs GetExportResponse from required parameters
 newGetExportResponse :: GetExportResponse
-newGetExportResponse  = GetExportResponse { "exportStatus": (NullOrUndefined Nothing), "exportType": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "resourceType": (NullOrUndefined Nothing), "url": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newGetExportResponse  = GetExportResponse { "exportStatus": Nothing, "exportType": Nothing, "failureReason": Nothing, "name": Nothing, "resourceType": Nothing, "url": Nothing, "version": Nothing }
 
 -- | Constructs GetExportResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetExportResponse' :: ( { "name" :: NullOrUndefined (Name) , "version" :: NullOrUndefined (NumericalVersion) , "resourceType" :: NullOrUndefined (ResourceType) , "exportType" :: NullOrUndefined (ExportType) , "exportStatus" :: NullOrUndefined (ExportStatus) , "failureReason" :: NullOrUndefined (String) , "url" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (Name) , "version" :: NullOrUndefined (NumericalVersion) , "resourceType" :: NullOrUndefined (ResourceType) , "exportType" :: NullOrUndefined (ExportType) , "exportStatus" :: NullOrUndefined (ExportStatus) , "failureReason" :: NullOrUndefined (String) , "url" :: NullOrUndefined (String) } ) -> GetExportResponse
-newGetExportResponse'  customize = (GetExportResponse <<< customize) { "exportStatus": (NullOrUndefined Nothing), "exportType": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "resourceType": (NullOrUndefined Nothing), "url": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newGetExportResponse' :: ( { "name" :: Maybe (Name) , "version" :: Maybe (NumericalVersion) , "resourceType" :: Maybe (ResourceType) , "exportType" :: Maybe (ExportType) , "exportStatus" :: Maybe (ExportStatus) , "failureReason" :: Maybe (String) , "url" :: Maybe (String) } -> {"name" :: Maybe (Name) , "version" :: Maybe (NumericalVersion) , "resourceType" :: Maybe (ResourceType) , "exportType" :: Maybe (ExportType) , "exportStatus" :: Maybe (ExportStatus) , "failureReason" :: Maybe (String) , "url" :: Maybe (String) } ) -> GetExportResponse
+newGetExportResponse'  customize = (GetExportResponse <<< customize) { "exportStatus": Nothing, "exportType": Nothing, "failureReason": Nothing, "name": Nothing, "resourceType": Nothing, "url": Nothing, "version": Nothing }
 
 
 
@@ -1392,13 +1391,13 @@ newGetImportRequest' _importId customize = (GetImportRequest <<< customize) { "i
 
 
 newtype GetImportResponse = GetImportResponse 
-  { "name" :: NullOrUndefined (Name)
-  , "resourceType" :: NullOrUndefined (ResourceType)
-  , "mergeStrategy" :: NullOrUndefined (MergeStrategy)
-  , "importId" :: NullOrUndefined (String)
-  , "importStatus" :: NullOrUndefined (ImportStatus)
-  , "failureReason" :: NullOrUndefined (StringList)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
+  { "name" :: Maybe (Name)
+  , "resourceType" :: Maybe (ResourceType)
+  , "mergeStrategy" :: Maybe (MergeStrategy)
+  , "importId" :: Maybe (String)
+  , "importStatus" :: Maybe (ImportStatus)
+  , "failureReason" :: Maybe (StringList)
+  , "createdDate" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeGetImportResponse :: Newtype GetImportResponse _
 derive instance repGenericGetImportResponse :: Generic GetImportResponse _
@@ -1408,12 +1407,12 @@ instance encodeGetImportResponse :: Encode GetImportResponse where encode = gene
 
 -- | Constructs GetImportResponse from required parameters
 newGetImportResponse :: GetImportResponse
-newGetImportResponse  = GetImportResponse { "createdDate": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "importId": (NullOrUndefined Nothing), "importStatus": (NullOrUndefined Nothing), "mergeStrategy": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "resourceType": (NullOrUndefined Nothing) }
+newGetImportResponse  = GetImportResponse { "createdDate": Nothing, "failureReason": Nothing, "importId": Nothing, "importStatus": Nothing, "mergeStrategy": Nothing, "name": Nothing, "resourceType": Nothing }
 
 -- | Constructs GetImportResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetImportResponse' :: ( { "name" :: NullOrUndefined (Name) , "resourceType" :: NullOrUndefined (ResourceType) , "mergeStrategy" :: NullOrUndefined (MergeStrategy) , "importId" :: NullOrUndefined (String) , "importStatus" :: NullOrUndefined (ImportStatus) , "failureReason" :: NullOrUndefined (StringList) , "createdDate" :: NullOrUndefined (Types.Timestamp) } -> {"name" :: NullOrUndefined (Name) , "resourceType" :: NullOrUndefined (ResourceType) , "mergeStrategy" :: NullOrUndefined (MergeStrategy) , "importId" :: NullOrUndefined (String) , "importStatus" :: NullOrUndefined (ImportStatus) , "failureReason" :: NullOrUndefined (StringList) , "createdDate" :: NullOrUndefined (Types.Timestamp) } ) -> GetImportResponse
-newGetImportResponse'  customize = (GetImportResponse <<< customize) { "createdDate": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "importId": (NullOrUndefined Nothing), "importStatus": (NullOrUndefined Nothing), "mergeStrategy": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "resourceType": (NullOrUndefined Nothing) }
+newGetImportResponse' :: ( { "name" :: Maybe (Name) , "resourceType" :: Maybe (ResourceType) , "mergeStrategy" :: Maybe (MergeStrategy) , "importId" :: Maybe (String) , "importStatus" :: Maybe (ImportStatus) , "failureReason" :: Maybe (StringList) , "createdDate" :: Maybe (Types.Timestamp) } -> {"name" :: Maybe (Name) , "resourceType" :: Maybe (ResourceType) , "mergeStrategy" :: Maybe (MergeStrategy) , "importId" :: Maybe (String) , "importStatus" :: Maybe (ImportStatus) , "failureReason" :: Maybe (StringList) , "createdDate" :: Maybe (Types.Timestamp) } ) -> GetImportResponse
+newGetImportResponse'  customize = (GetImportResponse <<< customize) { "createdDate": Nothing, "failureReason": Nothing, "importId": Nothing, "importStatus": Nothing, "mergeStrategy": Nothing, "name": Nothing, "resourceType": Nothing }
 
 
 
@@ -1439,21 +1438,21 @@ newGetIntentRequest' _name _version customize = (GetIntentRequest <<< customize)
 
 
 newtype GetIntentResponse = GetIntentResponse 
-  { "name" :: NullOrUndefined (IntentName)
-  , "description" :: NullOrUndefined (Description)
-  , "slots" :: NullOrUndefined (SlotList)
-  , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList)
-  , "confirmationPrompt" :: NullOrUndefined (Prompt)
-  , "rejectionStatement" :: NullOrUndefined (Statement)
-  , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt)
-  , "conclusionStatement" :: NullOrUndefined (Statement)
-  , "dialogCodeHook" :: NullOrUndefined (CodeHook)
-  , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity)
-  , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
-  , "checksum" :: NullOrUndefined (String)
+  { "name" :: Maybe (IntentName)
+  , "description" :: Maybe (Description)
+  , "slots" :: Maybe (SlotList)
+  , "sampleUtterances" :: Maybe (IntentUtteranceList)
+  , "confirmationPrompt" :: Maybe (Prompt)
+  , "rejectionStatement" :: Maybe (Statement)
+  , "followUpPrompt" :: Maybe (FollowUpPrompt)
+  , "conclusionStatement" :: Maybe (Statement)
+  , "dialogCodeHook" :: Maybe (CodeHook)
+  , "fulfillmentActivity" :: Maybe (FulfillmentActivity)
+  , "parentIntentSignature" :: Maybe (BuiltinIntentSignature)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypeGetIntentResponse :: Newtype GetIntentResponse _
 derive instance repGenericGetIntentResponse :: Generic GetIntentResponse _
@@ -1463,19 +1462,19 @@ instance encodeGetIntentResponse :: Encode GetIntentResponse where encode = gene
 
 -- | Constructs GetIntentResponse from required parameters
 newGetIntentResponse :: GetIntentResponse
-newGetIntentResponse  = GetIntentResponse { "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newGetIntentResponse  = GetIntentResponse { "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing, "version": Nothing }
 
 -- | Constructs GetIntentResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetIntentResponse' :: ( { "name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) } ) -> GetIntentResponse
-newGetIntentResponse'  customize = (GetIntentResponse <<< customize) { "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newGetIntentResponse' :: ( { "name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) } -> {"name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) } ) -> GetIntentResponse
+newGetIntentResponse'  customize = (GetIntentResponse <<< customize) { "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createdDate": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing, "version": Nothing }
 
 
 
 newtype GetIntentVersionsRequest = GetIntentVersionsRequest 
   { "name" :: (IntentName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeGetIntentVersionsRequest :: Newtype GetIntentVersionsRequest _
 derive instance repGenericGetIntentVersionsRequest :: Generic GetIntentVersionsRequest _
@@ -1485,18 +1484,18 @@ instance encodeGetIntentVersionsRequest :: Encode GetIntentVersionsRequest where
 
 -- | Constructs GetIntentVersionsRequest from required parameters
 newGetIntentVersionsRequest :: IntentName -> GetIntentVersionsRequest
-newGetIntentVersionsRequest _name = GetIntentVersionsRequest { "name": _name, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentVersionsRequest _name = GetIntentVersionsRequest { "name": _name, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetIntentVersionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetIntentVersionsRequest' :: IntentName -> ( { "name" :: (IntentName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"name" :: (IntentName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> GetIntentVersionsRequest
-newGetIntentVersionsRequest' _name customize = (GetIntentVersionsRequest <<< customize) { "name": _name, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentVersionsRequest' :: IntentName -> ( { "name" :: (IntentName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } -> {"name" :: (IntentName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } ) -> GetIntentVersionsRequest
+newGetIntentVersionsRequest' _name customize = (GetIntentVersionsRequest <<< customize) { "name": _name, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetIntentVersionsResponse = GetIntentVersionsResponse 
-  { "intents" :: NullOrUndefined (IntentMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "intents" :: Maybe (IntentMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetIntentVersionsResponse :: Newtype GetIntentVersionsResponse _
 derive instance repGenericGetIntentVersionsResponse :: Generic GetIntentVersionsResponse _
@@ -1506,19 +1505,19 @@ instance encodeGetIntentVersionsResponse :: Encode GetIntentVersionsResponse whe
 
 -- | Constructs GetIntentVersionsResponse from required parameters
 newGetIntentVersionsResponse :: GetIntentVersionsResponse
-newGetIntentVersionsResponse  = GetIntentVersionsResponse { "intents": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentVersionsResponse  = GetIntentVersionsResponse { "intents": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetIntentVersionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetIntentVersionsResponse' :: ( { "intents" :: NullOrUndefined (IntentMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"intents" :: NullOrUndefined (IntentMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetIntentVersionsResponse
-newGetIntentVersionsResponse'  customize = (GetIntentVersionsResponse <<< customize) { "intents": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentVersionsResponse' :: ( { "intents" :: Maybe (IntentMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"intents" :: Maybe (IntentMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetIntentVersionsResponse
+newGetIntentVersionsResponse'  customize = (GetIntentVersionsResponse <<< customize) { "intents": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetIntentsRequest = GetIntentsRequest 
-  { "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
-  , "nameContains" :: NullOrUndefined (IntentName)
+  { "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
+  , "nameContains" :: Maybe (IntentName)
   }
 derive instance newtypeGetIntentsRequest :: Newtype GetIntentsRequest _
 derive instance repGenericGetIntentsRequest :: Generic GetIntentsRequest _
@@ -1528,18 +1527,18 @@ instance encodeGetIntentsRequest :: Encode GetIntentsRequest where encode = gene
 
 -- | Constructs GetIntentsRequest from required parameters
 newGetIntentsRequest :: GetIntentsRequest
-newGetIntentsRequest  = GetIntentsRequest { "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentsRequest  = GetIntentsRequest { "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetIntentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetIntentsRequest' :: ( { "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (IntentName) } -> {"nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (IntentName) } ) -> GetIntentsRequest
-newGetIntentsRequest'  customize = (GetIntentsRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentsRequest' :: ( { "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (IntentName) } -> {"nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (IntentName) } ) -> GetIntentsRequest
+newGetIntentsRequest'  customize = (GetIntentsRequest <<< customize) { "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetIntentsResponse = GetIntentsResponse 
-  { "intents" :: NullOrUndefined (IntentMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "intents" :: Maybe (IntentMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetIntentsResponse :: Newtype GetIntentsResponse _
 derive instance repGenericGetIntentsResponse :: Generic GetIntentsResponse _
@@ -1549,12 +1548,12 @@ instance encodeGetIntentsResponse :: Encode GetIntentsResponse where encode = ge
 
 -- | Constructs GetIntentsResponse from required parameters
 newGetIntentsResponse :: GetIntentsResponse
-newGetIntentsResponse  = GetIntentsResponse { "intents": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentsResponse  = GetIntentsResponse { "intents": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetIntentsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetIntentsResponse' :: ( { "intents" :: NullOrUndefined (IntentMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"intents" :: NullOrUndefined (IntentMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetIntentsResponse
-newGetIntentsResponse'  customize = (GetIntentsResponse <<< customize) { "intents": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetIntentsResponse' :: ( { "intents" :: Maybe (IntentMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"intents" :: Maybe (IntentMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetIntentsResponse
+newGetIntentsResponse'  customize = (GetIntentsResponse <<< customize) { "intents": Nothing, "nextToken": Nothing }
 
 
 
@@ -1580,14 +1579,14 @@ newGetSlotTypeRequest' _name _version customize = (GetSlotTypeRequest <<< custom
 
 
 newtype GetSlotTypeResponse = GetSlotTypeResponse 
-  { "name" :: NullOrUndefined (SlotTypeName)
-  , "description" :: NullOrUndefined (Description)
-  , "enumerationValues" :: NullOrUndefined (EnumerationValues)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
-  , "checksum" :: NullOrUndefined (String)
-  , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy)
+  { "name" :: Maybe (SlotTypeName)
+  , "description" :: Maybe (Description)
+  , "enumerationValues" :: Maybe (EnumerationValues)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
+  , "checksum" :: Maybe (String)
+  , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy)
   }
 derive instance newtypeGetSlotTypeResponse :: Newtype GetSlotTypeResponse _
 derive instance repGenericGetSlotTypeResponse :: Generic GetSlotTypeResponse _
@@ -1597,19 +1596,19 @@ instance encodeGetSlotTypeResponse :: Encode GetSlotTypeResponse where encode = 
 
 -- | Constructs GetSlotTypeResponse from required parameters
 newGetSlotTypeResponse :: GetSlotTypeResponse
-newGetSlotTypeResponse  = GetSlotTypeResponse { "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newGetSlotTypeResponse  = GetSlotTypeResponse { "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "enumerationValues": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "valueSelectionStrategy": Nothing, "version": Nothing }
 
 -- | Constructs GetSlotTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSlotTypeResponse' :: ( { "name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) } -> {"name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) } ) -> GetSlotTypeResponse
-newGetSlotTypeResponse'  customize = (GetSlotTypeResponse <<< customize) { "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newGetSlotTypeResponse' :: ( { "name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) } -> {"name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) } ) -> GetSlotTypeResponse
+newGetSlotTypeResponse'  customize = (GetSlotTypeResponse <<< customize) { "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "enumerationValues": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "valueSelectionStrategy": Nothing, "version": Nothing }
 
 
 
 newtype GetSlotTypeVersionsRequest = GetSlotTypeVersionsRequest 
   { "name" :: (SlotTypeName)
-  , "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  , "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeGetSlotTypeVersionsRequest :: Newtype GetSlotTypeVersionsRequest _
 derive instance repGenericGetSlotTypeVersionsRequest :: Generic GetSlotTypeVersionsRequest _
@@ -1619,18 +1618,18 @@ instance encodeGetSlotTypeVersionsRequest :: Encode GetSlotTypeVersionsRequest w
 
 -- | Constructs GetSlotTypeVersionsRequest from required parameters
 newGetSlotTypeVersionsRequest :: SlotTypeName -> GetSlotTypeVersionsRequest
-newGetSlotTypeVersionsRequest _name = GetSlotTypeVersionsRequest { "name": _name, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetSlotTypeVersionsRequest _name = GetSlotTypeVersionsRequest { "name": _name, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetSlotTypeVersionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSlotTypeVersionsRequest' :: SlotTypeName -> ( { "name" :: (SlotTypeName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"name" :: (SlotTypeName) , "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> GetSlotTypeVersionsRequest
-newGetSlotTypeVersionsRequest' _name customize = (GetSlotTypeVersionsRequest <<< customize) { "name": _name, "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetSlotTypeVersionsRequest' :: SlotTypeName -> ( { "name" :: (SlotTypeName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } -> {"name" :: (SlotTypeName) , "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) } ) -> GetSlotTypeVersionsRequest
+newGetSlotTypeVersionsRequest' _name customize = (GetSlotTypeVersionsRequest <<< customize) { "name": _name, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetSlotTypeVersionsResponse = GetSlotTypeVersionsResponse 
-  { "slotTypes" :: NullOrUndefined (SlotTypeMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "slotTypes" :: Maybe (SlotTypeMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetSlotTypeVersionsResponse :: Newtype GetSlotTypeVersionsResponse _
 derive instance repGenericGetSlotTypeVersionsResponse :: Generic GetSlotTypeVersionsResponse _
@@ -1640,19 +1639,19 @@ instance encodeGetSlotTypeVersionsResponse :: Encode GetSlotTypeVersionsResponse
 
 -- | Constructs GetSlotTypeVersionsResponse from required parameters
 newGetSlotTypeVersionsResponse :: GetSlotTypeVersionsResponse
-newGetSlotTypeVersionsResponse  = GetSlotTypeVersionsResponse { "nextToken": (NullOrUndefined Nothing), "slotTypes": (NullOrUndefined Nothing) }
+newGetSlotTypeVersionsResponse  = GetSlotTypeVersionsResponse { "nextToken": Nothing, "slotTypes": Nothing }
 
 -- | Constructs GetSlotTypeVersionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSlotTypeVersionsResponse' :: ( { "slotTypes" :: NullOrUndefined (SlotTypeMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"slotTypes" :: NullOrUndefined (SlotTypeMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetSlotTypeVersionsResponse
-newGetSlotTypeVersionsResponse'  customize = (GetSlotTypeVersionsResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "slotTypes": (NullOrUndefined Nothing) }
+newGetSlotTypeVersionsResponse' :: ( { "slotTypes" :: Maybe (SlotTypeMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"slotTypes" :: Maybe (SlotTypeMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetSlotTypeVersionsResponse
+newGetSlotTypeVersionsResponse'  customize = (GetSlotTypeVersionsResponse <<< customize) { "nextToken": Nothing, "slotTypes": Nothing }
 
 
 
 newtype GetSlotTypesRequest = GetSlotTypesRequest 
-  { "nextToken" :: NullOrUndefined (NextToken)
-  , "maxResults" :: NullOrUndefined (MaxResults)
-  , "nameContains" :: NullOrUndefined (SlotTypeName)
+  { "nextToken" :: Maybe (NextToken)
+  , "maxResults" :: Maybe (MaxResults)
+  , "nameContains" :: Maybe (SlotTypeName)
   }
 derive instance newtypeGetSlotTypesRequest :: Newtype GetSlotTypesRequest _
 derive instance repGenericGetSlotTypesRequest :: Generic GetSlotTypesRequest _
@@ -1662,18 +1661,18 @@ instance encodeGetSlotTypesRequest :: Encode GetSlotTypesRequest where encode = 
 
 -- | Constructs GetSlotTypesRequest from required parameters
 newGetSlotTypesRequest :: GetSlotTypesRequest
-newGetSlotTypesRequest  = GetSlotTypesRequest { "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetSlotTypesRequest  = GetSlotTypesRequest { "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 -- | Constructs GetSlotTypesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSlotTypesRequest' :: ( { "nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (SlotTypeName) } -> {"nextToken" :: NullOrUndefined (NextToken) , "maxResults" :: NullOrUndefined (MaxResults) , "nameContains" :: NullOrUndefined (SlotTypeName) } ) -> GetSlotTypesRequest
-newGetSlotTypesRequest'  customize = (GetSlotTypesRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nameContains": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newGetSlotTypesRequest' :: ( { "nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (SlotTypeName) } -> {"nextToken" :: Maybe (NextToken) , "maxResults" :: Maybe (MaxResults) , "nameContains" :: Maybe (SlotTypeName) } ) -> GetSlotTypesRequest
+newGetSlotTypesRequest'  customize = (GetSlotTypesRequest <<< customize) { "maxResults": Nothing, "nameContains": Nothing, "nextToken": Nothing }
 
 
 
 newtype GetSlotTypesResponse = GetSlotTypesResponse 
-  { "slotTypes" :: NullOrUndefined (SlotTypeMetadataList)
-  , "nextToken" :: NullOrUndefined (NextToken)
+  { "slotTypes" :: Maybe (SlotTypeMetadataList)
+  , "nextToken" :: Maybe (NextToken)
   }
 derive instance newtypeGetSlotTypesResponse :: Newtype GetSlotTypesResponse _
 derive instance repGenericGetSlotTypesResponse :: Generic GetSlotTypesResponse _
@@ -1683,12 +1682,12 @@ instance encodeGetSlotTypesResponse :: Encode GetSlotTypesResponse where encode 
 
 -- | Constructs GetSlotTypesResponse from required parameters
 newGetSlotTypesResponse :: GetSlotTypesResponse
-newGetSlotTypesResponse  = GetSlotTypesResponse { "nextToken": (NullOrUndefined Nothing), "slotTypes": (NullOrUndefined Nothing) }
+newGetSlotTypesResponse  = GetSlotTypesResponse { "nextToken": Nothing, "slotTypes": Nothing }
 
 -- | Constructs GetSlotTypesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetSlotTypesResponse' :: ( { "slotTypes" :: NullOrUndefined (SlotTypeMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } -> {"slotTypes" :: NullOrUndefined (SlotTypeMetadataList) , "nextToken" :: NullOrUndefined (NextToken) } ) -> GetSlotTypesResponse
-newGetSlotTypesResponse'  customize = (GetSlotTypesResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "slotTypes": (NullOrUndefined Nothing) }
+newGetSlotTypesResponse' :: ( { "slotTypes" :: Maybe (SlotTypeMetadataList) , "nextToken" :: Maybe (NextToken) } -> {"slotTypes" :: Maybe (SlotTypeMetadataList) , "nextToken" :: Maybe (NextToken) } ) -> GetSlotTypesResponse
+newGetSlotTypesResponse'  customize = (GetSlotTypesResponse <<< customize) { "nextToken": Nothing, "slotTypes": Nothing }
 
 
 
@@ -1715,8 +1714,8 @@ newGetUtterancesViewRequest' _botName _botVersions _statusType customize = (GetU
 
 
 newtype GetUtterancesViewResponse = GetUtterancesViewResponse 
-  { "botName" :: NullOrUndefined (BotName)
-  , "utterances" :: NullOrUndefined (ListsOfUtterances)
+  { "botName" :: Maybe (BotName)
+  , "utterances" :: Maybe (ListsOfUtterances)
   }
 derive instance newtypeGetUtterancesViewResponse :: Newtype GetUtterancesViewResponse _
 derive instance repGenericGetUtterancesViewResponse :: Generic GetUtterancesViewResponse _
@@ -1726,12 +1725,12 @@ instance encodeGetUtterancesViewResponse :: Encode GetUtterancesViewResponse whe
 
 -- | Constructs GetUtterancesViewResponse from required parameters
 newGetUtterancesViewResponse :: GetUtterancesViewResponse
-newGetUtterancesViewResponse  = GetUtterancesViewResponse { "botName": (NullOrUndefined Nothing), "utterances": (NullOrUndefined Nothing) }
+newGetUtterancesViewResponse  = GetUtterancesViewResponse { "botName": Nothing, "utterances": Nothing }
 
 -- | Constructs GetUtterancesViewResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetUtterancesViewResponse' :: ( { "botName" :: NullOrUndefined (BotName) , "utterances" :: NullOrUndefined (ListsOfUtterances) } -> {"botName" :: NullOrUndefined (BotName) , "utterances" :: NullOrUndefined (ListsOfUtterances) } ) -> GetUtterancesViewResponse
-newGetUtterancesViewResponse'  customize = (GetUtterancesViewResponse <<< customize) { "botName": (NullOrUndefined Nothing), "utterances": (NullOrUndefined Nothing) }
+newGetUtterancesViewResponse' :: ( { "botName" :: Maybe (BotName) , "utterances" :: Maybe (ListsOfUtterances) } -> {"botName" :: Maybe (BotName) , "utterances" :: Maybe (ListsOfUtterances) } ) -> GetUtterancesViewResponse
+newGetUtterancesViewResponse'  customize = (GetUtterancesViewResponse <<< customize) { "botName": Nothing, "utterances": Nothing }
 
 
 
@@ -1786,11 +1785,11 @@ instance encodeIntentList :: Encode IntentList where encode = genericEncode opti
 
 -- | <p>Provides information about an intent.</p>
 newtype IntentMetadata = IntentMetadata 
-  { "name" :: NullOrUndefined (IntentName)
-  , "description" :: NullOrUndefined (Description)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
+  { "name" :: Maybe (IntentName)
+  , "description" :: Maybe (Description)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
   }
 derive instance newtypeIntentMetadata :: Newtype IntentMetadata _
 derive instance repGenericIntentMetadata :: Generic IntentMetadata _
@@ -1800,12 +1799,12 @@ instance encodeIntentMetadata :: Encode IntentMetadata where encode = genericEnc
 
 -- | Constructs IntentMetadata from required parameters
 newIntentMetadata :: IntentMetadata
-newIntentMetadata  = IntentMetadata { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newIntentMetadata  = IntentMetadata { "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "version": Nothing }
 
 -- | Constructs IntentMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIntentMetadata' :: ( { "name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) } -> {"name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) } ) -> IntentMetadata
-newIntentMetadata'  customize = (IntentMetadata <<< customize) { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newIntentMetadata' :: ( { "name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) } -> {"name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) } ) -> IntentMetadata
+newIntentMetadata'  customize = (IntentMetadata <<< customize) { "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "version": Nothing }
 
 
 
@@ -1838,7 +1837,7 @@ instance encodeIntentUtteranceList :: Encode IntentUtteranceList where encode = 
 
 -- | <p>An internal Amazon Lex error occurred. Try your request again.</p>
 newtype InternalFailureException = InternalFailureException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeInternalFailureException :: Newtype InternalFailureException _
 derive instance repGenericInternalFailureException :: Generic InternalFailureException _
@@ -1848,12 +1847,12 @@ instance encodeInternalFailureException :: Encode InternalFailureException where
 
 -- | Constructs InternalFailureException from required parameters
 newInternalFailureException :: InternalFailureException
-newInternalFailureException  = InternalFailureException { "message": (NullOrUndefined Nothing) }
+newInternalFailureException  = InternalFailureException { "message": Nothing }
 
 -- | Constructs InternalFailureException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalFailureException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> InternalFailureException
-newInternalFailureException'  customize = (InternalFailureException <<< customize) { "message": (NullOrUndefined Nothing) }
+newInternalFailureException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> InternalFailureException
+newInternalFailureException'  customize = (InternalFailureException <<< customize) { "message": Nothing }
 
 
 
@@ -1868,8 +1867,8 @@ instance encodeLambdaARN :: Encode LambdaARN where encode = genericEncode option
 
 -- | <p>The request exceeded a limit. Try your request again.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "retryAfterSeconds" :: NullOrUndefined (String)
-  , "message" :: NullOrUndefined (String)
+  { "retryAfterSeconds" :: Maybe (String)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -1879,12 +1878,12 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "message": Nothing, "retryAfterSeconds": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } -> {"retryAfterSeconds" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": (NullOrUndefined Nothing), "retryAfterSeconds": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } -> {"retryAfterSeconds" :: Maybe (String) , "message" :: Maybe (String) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "message": Nothing, "retryAfterSeconds": Nothing }
 
 
 
@@ -1946,7 +1945,7 @@ instance encodeMergeStrategy :: Encode MergeStrategy where encode = genericEncod
 newtype Message = Message 
   { "contentType" :: (ContentType)
   , "content" :: (ContentString)
-  , "groupNumber" :: NullOrUndefined (GroupNumber)
+  , "groupNumber" :: Maybe (GroupNumber)
   }
 derive instance newtypeMessage :: Newtype Message _
 derive instance repGenericMessage :: Generic Message _
@@ -1956,12 +1955,12 @@ instance encodeMessage :: Encode Message where encode = genericEncode options
 
 -- | Constructs Message from required parameters
 newMessage :: ContentString -> ContentType -> Message
-newMessage _content _contentType = Message { "content": _content, "contentType": _contentType, "groupNumber": (NullOrUndefined Nothing) }
+newMessage _content _contentType = Message { "content": _content, "contentType": _contentType, "groupNumber": Nothing }
 
 -- | Constructs Message's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMessage' :: ContentString -> ContentType -> ( { "contentType" :: (ContentType) , "content" :: (ContentString) , "groupNumber" :: NullOrUndefined (GroupNumber) } -> {"contentType" :: (ContentType) , "content" :: (ContentString) , "groupNumber" :: NullOrUndefined (GroupNumber) } ) -> Message
-newMessage' _content _contentType customize = (Message <<< customize) { "content": _content, "contentType": _contentType, "groupNumber": (NullOrUndefined Nothing) }
+newMessage' :: ContentString -> ContentType -> ( { "contentType" :: (ContentType) , "content" :: (ContentString) , "groupNumber" :: Maybe (GroupNumber) } -> {"contentType" :: (ContentType) , "content" :: (ContentString) , "groupNumber" :: Maybe (GroupNumber) } ) -> Message
+newMessage' _content _contentType customize = (Message <<< customize) { "content": _content, "contentType": _contentType, "groupNumber": Nothing }
 
 
 
@@ -2003,7 +2002,7 @@ instance encodeNextToken :: Encode NextToken where encode = genericEncode option
 
 -- | <p>The resource specified in the request was not found. Check the resource and try again.</p>
 newtype NotFoundException = NotFoundException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -2013,12 +2012,12 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "message": Nothing }
 
 
 
@@ -2033,7 +2032,7 @@ instance encodeNumericalVersion :: Encode NumericalVersion where encode = generi
 
 -- | <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
 newtype PreconditionFailedException = PreconditionFailedException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypePreconditionFailedException :: Newtype PreconditionFailedException _
 derive instance repGenericPreconditionFailedException :: Generic PreconditionFailedException _
@@ -2043,12 +2042,12 @@ instance encodePreconditionFailedException :: Encode PreconditionFailedException
 
 -- | Constructs PreconditionFailedException from required parameters
 newPreconditionFailedException :: PreconditionFailedException
-newPreconditionFailedException  = PreconditionFailedException { "message": (NullOrUndefined Nothing) }
+newPreconditionFailedException  = PreconditionFailedException { "message": Nothing }
 
 -- | Constructs PreconditionFailedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPreconditionFailedException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> PreconditionFailedException
-newPreconditionFailedException'  customize = (PreconditionFailedException <<< customize) { "message": (NullOrUndefined Nothing) }
+newPreconditionFailedException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> PreconditionFailedException
+newPreconditionFailedException'  customize = (PreconditionFailedException <<< customize) { "message": Nothing }
 
 
 
@@ -2074,7 +2073,7 @@ instance encodeProcessBehavior :: Encode ProcessBehavior where encode = genericE
 newtype Prompt = Prompt 
   { "messages" :: (MessageList)
   , "maxAttempts" :: (PromptMaxAttempts)
-  , "responseCard" :: NullOrUndefined (ResponseCard)
+  , "responseCard" :: Maybe (ResponseCard)
   }
 derive instance newtypePrompt :: Newtype Prompt _
 derive instance repGenericPrompt :: Generic Prompt _
@@ -2084,12 +2083,12 @@ instance encodePrompt :: Encode Prompt where encode = genericEncode options
 
 -- | Constructs Prompt from required parameters
 newPrompt :: PromptMaxAttempts -> MessageList -> Prompt
-newPrompt _maxAttempts _messages = Prompt { "maxAttempts": _maxAttempts, "messages": _messages, "responseCard": (NullOrUndefined Nothing) }
+newPrompt _maxAttempts _messages = Prompt { "maxAttempts": _maxAttempts, "messages": _messages, "responseCard": Nothing }
 
 -- | Constructs Prompt's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPrompt' :: PromptMaxAttempts -> MessageList -> ( { "messages" :: (MessageList) , "maxAttempts" :: (PromptMaxAttempts) , "responseCard" :: NullOrUndefined (ResponseCard) } -> {"messages" :: (MessageList) , "maxAttempts" :: (PromptMaxAttempts) , "responseCard" :: NullOrUndefined (ResponseCard) } ) -> Prompt
-newPrompt' _maxAttempts _messages customize = (Prompt <<< customize) { "maxAttempts": _maxAttempts, "messages": _messages, "responseCard": (NullOrUndefined Nothing) }
+newPrompt' :: PromptMaxAttempts -> MessageList -> ( { "messages" :: (MessageList) , "maxAttempts" :: (PromptMaxAttempts) , "responseCard" :: Maybe (ResponseCard) } -> {"messages" :: (MessageList) , "maxAttempts" :: (PromptMaxAttempts) , "responseCard" :: Maybe (ResponseCard) } ) -> Prompt
+newPrompt' _maxAttempts _messages customize = (Prompt <<< customize) { "maxAttempts": _maxAttempts, "messages": _messages, "responseCard": Nothing }
 
 
 
@@ -2104,10 +2103,10 @@ instance encodePromptMaxAttempts :: Encode PromptMaxAttempts where encode = gene
 
 newtype PutBotAliasRequest = PutBotAliasRequest 
   { "name" :: (AliasName)
-  , "description" :: NullOrUndefined (Description)
+  , "description" :: Maybe (Description)
   , "botVersion" :: (Version)
   , "botName" :: (BotName)
-  , "checksum" :: NullOrUndefined (String)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypePutBotAliasRequest :: Newtype PutBotAliasRequest _
 derive instance repGenericPutBotAliasRequest :: Generic PutBotAliasRequest _
@@ -2117,23 +2116,23 @@ instance encodePutBotAliasRequest :: Encode PutBotAliasRequest where encode = ge
 
 -- | Constructs PutBotAliasRequest from required parameters
 newPutBotAliasRequest :: BotName -> Version -> AliasName -> PutBotAliasRequest
-newPutBotAliasRequest _botName _botVersion _name = PutBotAliasRequest { "botName": _botName, "botVersion": _botVersion, "name": _name, "checksum": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing) }
+newPutBotAliasRequest _botName _botVersion _name = PutBotAliasRequest { "botName": _botName, "botVersion": _botVersion, "name": _name, "checksum": Nothing, "description": Nothing }
 
 -- | Constructs PutBotAliasRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutBotAliasRequest' :: BotName -> Version -> AliasName -> ( { "name" :: (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: (Version) , "botName" :: (BotName) , "checksum" :: NullOrUndefined (String) } -> {"name" :: (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: (Version) , "botName" :: (BotName) , "checksum" :: NullOrUndefined (String) } ) -> PutBotAliasRequest
-newPutBotAliasRequest' _botName _botVersion _name customize = (PutBotAliasRequest <<< customize) { "botName": _botName, "botVersion": _botVersion, "name": _name, "checksum": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing) }
+newPutBotAliasRequest' :: BotName -> Version -> AliasName -> ( { "name" :: (AliasName) , "description" :: Maybe (Description) , "botVersion" :: (Version) , "botName" :: (BotName) , "checksum" :: Maybe (String) } -> {"name" :: (AliasName) , "description" :: Maybe (Description) , "botVersion" :: (Version) , "botName" :: (BotName) , "checksum" :: Maybe (String) } ) -> PutBotAliasRequest
+newPutBotAliasRequest' _botName _botVersion _name customize = (PutBotAliasRequest <<< customize) { "botName": _botName, "botVersion": _botVersion, "name": _name, "checksum": Nothing, "description": Nothing }
 
 
 
 newtype PutBotAliasResponse = PutBotAliasResponse 
-  { "name" :: NullOrUndefined (AliasName)
-  , "description" :: NullOrUndefined (Description)
-  , "botVersion" :: NullOrUndefined (Version)
-  , "botName" :: NullOrUndefined (BotName)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "checksum" :: NullOrUndefined (String)
+  { "name" :: Maybe (AliasName)
+  , "description" :: Maybe (Description)
+  , "botVersion" :: Maybe (Version)
+  , "botName" :: Maybe (BotName)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "checksum" :: Maybe (String)
   }
 derive instance newtypePutBotAliasResponse :: Newtype PutBotAliasResponse _
 derive instance repGenericPutBotAliasResponse :: Generic PutBotAliasResponse _
@@ -2143,28 +2142,28 @@ instance encodePutBotAliasResponse :: Encode PutBotAliasResponse where encode = 
 
 -- | Constructs PutBotAliasResponse from required parameters
 newPutBotAliasResponse :: PutBotAliasResponse
-newPutBotAliasResponse  = PutBotAliasResponse { "botName": (NullOrUndefined Nothing), "botVersion": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newPutBotAliasResponse  = PutBotAliasResponse { "botName": Nothing, "botVersion": Nothing, "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing }
 
 -- | Constructs PutBotAliasResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutBotAliasResponse' :: ( { "name" :: NullOrUndefined (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: NullOrUndefined (Version) , "botName" :: NullOrUndefined (BotName) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "checksum" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (AliasName) , "description" :: NullOrUndefined (Description) , "botVersion" :: NullOrUndefined (Version) , "botName" :: NullOrUndefined (BotName) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "checksum" :: NullOrUndefined (String) } ) -> PutBotAliasResponse
-newPutBotAliasResponse'  customize = (PutBotAliasResponse <<< customize) { "botName": (NullOrUndefined Nothing), "botVersion": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newPutBotAliasResponse' :: ( { "name" :: Maybe (AliasName) , "description" :: Maybe (Description) , "botVersion" :: Maybe (Version) , "botName" :: Maybe (BotName) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "checksum" :: Maybe (String) } -> {"name" :: Maybe (AliasName) , "description" :: Maybe (Description) , "botVersion" :: Maybe (Version) , "botName" :: Maybe (BotName) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "checksum" :: Maybe (String) } ) -> PutBotAliasResponse
+newPutBotAliasResponse'  customize = (PutBotAliasResponse <<< customize) { "botName": Nothing, "botVersion": Nothing, "checksum": Nothing, "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing }
 
 
 
 newtype PutBotRequest = PutBotRequest 
   { "name" :: (BotName)
-  , "description" :: NullOrUndefined (Description)
-  , "intents" :: NullOrUndefined (IntentList)
-  , "clarificationPrompt" :: NullOrUndefined (Prompt)
-  , "abortStatement" :: NullOrUndefined (Statement)
-  , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL)
-  , "voiceId" :: NullOrUndefined (String)
-  , "checksum" :: NullOrUndefined (String)
-  , "processBehavior" :: NullOrUndefined (ProcessBehavior)
+  , "description" :: Maybe (Description)
+  , "intents" :: Maybe (IntentList)
+  , "clarificationPrompt" :: Maybe (Prompt)
+  , "abortStatement" :: Maybe (Statement)
+  , "idleSessionTTLInSeconds" :: Maybe (SessionTTL)
+  , "voiceId" :: Maybe (String)
+  , "checksum" :: Maybe (String)
+  , "processBehavior" :: Maybe (ProcessBehavior)
   , "locale" :: (Locale)
   , "childDirected" :: (Boolean)
-  , "createVersion" :: NullOrUndefined (Boolean)
+  , "createVersion" :: Maybe (Boolean)
   }
 derive instance newtypePutBotRequest :: Newtype PutBotRequest _
 derive instance repGenericPutBotRequest :: Generic PutBotRequest _
@@ -2174,32 +2173,32 @@ instance encodePutBotRequest :: Encode PutBotRequest where encode = genericEncod
 
 -- | Constructs PutBotRequest from required parameters
 newPutBotRequest :: Boolean -> Locale -> BotName -> PutBotRequest
-newPutBotRequest _childDirected _locale _name = PutBotRequest { "childDirected": _childDirected, "locale": _locale, "name": _name, "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "processBehavior": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newPutBotRequest _childDirected _locale _name = PutBotRequest { "childDirected": _childDirected, "locale": _locale, "name": _name, "abortStatement": Nothing, "checksum": Nothing, "clarificationPrompt": Nothing, "createVersion": Nothing, "description": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "processBehavior": Nothing, "voiceId": Nothing }
 
 -- | Constructs PutBotRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutBotRequest' :: Boolean -> Locale -> BotName -> ( { "name" :: (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "processBehavior" :: NullOrUndefined (ProcessBehavior) , "locale" :: (Locale) , "childDirected" :: (Boolean) , "createVersion" :: NullOrUndefined (Boolean) } -> {"name" :: (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "processBehavior" :: NullOrUndefined (ProcessBehavior) , "locale" :: (Locale) , "childDirected" :: (Boolean) , "createVersion" :: NullOrUndefined (Boolean) } ) -> PutBotRequest
-newPutBotRequest' _childDirected _locale _name customize = (PutBotRequest <<< customize) { "childDirected": _childDirected, "locale": _locale, "name": _name, "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "processBehavior": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newPutBotRequest' :: Boolean -> Locale -> BotName -> ( { "name" :: (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "processBehavior" :: Maybe (ProcessBehavior) , "locale" :: (Locale) , "childDirected" :: (Boolean) , "createVersion" :: Maybe (Boolean) } -> {"name" :: (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "processBehavior" :: Maybe (ProcessBehavior) , "locale" :: (Locale) , "childDirected" :: (Boolean) , "createVersion" :: Maybe (Boolean) } ) -> PutBotRequest
+newPutBotRequest' _childDirected _locale _name customize = (PutBotRequest <<< customize) { "childDirected": _childDirected, "locale": _locale, "name": _name, "abortStatement": Nothing, "checksum": Nothing, "clarificationPrompt": Nothing, "createVersion": Nothing, "description": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "processBehavior": Nothing, "voiceId": Nothing }
 
 
 
 newtype PutBotResponse = PutBotResponse 
-  { "name" :: NullOrUndefined (BotName)
-  , "description" :: NullOrUndefined (Description)
-  , "intents" :: NullOrUndefined (IntentList)
-  , "clarificationPrompt" :: NullOrUndefined (Prompt)
-  , "abortStatement" :: NullOrUndefined (Statement)
-  , "status" :: NullOrUndefined (Status)
-  , "failureReason" :: NullOrUndefined (String)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL)
-  , "voiceId" :: NullOrUndefined (String)
-  , "checksum" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (Version)
-  , "locale" :: NullOrUndefined (Locale)
-  , "childDirected" :: NullOrUndefined (Boolean)
-  , "createVersion" :: NullOrUndefined (Boolean)
+  { "name" :: Maybe (BotName)
+  , "description" :: Maybe (Description)
+  , "intents" :: Maybe (IntentList)
+  , "clarificationPrompt" :: Maybe (Prompt)
+  , "abortStatement" :: Maybe (Statement)
+  , "status" :: Maybe (Status)
+  , "failureReason" :: Maybe (String)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "idleSessionTTLInSeconds" :: Maybe (SessionTTL)
+  , "voiceId" :: Maybe (String)
+  , "checksum" :: Maybe (String)
+  , "version" :: Maybe (Version)
+  , "locale" :: Maybe (Locale)
+  , "childDirected" :: Maybe (Boolean)
+  , "createVersion" :: Maybe (Boolean)
   }
 derive instance newtypePutBotResponse :: Newtype PutBotResponse _
 derive instance repGenericPutBotResponse :: Generic PutBotResponse _
@@ -2209,29 +2208,29 @@ instance encodePutBotResponse :: Encode PutBotResponse where encode = genericEnc
 
 -- | Constructs PutBotResponse from required parameters
 newPutBotResponse :: PutBotResponse
-newPutBotResponse  = PutBotResponse { "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "childDirected": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newPutBotResponse  = PutBotResponse { "abortStatement": Nothing, "checksum": Nothing, "childDirected": Nothing, "clarificationPrompt": Nothing, "createVersion": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "lastUpdatedDate": Nothing, "locale": Nothing, "name": Nothing, "status": Nothing, "version": Nothing, "voiceId": Nothing }
 
 -- | Constructs PutBotResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutBotResponse' :: ( { "name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "status" :: NullOrUndefined (Status) , "failureReason" :: NullOrUndefined (String) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Version) , "locale" :: NullOrUndefined (Locale) , "childDirected" :: NullOrUndefined (Boolean) , "createVersion" :: NullOrUndefined (Boolean) } -> {"name" :: NullOrUndefined (BotName) , "description" :: NullOrUndefined (Description) , "intents" :: NullOrUndefined (IntentList) , "clarificationPrompt" :: NullOrUndefined (Prompt) , "abortStatement" :: NullOrUndefined (Statement) , "status" :: NullOrUndefined (Status) , "failureReason" :: NullOrUndefined (String) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "idleSessionTTLInSeconds" :: NullOrUndefined (SessionTTL) , "voiceId" :: NullOrUndefined (String) , "checksum" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Version) , "locale" :: NullOrUndefined (Locale) , "childDirected" :: NullOrUndefined (Boolean) , "createVersion" :: NullOrUndefined (Boolean) } ) -> PutBotResponse
-newPutBotResponse'  customize = (PutBotResponse <<< customize) { "abortStatement": (NullOrUndefined Nothing), "checksum": (NullOrUndefined Nothing), "childDirected": (NullOrUndefined Nothing), "clarificationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "failureReason": (NullOrUndefined Nothing), "idleSessionTTLInSeconds": (NullOrUndefined Nothing), "intents": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "locale": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "voiceId": (NullOrUndefined Nothing) }
+newPutBotResponse' :: ( { "name" :: Maybe (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "status" :: Maybe (Status) , "failureReason" :: Maybe (String) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "version" :: Maybe (Version) , "locale" :: Maybe (Locale) , "childDirected" :: Maybe (Boolean) , "createVersion" :: Maybe (Boolean) } -> {"name" :: Maybe (BotName) , "description" :: Maybe (Description) , "intents" :: Maybe (IntentList) , "clarificationPrompt" :: Maybe (Prompt) , "abortStatement" :: Maybe (Statement) , "status" :: Maybe (Status) , "failureReason" :: Maybe (String) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "idleSessionTTLInSeconds" :: Maybe (SessionTTL) , "voiceId" :: Maybe (String) , "checksum" :: Maybe (String) , "version" :: Maybe (Version) , "locale" :: Maybe (Locale) , "childDirected" :: Maybe (Boolean) , "createVersion" :: Maybe (Boolean) } ) -> PutBotResponse
+newPutBotResponse'  customize = (PutBotResponse <<< customize) { "abortStatement": Nothing, "checksum": Nothing, "childDirected": Nothing, "clarificationPrompt": Nothing, "createVersion": Nothing, "createdDate": Nothing, "description": Nothing, "failureReason": Nothing, "idleSessionTTLInSeconds": Nothing, "intents": Nothing, "lastUpdatedDate": Nothing, "locale": Nothing, "name": Nothing, "status": Nothing, "version": Nothing, "voiceId": Nothing }
 
 
 
 newtype PutIntentRequest = PutIntentRequest 
   { "name" :: (IntentName)
-  , "description" :: NullOrUndefined (Description)
-  , "slots" :: NullOrUndefined (SlotList)
-  , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList)
-  , "confirmationPrompt" :: NullOrUndefined (Prompt)
-  , "rejectionStatement" :: NullOrUndefined (Statement)
-  , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt)
-  , "conclusionStatement" :: NullOrUndefined (Statement)
-  , "dialogCodeHook" :: NullOrUndefined (CodeHook)
-  , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity)
-  , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature)
-  , "checksum" :: NullOrUndefined (String)
-  , "createVersion" :: NullOrUndefined (Boolean)
+  , "description" :: Maybe (Description)
+  , "slots" :: Maybe (SlotList)
+  , "sampleUtterances" :: Maybe (IntentUtteranceList)
+  , "confirmationPrompt" :: Maybe (Prompt)
+  , "rejectionStatement" :: Maybe (Statement)
+  , "followUpPrompt" :: Maybe (FollowUpPrompt)
+  , "conclusionStatement" :: Maybe (Statement)
+  , "dialogCodeHook" :: Maybe (CodeHook)
+  , "fulfillmentActivity" :: Maybe (FulfillmentActivity)
+  , "parentIntentSignature" :: Maybe (BuiltinIntentSignature)
+  , "checksum" :: Maybe (String)
+  , "createVersion" :: Maybe (Boolean)
   }
 derive instance newtypePutIntentRequest :: Newtype PutIntentRequest _
 derive instance repGenericPutIntentRequest :: Generic PutIntentRequest _
@@ -2241,32 +2240,32 @@ instance encodePutIntentRequest :: Encode PutIntentRequest where encode = generi
 
 -- | Constructs PutIntentRequest from required parameters
 newPutIntentRequest :: IntentName -> PutIntentRequest
-newPutIntentRequest _name = PutIntentRequest { "name": _name, "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing) }
+newPutIntentRequest _name = PutIntentRequest { "name": _name, "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createVersion": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing }
 
 -- | Constructs PutIntentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutIntentRequest' :: IntentName -> ( { "name" :: (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "checksum" :: NullOrUndefined (String) , "createVersion" :: NullOrUndefined (Boolean) } -> {"name" :: (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "checksum" :: NullOrUndefined (String) , "createVersion" :: NullOrUndefined (Boolean) } ) -> PutIntentRequest
-newPutIntentRequest' _name customize = (PutIntentRequest <<< customize) { "name": _name, "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing) }
+newPutIntentRequest' :: IntentName -> ( { "name" :: (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "checksum" :: Maybe (String) , "createVersion" :: Maybe (Boolean) } -> {"name" :: (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "checksum" :: Maybe (String) , "createVersion" :: Maybe (Boolean) } ) -> PutIntentRequest
+newPutIntentRequest' _name customize = (PutIntentRequest <<< customize) { "name": _name, "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createVersion": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing }
 
 
 
 newtype PutIntentResponse = PutIntentResponse 
-  { "name" :: NullOrUndefined (IntentName)
-  , "description" :: NullOrUndefined (Description)
-  , "slots" :: NullOrUndefined (SlotList)
-  , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList)
-  , "confirmationPrompt" :: NullOrUndefined (Prompt)
-  , "rejectionStatement" :: NullOrUndefined (Statement)
-  , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt)
-  , "conclusionStatement" :: NullOrUndefined (Statement)
-  , "dialogCodeHook" :: NullOrUndefined (CodeHook)
-  , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity)
-  , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
-  , "checksum" :: NullOrUndefined (String)
-  , "createVersion" :: NullOrUndefined (Boolean)
+  { "name" :: Maybe (IntentName)
+  , "description" :: Maybe (Description)
+  , "slots" :: Maybe (SlotList)
+  , "sampleUtterances" :: Maybe (IntentUtteranceList)
+  , "confirmationPrompt" :: Maybe (Prompt)
+  , "rejectionStatement" :: Maybe (Statement)
+  , "followUpPrompt" :: Maybe (FollowUpPrompt)
+  , "conclusionStatement" :: Maybe (Statement)
+  , "dialogCodeHook" :: Maybe (CodeHook)
+  , "fulfillmentActivity" :: Maybe (FulfillmentActivity)
+  , "parentIntentSignature" :: Maybe (BuiltinIntentSignature)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
+  , "checksum" :: Maybe (String)
+  , "createVersion" :: Maybe (Boolean)
   }
 derive instance newtypePutIntentResponse :: Newtype PutIntentResponse _
 derive instance repGenericPutIntentResponse :: Generic PutIntentResponse _
@@ -2276,22 +2275,22 @@ instance encodePutIntentResponse :: Encode PutIntentResponse where encode = gene
 
 -- | Constructs PutIntentResponse from required parameters
 newPutIntentResponse :: PutIntentResponse
-newPutIntentResponse  = PutIntentResponse { "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newPutIntentResponse  = PutIntentResponse { "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createVersion": Nothing, "createdDate": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing, "version": Nothing }
 
 -- | Constructs PutIntentResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutIntentResponse' :: ( { "name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "createVersion" :: NullOrUndefined (Boolean) } -> {"name" :: NullOrUndefined (IntentName) , "description" :: NullOrUndefined (Description) , "slots" :: NullOrUndefined (SlotList) , "sampleUtterances" :: NullOrUndefined (IntentUtteranceList) , "confirmationPrompt" :: NullOrUndefined (Prompt) , "rejectionStatement" :: NullOrUndefined (Statement) , "followUpPrompt" :: NullOrUndefined (FollowUpPrompt) , "conclusionStatement" :: NullOrUndefined (Statement) , "dialogCodeHook" :: NullOrUndefined (CodeHook) , "fulfillmentActivity" :: NullOrUndefined (FulfillmentActivity) , "parentIntentSignature" :: NullOrUndefined (BuiltinIntentSignature) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "createVersion" :: NullOrUndefined (Boolean) } ) -> PutIntentResponse
-newPutIntentResponse'  customize = (PutIntentResponse <<< customize) { "checksum": (NullOrUndefined Nothing), "conclusionStatement": (NullOrUndefined Nothing), "confirmationPrompt": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "dialogCodeHook": (NullOrUndefined Nothing), "followUpPrompt": (NullOrUndefined Nothing), "fulfillmentActivity": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "parentIntentSignature": (NullOrUndefined Nothing), "rejectionStatement": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slots": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newPutIntentResponse' :: ( { "name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "createVersion" :: Maybe (Boolean) } -> {"name" :: Maybe (IntentName) , "description" :: Maybe (Description) , "slots" :: Maybe (SlotList) , "sampleUtterances" :: Maybe (IntentUtteranceList) , "confirmationPrompt" :: Maybe (Prompt) , "rejectionStatement" :: Maybe (Statement) , "followUpPrompt" :: Maybe (FollowUpPrompt) , "conclusionStatement" :: Maybe (Statement) , "dialogCodeHook" :: Maybe (CodeHook) , "fulfillmentActivity" :: Maybe (FulfillmentActivity) , "parentIntentSignature" :: Maybe (BuiltinIntentSignature) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "createVersion" :: Maybe (Boolean) } ) -> PutIntentResponse
+newPutIntentResponse'  customize = (PutIntentResponse <<< customize) { "checksum": Nothing, "conclusionStatement": Nothing, "confirmationPrompt": Nothing, "createVersion": Nothing, "createdDate": Nothing, "description": Nothing, "dialogCodeHook": Nothing, "followUpPrompt": Nothing, "fulfillmentActivity": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "parentIntentSignature": Nothing, "rejectionStatement": Nothing, "sampleUtterances": Nothing, "slots": Nothing, "version": Nothing }
 
 
 
 newtype PutSlotTypeRequest = PutSlotTypeRequest 
   { "name" :: (SlotTypeName)
-  , "description" :: NullOrUndefined (Description)
-  , "enumerationValues" :: NullOrUndefined (EnumerationValues)
-  , "checksum" :: NullOrUndefined (String)
-  , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy)
-  , "createVersion" :: NullOrUndefined (Boolean)
+  , "description" :: Maybe (Description)
+  , "enumerationValues" :: Maybe (EnumerationValues)
+  , "checksum" :: Maybe (String)
+  , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy)
+  , "createVersion" :: Maybe (Boolean)
   }
 derive instance newtypePutSlotTypeRequest :: Newtype PutSlotTypeRequest _
 derive instance repGenericPutSlotTypeRequest :: Generic PutSlotTypeRequest _
@@ -2301,25 +2300,25 @@ instance encodePutSlotTypeRequest :: Encode PutSlotTypeRequest where encode = ge
 
 -- | Constructs PutSlotTypeRequest from required parameters
 newPutSlotTypeRequest :: SlotTypeName -> PutSlotTypeRequest
-newPutSlotTypeRequest _name = PutSlotTypeRequest { "name": _name, "checksum": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing) }
+newPutSlotTypeRequest _name = PutSlotTypeRequest { "name": _name, "checksum": Nothing, "createVersion": Nothing, "description": Nothing, "enumerationValues": Nothing, "valueSelectionStrategy": Nothing }
 
 -- | Constructs PutSlotTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutSlotTypeRequest' :: SlotTypeName -> ( { "name" :: (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) , "createVersion" :: NullOrUndefined (Boolean) } -> {"name" :: (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) , "createVersion" :: NullOrUndefined (Boolean) } ) -> PutSlotTypeRequest
-newPutSlotTypeRequest' _name customize = (PutSlotTypeRequest <<< customize) { "name": _name, "checksum": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing) }
+newPutSlotTypeRequest' :: SlotTypeName -> ( { "name" :: (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) , "createVersion" :: Maybe (Boolean) } -> {"name" :: (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) , "createVersion" :: Maybe (Boolean) } ) -> PutSlotTypeRequest
+newPutSlotTypeRequest' _name customize = (PutSlotTypeRequest <<< customize) { "name": _name, "checksum": Nothing, "createVersion": Nothing, "description": Nothing, "enumerationValues": Nothing, "valueSelectionStrategy": Nothing }
 
 
 
 newtype PutSlotTypeResponse = PutSlotTypeResponse 
-  { "name" :: NullOrUndefined (SlotTypeName)
-  , "description" :: NullOrUndefined (Description)
-  , "enumerationValues" :: NullOrUndefined (EnumerationValues)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
-  , "checksum" :: NullOrUndefined (String)
-  , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy)
-  , "createVersion" :: NullOrUndefined (Boolean)
+  { "name" :: Maybe (SlotTypeName)
+  , "description" :: Maybe (Description)
+  , "enumerationValues" :: Maybe (EnumerationValues)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
+  , "checksum" :: Maybe (String)
+  , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy)
+  , "createVersion" :: Maybe (Boolean)
   }
 derive instance newtypePutSlotTypeResponse :: Newtype PutSlotTypeResponse _
 derive instance repGenericPutSlotTypeResponse :: Generic PutSlotTypeResponse _
@@ -2329,12 +2328,12 @@ instance encodePutSlotTypeResponse :: Encode PutSlotTypeResponse where encode = 
 
 -- | Constructs PutSlotTypeResponse from required parameters
 newPutSlotTypeResponse :: PutSlotTypeResponse
-newPutSlotTypeResponse  = PutSlotTypeResponse { "checksum": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newPutSlotTypeResponse  = PutSlotTypeResponse { "checksum": Nothing, "createVersion": Nothing, "createdDate": Nothing, "description": Nothing, "enumerationValues": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "valueSelectionStrategy": Nothing, "version": Nothing }
 
 -- | Constructs PutSlotTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutSlotTypeResponse' :: ( { "name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) , "createVersion" :: NullOrUndefined (Boolean) } -> {"name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "enumerationValues" :: NullOrUndefined (EnumerationValues) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) , "checksum" :: NullOrUndefined (String) , "valueSelectionStrategy" :: NullOrUndefined (SlotValueSelectionStrategy) , "createVersion" :: NullOrUndefined (Boolean) } ) -> PutSlotTypeResponse
-newPutSlotTypeResponse'  customize = (PutSlotTypeResponse <<< customize) { "checksum": (NullOrUndefined Nothing), "createVersion": (NullOrUndefined Nothing), "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "enumerationValues": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "valueSelectionStrategy": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newPutSlotTypeResponse' :: ( { "name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) , "createVersion" :: Maybe (Boolean) } -> {"name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "enumerationValues" :: Maybe (EnumerationValues) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) , "checksum" :: Maybe (String) , "valueSelectionStrategy" :: Maybe (SlotValueSelectionStrategy) , "createVersion" :: Maybe (Boolean) } ) -> PutSlotTypeResponse
+newPutSlotTypeResponse'  customize = (PutSlotTypeResponse <<< customize) { "checksum": Nothing, "createVersion": Nothing, "createdDate": Nothing, "description": Nothing, "enumerationValues": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "valueSelectionStrategy": Nothing, "version": Nothing }
 
 
 
@@ -2349,8 +2348,8 @@ instance encodeReferenceType :: Encode ReferenceType where encode = genericEncod
 
 -- | <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ "resourceType": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>"resourceReference": {</code> </p> <p> <code>"name": <i>string</i>, "version": <i>string</i> } }</code> </p>
 newtype ResourceInUseException = ResourceInUseException 
-  { "referenceType" :: NullOrUndefined (ReferenceType)
-  , "exampleReference" :: NullOrUndefined (ResourceReference)
+  { "referenceType" :: Maybe (ReferenceType)
+  , "exampleReference" :: Maybe (ResourceReference)
   }
 derive instance newtypeResourceInUseException :: Newtype ResourceInUseException _
 derive instance repGenericResourceInUseException :: Generic ResourceInUseException _
@@ -2360,19 +2359,19 @@ instance encodeResourceInUseException :: Encode ResourceInUseException where enc
 
 -- | Constructs ResourceInUseException from required parameters
 newResourceInUseException :: ResourceInUseException
-newResourceInUseException  = ResourceInUseException { "exampleReference": (NullOrUndefined Nothing), "referenceType": (NullOrUndefined Nothing) }
+newResourceInUseException  = ResourceInUseException { "exampleReference": Nothing, "referenceType": Nothing }
 
 -- | Constructs ResourceInUseException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceInUseException' :: ( { "referenceType" :: NullOrUndefined (ReferenceType) , "exampleReference" :: NullOrUndefined (ResourceReference) } -> {"referenceType" :: NullOrUndefined (ReferenceType) , "exampleReference" :: NullOrUndefined (ResourceReference) } ) -> ResourceInUseException
-newResourceInUseException'  customize = (ResourceInUseException <<< customize) { "exampleReference": (NullOrUndefined Nothing), "referenceType": (NullOrUndefined Nothing) }
+newResourceInUseException' :: ( { "referenceType" :: Maybe (ReferenceType) , "exampleReference" :: Maybe (ResourceReference) } -> {"referenceType" :: Maybe (ReferenceType) , "exampleReference" :: Maybe (ResourceReference) } ) -> ResourceInUseException
+newResourceInUseException'  customize = (ResourceInUseException <<< customize) { "exampleReference": Nothing, "referenceType": Nothing }
 
 
 
 -- | <p>Describes the resource that refers to the resource that you are attempting to delete. This object is returned as part of the <code>ResourceInUseException</code> exception. </p>
 newtype ResourceReference = ResourceReference 
-  { "name" :: NullOrUndefined (Name)
-  , "version" :: NullOrUndefined (Version)
+  { "name" :: Maybe (Name)
+  , "version" :: Maybe (Version)
   }
 derive instance newtypeResourceReference :: Newtype ResourceReference _
 derive instance repGenericResourceReference :: Generic ResourceReference _
@@ -2382,12 +2381,12 @@ instance encodeResourceReference :: Encode ResourceReference where encode = gene
 
 -- | Constructs ResourceReference from required parameters
 newResourceReference :: ResourceReference
-newResourceReference  = ResourceReference { "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newResourceReference  = ResourceReference { "name": Nothing, "version": Nothing }
 
 -- | Constructs ResourceReference's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceReference' :: ( { "name" :: NullOrUndefined (Name) , "version" :: NullOrUndefined (Version) } -> {"name" :: NullOrUndefined (Name) , "version" :: NullOrUndefined (Version) } ) -> ResourceReference
-newResourceReference'  customize = (ResourceReference <<< customize) { "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newResourceReference' :: ( { "name" :: Maybe (Name) , "version" :: Maybe (Version) } -> {"name" :: Maybe (Name) , "version" :: Maybe (Version) } ) -> ResourceReference
+newResourceReference'  customize = (ResourceReference <<< customize) { "name": Nothing, "version": Nothing }
 
 
 
@@ -2421,14 +2420,14 @@ instance encodeSessionTTL :: Encode SessionTTL where encode = genericEncode opti
 -- | <p>Identifies the version of a specific slot.</p>
 newtype Slot = Slot 
   { "name" :: (SlotName)
-  , "description" :: NullOrUndefined (Description)
+  , "description" :: Maybe (Description)
   , "slotConstraint" :: (SlotConstraint)
-  , "slotType" :: NullOrUndefined (CustomOrBuiltinSlotTypeName)
-  , "slotTypeVersion" :: NullOrUndefined (Version)
-  , "valueElicitationPrompt" :: NullOrUndefined (Prompt)
-  , "priority" :: NullOrUndefined (Priority)
-  , "sampleUtterances" :: NullOrUndefined (SlotUtteranceList)
-  , "responseCard" :: NullOrUndefined (ResponseCard)
+  , "slotType" :: Maybe (CustomOrBuiltinSlotTypeName)
+  , "slotTypeVersion" :: Maybe (Version)
+  , "valueElicitationPrompt" :: Maybe (Prompt)
+  , "priority" :: Maybe (Priority)
+  , "sampleUtterances" :: Maybe (SlotUtteranceList)
+  , "responseCard" :: Maybe (ResponseCard)
   }
 derive instance newtypeSlot :: Newtype Slot _
 derive instance repGenericSlot :: Generic Slot _
@@ -2438,12 +2437,12 @@ instance encodeSlot :: Encode Slot where encode = genericEncode options
 
 -- | Constructs Slot from required parameters
 newSlot :: SlotName -> SlotConstraint -> Slot
-newSlot _name _slotConstraint = Slot { "name": _name, "slotConstraint": _slotConstraint, "description": (NullOrUndefined Nothing), "priority": (NullOrUndefined Nothing), "responseCard": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slotType": (NullOrUndefined Nothing), "slotTypeVersion": (NullOrUndefined Nothing), "valueElicitationPrompt": (NullOrUndefined Nothing) }
+newSlot _name _slotConstraint = Slot { "name": _name, "slotConstraint": _slotConstraint, "description": Nothing, "priority": Nothing, "responseCard": Nothing, "sampleUtterances": Nothing, "slotType": Nothing, "slotTypeVersion": Nothing, "valueElicitationPrompt": Nothing }
 
 -- | Constructs Slot's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSlot' :: SlotName -> SlotConstraint -> ( { "name" :: (SlotName) , "description" :: NullOrUndefined (Description) , "slotConstraint" :: (SlotConstraint) , "slotType" :: NullOrUndefined (CustomOrBuiltinSlotTypeName) , "slotTypeVersion" :: NullOrUndefined (Version) , "valueElicitationPrompt" :: NullOrUndefined (Prompt) , "priority" :: NullOrUndefined (Priority) , "sampleUtterances" :: NullOrUndefined (SlotUtteranceList) , "responseCard" :: NullOrUndefined (ResponseCard) } -> {"name" :: (SlotName) , "description" :: NullOrUndefined (Description) , "slotConstraint" :: (SlotConstraint) , "slotType" :: NullOrUndefined (CustomOrBuiltinSlotTypeName) , "slotTypeVersion" :: NullOrUndefined (Version) , "valueElicitationPrompt" :: NullOrUndefined (Prompt) , "priority" :: NullOrUndefined (Priority) , "sampleUtterances" :: NullOrUndefined (SlotUtteranceList) , "responseCard" :: NullOrUndefined (ResponseCard) } ) -> Slot
-newSlot' _name _slotConstraint customize = (Slot <<< customize) { "name": _name, "slotConstraint": _slotConstraint, "description": (NullOrUndefined Nothing), "priority": (NullOrUndefined Nothing), "responseCard": (NullOrUndefined Nothing), "sampleUtterances": (NullOrUndefined Nothing), "slotType": (NullOrUndefined Nothing), "slotTypeVersion": (NullOrUndefined Nothing), "valueElicitationPrompt": (NullOrUndefined Nothing) }
+newSlot' :: SlotName -> SlotConstraint -> ( { "name" :: (SlotName) , "description" :: Maybe (Description) , "slotConstraint" :: (SlotConstraint) , "slotType" :: Maybe (CustomOrBuiltinSlotTypeName) , "slotTypeVersion" :: Maybe (Version) , "valueElicitationPrompt" :: Maybe (Prompt) , "priority" :: Maybe (Priority) , "sampleUtterances" :: Maybe (SlotUtteranceList) , "responseCard" :: Maybe (ResponseCard) } -> {"name" :: (SlotName) , "description" :: Maybe (Description) , "slotConstraint" :: (SlotConstraint) , "slotType" :: Maybe (CustomOrBuiltinSlotTypeName) , "slotTypeVersion" :: Maybe (Version) , "valueElicitationPrompt" :: Maybe (Prompt) , "priority" :: Maybe (Priority) , "sampleUtterances" :: Maybe (SlotUtteranceList) , "responseCard" :: Maybe (ResponseCard) } ) -> Slot
+newSlot' _name _slotConstraint customize = (Slot <<< customize) { "name": _name, "slotConstraint": _slotConstraint, "description": Nothing, "priority": Nothing, "responseCard": Nothing, "sampleUtterances": Nothing, "slotType": Nothing, "slotTypeVersion": Nothing, "valueElicitationPrompt": Nothing }
 
 
 
@@ -2476,11 +2475,11 @@ instance encodeSlotName :: Encode SlotName where encode = genericEncode options
 
 -- | <p>Provides information about a slot type..</p>
 newtype SlotTypeMetadata = SlotTypeMetadata 
-  { "name" :: NullOrUndefined (SlotTypeName)
-  , "description" :: NullOrUndefined (Description)
-  , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
-  , "version" :: NullOrUndefined (Version)
+  { "name" :: Maybe (SlotTypeName)
+  , "description" :: Maybe (Description)
+  , "lastUpdatedDate" :: Maybe (Types.Timestamp)
+  , "createdDate" :: Maybe (Types.Timestamp)
+  , "version" :: Maybe (Version)
   }
 derive instance newtypeSlotTypeMetadata :: Newtype SlotTypeMetadata _
 derive instance repGenericSlotTypeMetadata :: Generic SlotTypeMetadata _
@@ -2490,12 +2489,12 @@ instance encodeSlotTypeMetadata :: Encode SlotTypeMetadata where encode = generi
 
 -- | Constructs SlotTypeMetadata from required parameters
 newSlotTypeMetadata :: SlotTypeMetadata
-newSlotTypeMetadata  = SlotTypeMetadata { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newSlotTypeMetadata  = SlotTypeMetadata { "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "version": Nothing }
 
 -- | Constructs SlotTypeMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSlotTypeMetadata' :: ( { "name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) } -> {"name" :: NullOrUndefined (SlotTypeName) , "description" :: NullOrUndefined (Description) , "lastUpdatedDate" :: NullOrUndefined (Types.Timestamp) , "createdDate" :: NullOrUndefined (Types.Timestamp) , "version" :: NullOrUndefined (Version) } ) -> SlotTypeMetadata
-newSlotTypeMetadata'  customize = (SlotTypeMetadata <<< customize) { "createdDate": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "lastUpdatedDate": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newSlotTypeMetadata' :: ( { "name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) } -> {"name" :: Maybe (SlotTypeName) , "description" :: Maybe (Description) , "lastUpdatedDate" :: Maybe (Types.Timestamp) , "createdDate" :: Maybe (Types.Timestamp) , "version" :: Maybe (Version) } ) -> SlotTypeMetadata
+newSlotTypeMetadata'  customize = (SlotTypeMetadata <<< customize) { "createdDate": Nothing, "description": Nothing, "lastUpdatedDate": Nothing, "name": Nothing, "version": Nothing }
 
 
 
@@ -2558,12 +2557,12 @@ newStartImportRequest' _mergeStrategy _payload _resourceType customize = (StartI
 
 
 newtype StartImportResponse = StartImportResponse 
-  { "name" :: NullOrUndefined (Name)
-  , "resourceType" :: NullOrUndefined (ResourceType)
-  , "mergeStrategy" :: NullOrUndefined (MergeStrategy)
-  , "importId" :: NullOrUndefined (String)
-  , "importStatus" :: NullOrUndefined (ImportStatus)
-  , "createdDate" :: NullOrUndefined (Types.Timestamp)
+  { "name" :: Maybe (Name)
+  , "resourceType" :: Maybe (ResourceType)
+  , "mergeStrategy" :: Maybe (MergeStrategy)
+  , "importId" :: Maybe (String)
+  , "importStatus" :: Maybe (ImportStatus)
+  , "createdDate" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeStartImportResponse :: Newtype StartImportResponse _
 derive instance repGenericStartImportResponse :: Generic StartImportResponse _
@@ -2573,19 +2572,19 @@ instance encodeStartImportResponse :: Encode StartImportResponse where encode = 
 
 -- | Constructs StartImportResponse from required parameters
 newStartImportResponse :: StartImportResponse
-newStartImportResponse  = StartImportResponse { "createdDate": (NullOrUndefined Nothing), "importId": (NullOrUndefined Nothing), "importStatus": (NullOrUndefined Nothing), "mergeStrategy": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "resourceType": (NullOrUndefined Nothing) }
+newStartImportResponse  = StartImportResponse { "createdDate": Nothing, "importId": Nothing, "importStatus": Nothing, "mergeStrategy": Nothing, "name": Nothing, "resourceType": Nothing }
 
 -- | Constructs StartImportResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartImportResponse' :: ( { "name" :: NullOrUndefined (Name) , "resourceType" :: NullOrUndefined (ResourceType) , "mergeStrategy" :: NullOrUndefined (MergeStrategy) , "importId" :: NullOrUndefined (String) , "importStatus" :: NullOrUndefined (ImportStatus) , "createdDate" :: NullOrUndefined (Types.Timestamp) } -> {"name" :: NullOrUndefined (Name) , "resourceType" :: NullOrUndefined (ResourceType) , "mergeStrategy" :: NullOrUndefined (MergeStrategy) , "importId" :: NullOrUndefined (String) , "importStatus" :: NullOrUndefined (ImportStatus) , "createdDate" :: NullOrUndefined (Types.Timestamp) } ) -> StartImportResponse
-newStartImportResponse'  customize = (StartImportResponse <<< customize) { "createdDate": (NullOrUndefined Nothing), "importId": (NullOrUndefined Nothing), "importStatus": (NullOrUndefined Nothing), "mergeStrategy": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "resourceType": (NullOrUndefined Nothing) }
+newStartImportResponse' :: ( { "name" :: Maybe (Name) , "resourceType" :: Maybe (ResourceType) , "mergeStrategy" :: Maybe (MergeStrategy) , "importId" :: Maybe (String) , "importStatus" :: Maybe (ImportStatus) , "createdDate" :: Maybe (Types.Timestamp) } -> {"name" :: Maybe (Name) , "resourceType" :: Maybe (ResourceType) , "mergeStrategy" :: Maybe (MergeStrategy) , "importId" :: Maybe (String) , "importStatus" :: Maybe (ImportStatus) , "createdDate" :: Maybe (Types.Timestamp) } ) -> StartImportResponse
+newStartImportResponse'  customize = (StartImportResponse <<< customize) { "createdDate": Nothing, "importId": Nothing, "importStatus": Nothing, "mergeStrategy": Nothing, "name": Nothing, "resourceType": Nothing }
 
 
 
 -- | <p>A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey. </p>
 newtype Statement = Statement 
   { "messages" :: (MessageList)
-  , "responseCard" :: NullOrUndefined (ResponseCard)
+  , "responseCard" :: Maybe (ResponseCard)
   }
 derive instance newtypeStatement :: Newtype Statement _
 derive instance repGenericStatement :: Generic Statement _
@@ -2595,12 +2594,12 @@ instance encodeStatement :: Encode Statement where encode = genericEncode option
 
 -- | Constructs Statement from required parameters
 newStatement :: MessageList -> Statement
-newStatement _messages = Statement { "messages": _messages, "responseCard": (NullOrUndefined Nothing) }
+newStatement _messages = Statement { "messages": _messages, "responseCard": Nothing }
 
 -- | Constructs Statement's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStatement' :: MessageList -> ( { "messages" :: (MessageList) , "responseCard" :: NullOrUndefined (ResponseCard) } -> {"messages" :: (MessageList) , "responseCard" :: NullOrUndefined (ResponseCard) } ) -> Statement
-newStatement' _messages customize = (Statement <<< customize) { "messages": _messages, "responseCard": (NullOrUndefined Nothing) }
+newStatement' :: MessageList -> ( { "messages" :: (MessageList) , "responseCard" :: Maybe (ResponseCard) } -> {"messages" :: (MessageList) , "responseCard" :: Maybe (ResponseCard) } ) -> Statement
+newStatement' _messages customize = (Statement <<< customize) { "messages": _messages, "responseCard": Nothing }
 
 
 
@@ -2660,11 +2659,11 @@ instance encodeUtterance :: Encode Utterance where encode = genericEncode option
 
 -- | <p>Provides information about a single utterance that was made to your bot. </p>
 newtype UtteranceData = UtteranceData 
-  { "utteranceString" :: NullOrUndefined (UtteranceString)
-  , "count" :: NullOrUndefined (Count)
-  , "distinctUsers" :: NullOrUndefined (Count)
-  , "firstUtteredDate" :: NullOrUndefined (Types.Timestamp)
-  , "lastUtteredDate" :: NullOrUndefined (Types.Timestamp)
+  { "utteranceString" :: Maybe (UtteranceString)
+  , "count" :: Maybe (Count)
+  , "distinctUsers" :: Maybe (Count)
+  , "firstUtteredDate" :: Maybe (Types.Timestamp)
+  , "lastUtteredDate" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeUtteranceData :: Newtype UtteranceData _
 derive instance repGenericUtteranceData :: Generic UtteranceData _
@@ -2674,19 +2673,19 @@ instance encodeUtteranceData :: Encode UtteranceData where encode = genericEncod
 
 -- | Constructs UtteranceData from required parameters
 newUtteranceData :: UtteranceData
-newUtteranceData  = UtteranceData { "count": (NullOrUndefined Nothing), "distinctUsers": (NullOrUndefined Nothing), "firstUtteredDate": (NullOrUndefined Nothing), "lastUtteredDate": (NullOrUndefined Nothing), "utteranceString": (NullOrUndefined Nothing) }
+newUtteranceData  = UtteranceData { "count": Nothing, "distinctUsers": Nothing, "firstUtteredDate": Nothing, "lastUtteredDate": Nothing, "utteranceString": Nothing }
 
 -- | Constructs UtteranceData's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUtteranceData' :: ( { "utteranceString" :: NullOrUndefined (UtteranceString) , "count" :: NullOrUndefined (Count) , "distinctUsers" :: NullOrUndefined (Count) , "firstUtteredDate" :: NullOrUndefined (Types.Timestamp) , "lastUtteredDate" :: NullOrUndefined (Types.Timestamp) } -> {"utteranceString" :: NullOrUndefined (UtteranceString) , "count" :: NullOrUndefined (Count) , "distinctUsers" :: NullOrUndefined (Count) , "firstUtteredDate" :: NullOrUndefined (Types.Timestamp) , "lastUtteredDate" :: NullOrUndefined (Types.Timestamp) } ) -> UtteranceData
-newUtteranceData'  customize = (UtteranceData <<< customize) { "count": (NullOrUndefined Nothing), "distinctUsers": (NullOrUndefined Nothing), "firstUtteredDate": (NullOrUndefined Nothing), "lastUtteredDate": (NullOrUndefined Nothing), "utteranceString": (NullOrUndefined Nothing) }
+newUtteranceData' :: ( { "utteranceString" :: Maybe (UtteranceString) , "count" :: Maybe (Count) , "distinctUsers" :: Maybe (Count) , "firstUtteredDate" :: Maybe (Types.Timestamp) , "lastUtteredDate" :: Maybe (Types.Timestamp) } -> {"utteranceString" :: Maybe (UtteranceString) , "count" :: Maybe (Count) , "distinctUsers" :: Maybe (Count) , "firstUtteredDate" :: Maybe (Types.Timestamp) , "lastUtteredDate" :: Maybe (Types.Timestamp) } ) -> UtteranceData
+newUtteranceData'  customize = (UtteranceData <<< customize) { "count": Nothing, "distinctUsers": Nothing, "firstUtteredDate": Nothing, "lastUtteredDate": Nothing, "utteranceString": Nothing }
 
 
 
 -- | <p>Provides a list of utterances that have been made to a specific version of your bot. The list contains a maximum of 100 utterances.</p>
 newtype UtteranceList = UtteranceList 
-  { "botVersion" :: NullOrUndefined (Version)
-  , "utterances" :: NullOrUndefined (ListOfUtterance)
+  { "botVersion" :: Maybe (Version)
+  , "utterances" :: Maybe (ListOfUtterance)
   }
 derive instance newtypeUtteranceList :: Newtype UtteranceList _
 derive instance repGenericUtteranceList :: Generic UtteranceList _
@@ -2696,12 +2695,12 @@ instance encodeUtteranceList :: Encode UtteranceList where encode = genericEncod
 
 -- | Constructs UtteranceList from required parameters
 newUtteranceList :: UtteranceList
-newUtteranceList  = UtteranceList { "botVersion": (NullOrUndefined Nothing), "utterances": (NullOrUndefined Nothing) }
+newUtteranceList  = UtteranceList { "botVersion": Nothing, "utterances": Nothing }
 
 -- | Constructs UtteranceList's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUtteranceList' :: ( { "botVersion" :: NullOrUndefined (Version) , "utterances" :: NullOrUndefined (ListOfUtterance) } -> {"botVersion" :: NullOrUndefined (Version) , "utterances" :: NullOrUndefined (ListOfUtterance) } ) -> UtteranceList
-newUtteranceList'  customize = (UtteranceList <<< customize) { "botVersion": (NullOrUndefined Nothing), "utterances": (NullOrUndefined Nothing) }
+newUtteranceList' :: ( { "botVersion" :: Maybe (Version) , "utterances" :: Maybe (ListOfUtterance) } -> {"botVersion" :: Maybe (Version) , "utterances" :: Maybe (ListOfUtterance) } ) -> UtteranceList
+newUtteranceList'  customize = (UtteranceList <<< customize) { "botVersion": Nothing, "utterances": Nothing }
 
 
 

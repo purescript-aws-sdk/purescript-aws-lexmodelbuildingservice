@@ -42,7 +42,7 @@ Encode AliasNameOrListAll
 
 ``` purescript
 newtype BadRequestException
-  = BadRequestException { message :: NullOrUndefined (String) }
+  = BadRequestException { message :: Maybe (String) }
 ```
 
 <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.</p>
@@ -67,7 +67,7 @@ Constructs BadRequestException from required parameters
 #### `newBadRequestException'`
 
 ``` purescript
-newBadRequestException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> BadRequestException
+newBadRequestException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> BadRequestException
 ```
 
 Constructs BadRequestException's fields from required parameters
@@ -76,7 +76,7 @@ Constructs BadRequestException's fields from required parameters
 
 ``` purescript
 newtype BotAliasMetadata
-  = BotAliasMetadata { name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) }
+  = BotAliasMetadata { name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) }
 ```
 
 <p>Provides information about a bot alias.</p>
@@ -101,7 +101,7 @@ Constructs BotAliasMetadata from required parameters
 #### `newBotAliasMetadata'`
 
 ``` purescript
-newBotAliasMetadata' :: ({ name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) } -> { name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) }) -> BotAliasMetadata
+newBotAliasMetadata' :: ({ name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) } -> { name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) }) -> BotAliasMetadata
 ```
 
 Constructs BotAliasMetadata's fields from required parameters
@@ -126,7 +126,7 @@ Encode BotAliasMetadataList
 
 ``` purescript
 newtype BotChannelAssociation
-  = BotChannelAssociation { name :: NullOrUndefined (BotChannelName), description :: NullOrUndefined (Description), botAlias :: NullOrUndefined (AliasName), botName :: NullOrUndefined (BotName), createdDate :: NullOrUndefined (Timestamp), "type" :: NullOrUndefined (ChannelType), botConfiguration :: NullOrUndefined (ChannelConfigurationMap), status :: NullOrUndefined (ChannelStatus), failureReason :: NullOrUndefined (String) }
+  = BotChannelAssociation { name :: Maybe (BotChannelName), description :: Maybe (Description), botAlias :: Maybe (AliasName), botName :: Maybe (BotName), createdDate :: Maybe (Timestamp), "type" :: Maybe (ChannelType), botConfiguration :: Maybe (ChannelConfigurationMap), status :: Maybe (ChannelStatus), failureReason :: Maybe (String) }
 ```
 
 <p>Represents an association between an Amazon Lex bot and an external messaging platform.</p>
@@ -151,7 +151,7 @@ Constructs BotChannelAssociation from required parameters
 #### `newBotChannelAssociation'`
 
 ``` purescript
-newBotChannelAssociation' :: ({ name :: NullOrUndefined (BotChannelName), description :: NullOrUndefined (Description), botAlias :: NullOrUndefined (AliasName), botName :: NullOrUndefined (BotName), createdDate :: NullOrUndefined (Timestamp), "type" :: NullOrUndefined (ChannelType), botConfiguration :: NullOrUndefined (ChannelConfigurationMap), status :: NullOrUndefined (ChannelStatus), failureReason :: NullOrUndefined (String) } -> { name :: NullOrUndefined (BotChannelName), description :: NullOrUndefined (Description), botAlias :: NullOrUndefined (AliasName), botName :: NullOrUndefined (BotName), createdDate :: NullOrUndefined (Timestamp), "type" :: NullOrUndefined (ChannelType), botConfiguration :: NullOrUndefined (ChannelConfigurationMap), status :: NullOrUndefined (ChannelStatus), failureReason :: NullOrUndefined (String) }) -> BotChannelAssociation
+newBotChannelAssociation' :: ({ name :: Maybe (BotChannelName), description :: Maybe (Description), botAlias :: Maybe (AliasName), botName :: Maybe (BotName), createdDate :: Maybe (Timestamp), "type" :: Maybe (ChannelType), botConfiguration :: Maybe (ChannelConfigurationMap), status :: Maybe (ChannelStatus), failureReason :: Maybe (String) } -> { name :: Maybe (BotChannelName), description :: Maybe (Description), botAlias :: Maybe (AliasName), botName :: Maybe (BotName), createdDate :: Maybe (Timestamp), "type" :: Maybe (ChannelType), botConfiguration :: Maybe (ChannelConfigurationMap), status :: Maybe (ChannelStatus), failureReason :: Maybe (String) }) -> BotChannelAssociation
 ```
 
 Constructs BotChannelAssociation's fields from required parameters
@@ -192,7 +192,7 @@ Encode BotChannelName
 
 ``` purescript
 newtype BotMetadata
-  = BotMetadata { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), status :: NullOrUndefined (Status), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) }
+  = BotMetadata { name :: Maybe (BotName), description :: Maybe (Description), status :: Maybe (Status), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) }
 ```
 
 <p>Provides information about a bot. .</p>
@@ -217,7 +217,7 @@ Constructs BotMetadata from required parameters
 #### `newBotMetadata'`
 
 ``` purescript
-newBotMetadata' :: ({ name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), status :: NullOrUndefined (Status), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) } -> { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), status :: NullOrUndefined (Status), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) }) -> BotMetadata
+newBotMetadata' :: ({ name :: Maybe (BotName), description :: Maybe (Description), status :: Maybe (Status), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) } -> { name :: Maybe (BotName), description :: Maybe (Description), status :: Maybe (Status), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) }) -> BotMetadata
 ```
 
 Constructs BotMetadata's fields from required parameters
@@ -274,7 +274,7 @@ Encode BotVersions
 
 ``` purescript
 newtype BuiltinIntentMetadata
-  = BuiltinIntentMetadata { signature :: NullOrUndefined (BuiltinIntentSignature), supportedLocales :: NullOrUndefined (LocaleList) }
+  = BuiltinIntentMetadata { signature :: Maybe (BuiltinIntentSignature), supportedLocales :: Maybe (LocaleList) }
 ```
 
 <p>Provides metadata for a built-in intent.</p>
@@ -299,7 +299,7 @@ Constructs BuiltinIntentMetadata from required parameters
 #### `newBuiltinIntentMetadata'`
 
 ``` purescript
-newBuiltinIntentMetadata' :: ({ signature :: NullOrUndefined (BuiltinIntentSignature), supportedLocales :: NullOrUndefined (LocaleList) } -> { signature :: NullOrUndefined (BuiltinIntentSignature), supportedLocales :: NullOrUndefined (LocaleList) }) -> BuiltinIntentMetadata
+newBuiltinIntentMetadata' :: ({ signature :: Maybe (BuiltinIntentSignature), supportedLocales :: Maybe (LocaleList) } -> { signature :: Maybe (BuiltinIntentSignature), supportedLocales :: Maybe (LocaleList) }) -> BuiltinIntentMetadata
 ```
 
 Constructs BuiltinIntentMetadata's fields from required parameters
@@ -340,7 +340,7 @@ Encode BuiltinIntentSignature
 
 ``` purescript
 newtype BuiltinIntentSlot
-  = BuiltinIntentSlot { name :: NullOrUndefined (String) }
+  = BuiltinIntentSlot { name :: Maybe (String) }
 ```
 
 <p>Provides information about a slot used in a built-in intent.</p>
@@ -365,7 +365,7 @@ Constructs BuiltinIntentSlot from required parameters
 #### `newBuiltinIntentSlot'`
 
 ``` purescript
-newBuiltinIntentSlot' :: ({ name :: NullOrUndefined (String) } -> { name :: NullOrUndefined (String) }) -> BuiltinIntentSlot
+newBuiltinIntentSlot' :: ({ name :: Maybe (String) } -> { name :: Maybe (String) }) -> BuiltinIntentSlot
 ```
 
 Constructs BuiltinIntentSlot's fields from required parameters
@@ -390,7 +390,7 @@ Encode BuiltinIntentSlotList
 
 ``` purescript
 newtype BuiltinSlotTypeMetadata
-  = BuiltinSlotTypeMetadata { signature :: NullOrUndefined (BuiltinSlotTypeSignature), supportedLocales :: NullOrUndefined (LocaleList) }
+  = BuiltinSlotTypeMetadata { signature :: Maybe (BuiltinSlotTypeSignature), supportedLocales :: Maybe (LocaleList) }
 ```
 
 <p>Provides information about a built in slot type.</p>
@@ -415,7 +415,7 @@ Constructs BuiltinSlotTypeMetadata from required parameters
 #### `newBuiltinSlotTypeMetadata'`
 
 ``` purescript
-newBuiltinSlotTypeMetadata' :: ({ signature :: NullOrUndefined (BuiltinSlotTypeSignature), supportedLocales :: NullOrUndefined (LocaleList) } -> { signature :: NullOrUndefined (BuiltinSlotTypeSignature), supportedLocales :: NullOrUndefined (LocaleList) }) -> BuiltinSlotTypeMetadata
+newBuiltinSlotTypeMetadata' :: ({ signature :: Maybe (BuiltinSlotTypeSignature), supportedLocales :: Maybe (LocaleList) } -> { signature :: Maybe (BuiltinSlotTypeSignature), supportedLocales :: Maybe (LocaleList) }) -> BuiltinSlotTypeMetadata
 ```
 
 Constructs BuiltinSlotTypeMetadata's fields from required parameters
@@ -538,7 +538,7 @@ Constructs CodeHook's fields from required parameters
 
 ``` purescript
 newtype ConflictException
-  = ConflictException { message :: NullOrUndefined (String) }
+  = ConflictException { message :: Maybe (String) }
 ```
 
 <p> There was a conflict processing the request. Try your request again. </p>
@@ -563,7 +563,7 @@ Constructs ConflictException from required parameters
 #### `newConflictException'`
 
 ``` purescript
-newConflictException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ConflictException
+newConflictException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ConflictException
 ```
 
 Constructs ConflictException's fields from required parameters
@@ -620,7 +620,7 @@ Encode Count
 
 ``` purescript
 newtype CreateBotVersionRequest
-  = CreateBotVersionRequest { name :: BotName, checksum :: NullOrUndefined (String) }
+  = CreateBotVersionRequest { name :: BotName, checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -643,7 +643,7 @@ Constructs CreateBotVersionRequest from required parameters
 #### `newCreateBotVersionRequest'`
 
 ``` purescript
-newCreateBotVersionRequest' :: BotName -> ({ name :: BotName, checksum :: NullOrUndefined (String) } -> { name :: BotName, checksum :: NullOrUndefined (String) }) -> CreateBotVersionRequest
+newCreateBotVersionRequest' :: BotName -> ({ name :: BotName, checksum :: Maybe (String) } -> { name :: BotName, checksum :: Maybe (String) }) -> CreateBotVersionRequest
 ```
 
 Constructs CreateBotVersionRequest's fields from required parameters
@@ -652,7 +652,7 @@ Constructs CreateBotVersionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateBotVersionResponse
-  = CreateBotVersionResponse { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean) }
+  = CreateBotVersionResponse { name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -675,7 +675,7 @@ Constructs CreateBotVersionResponse from required parameters
 #### `newCreateBotVersionResponse'`
 
 ``` purescript
-newCreateBotVersionResponse' :: ({ name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean) } -> { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean) }) -> CreateBotVersionResponse
+newCreateBotVersionResponse' :: ({ name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean) } -> { name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean) }) -> CreateBotVersionResponse
 ```
 
 Constructs CreateBotVersionResponse's fields from required parameters
@@ -684,7 +684,7 @@ Constructs CreateBotVersionResponse's fields from required parameters
 
 ``` purescript
 newtype CreateIntentVersionRequest
-  = CreateIntentVersionRequest { name :: IntentName, checksum :: NullOrUndefined (String) }
+  = CreateIntentVersionRequest { name :: IntentName, checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -707,7 +707,7 @@ Constructs CreateIntentVersionRequest from required parameters
 #### `newCreateIntentVersionRequest'`
 
 ``` purescript
-newCreateIntentVersionRequest' :: IntentName -> ({ name :: IntentName, checksum :: NullOrUndefined (String) } -> { name :: IntentName, checksum :: NullOrUndefined (String) }) -> CreateIntentVersionRequest
+newCreateIntentVersionRequest' :: IntentName -> ({ name :: IntentName, checksum :: Maybe (String) } -> { name :: IntentName, checksum :: Maybe (String) }) -> CreateIntentVersionRequest
 ```
 
 Constructs CreateIntentVersionRequest's fields from required parameters
@@ -716,7 +716,7 @@ Constructs CreateIntentVersionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateIntentVersionResponse
-  = CreateIntentVersionResponse { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String) }
+  = CreateIntentVersionResponse { name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -739,7 +739,7 @@ Constructs CreateIntentVersionResponse from required parameters
 #### `newCreateIntentVersionResponse'`
 
 ``` purescript
-newCreateIntentVersionResponse' :: ({ name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String) } -> { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String) }) -> CreateIntentVersionResponse
+newCreateIntentVersionResponse' :: ({ name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String) } -> { name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String) }) -> CreateIntentVersionResponse
 ```
 
 Constructs CreateIntentVersionResponse's fields from required parameters
@@ -748,7 +748,7 @@ Constructs CreateIntentVersionResponse's fields from required parameters
 
 ``` purescript
 newtype CreateSlotTypeVersionRequest
-  = CreateSlotTypeVersionRequest { name :: SlotTypeName, checksum :: NullOrUndefined (String) }
+  = CreateSlotTypeVersionRequest { name :: SlotTypeName, checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -771,7 +771,7 @@ Constructs CreateSlotTypeVersionRequest from required parameters
 #### `newCreateSlotTypeVersionRequest'`
 
 ``` purescript
-newCreateSlotTypeVersionRequest' :: SlotTypeName -> ({ name :: SlotTypeName, checksum :: NullOrUndefined (String) } -> { name :: SlotTypeName, checksum :: NullOrUndefined (String) }) -> CreateSlotTypeVersionRequest
+newCreateSlotTypeVersionRequest' :: SlotTypeName -> ({ name :: SlotTypeName, checksum :: Maybe (String) } -> { name :: SlotTypeName, checksum :: Maybe (String) }) -> CreateSlotTypeVersionRequest
 ```
 
 Constructs CreateSlotTypeVersionRequest's fields from required parameters
@@ -780,7 +780,7 @@ Constructs CreateSlotTypeVersionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateSlotTypeVersionResponse
-  = CreateSlotTypeVersionResponse { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy) }
+  = CreateSlotTypeVersionResponse { name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy) }
 ```
 
 ##### Instances
@@ -803,7 +803,7 @@ Constructs CreateSlotTypeVersionResponse from required parameters
 #### `newCreateSlotTypeVersionResponse'`
 
 ``` purescript
-newCreateSlotTypeVersionResponse' :: ({ name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy) } -> { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy) }) -> CreateSlotTypeVersionResponse
+newCreateSlotTypeVersionResponse' :: ({ name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy) } -> { name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy) }) -> CreateSlotTypeVersionResponse
 ```
 
 Constructs CreateSlotTypeVersionResponse's fields from required parameters
@@ -1132,7 +1132,7 @@ Encode Description
 
 ``` purescript
 newtype EnumerationValue
-  = EnumerationValue { value :: Value, synonyms :: NullOrUndefined (SynonymList) }
+  = EnumerationValue { value :: Value, synonyms :: Maybe (SynonymList) }
 ```
 
 <p>Each slot type can have a set of values. Each enumeration value represents a value the slot type can take. </p> <p>For example, a pizza ordering bot could have a slot type that specifies the type of crust that the pizza should have. The slot type could include the values </p> <ul> <li> <p>thick</p> </li> <li> <p>thin</p> </li> <li> <p>stuffed</p> </li> </ul>
@@ -1157,7 +1157,7 @@ Constructs EnumerationValue from required parameters
 #### `newEnumerationValue'`
 
 ``` purescript
-newEnumerationValue' :: Value -> ({ value :: Value, synonyms :: NullOrUndefined (SynonymList) } -> { value :: Value, synonyms :: NullOrUndefined (SynonymList) }) -> EnumerationValue
+newEnumerationValue' :: Value -> ({ value :: Value, synonyms :: Maybe (SynonymList) } -> { value :: Value, synonyms :: Maybe (SynonymList) }) -> EnumerationValue
 ```
 
 Constructs EnumerationValue's fields from required parameters
@@ -1248,7 +1248,7 @@ Constructs FollowUpPrompt's fields from required parameters
 
 ``` purescript
 newtype FulfillmentActivity
-  = FulfillmentActivity { "type" :: FulfillmentActivityType, codeHook :: NullOrUndefined (CodeHook) }
+  = FulfillmentActivity { "type" :: FulfillmentActivityType, codeHook :: Maybe (CodeHook) }
 ```
 
 <p> Describes how the intent is fulfilled after the user provides all of the information required for the intent. You can provide a Lambda function to process the intent, or you can return the intent information to the client application. We recommend that you use a Lambda function so that the relevant logic lives in the Cloud and limit the client-side code primarily to presentation. If you need to update the logic, you only update the Lambda function; you don't need to upgrade your client application. </p> <p>Consider the following examples:</p> <ul> <li> <p>In a pizza ordering application, after the user provides all of the information for placing an order, you use a Lambda function to place an order with a pizzeria. </p> </li> <li> <p>In a gaming application, when a user says "pick up a rock," this information must go back to the client application so that it can perform the operation and update the graphics. In this case, you want Amazon Lex to return the intent data to the client. </p> </li> </ul>
@@ -1273,7 +1273,7 @@ Constructs FulfillmentActivity from required parameters
 #### `newFulfillmentActivity'`
 
 ``` purescript
-newFulfillmentActivity' :: FulfillmentActivityType -> ({ "type" :: FulfillmentActivityType, codeHook :: NullOrUndefined (CodeHook) } -> { "type" :: FulfillmentActivityType, codeHook :: NullOrUndefined (CodeHook) }) -> FulfillmentActivity
+newFulfillmentActivity' :: FulfillmentActivityType -> ({ "type" :: FulfillmentActivityType, codeHook :: Maybe (CodeHook) } -> { "type" :: FulfillmentActivityType, codeHook :: Maybe (CodeHook) }) -> FulfillmentActivity
 ```
 
 Constructs FulfillmentActivity's fields from required parameters
@@ -1330,7 +1330,7 @@ Constructs GetBotAliasRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotAliasResponse
-  = GetBotAliasResponse { name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) }
+  = GetBotAliasResponse { name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1353,7 +1353,7 @@ Constructs GetBotAliasResponse from required parameters
 #### `newGetBotAliasResponse'`
 
 ``` purescript
-newGetBotAliasResponse' :: ({ name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) } -> { name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) }) -> GetBotAliasResponse
+newGetBotAliasResponse' :: ({ name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) } -> { name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) }) -> GetBotAliasResponse
 ```
 
 Constructs GetBotAliasResponse's fields from required parameters
@@ -1362,7 +1362,7 @@ Constructs GetBotAliasResponse's fields from required parameters
 
 ``` purescript
 newtype GetBotAliasesRequest
-  = GetBotAliasesRequest { botName :: BotName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (AliasName) }
+  = GetBotAliasesRequest { botName :: BotName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (AliasName) }
 ```
 
 ##### Instances
@@ -1385,7 +1385,7 @@ Constructs GetBotAliasesRequest from required parameters
 #### `newGetBotAliasesRequest'`
 
 ``` purescript
-newGetBotAliasesRequest' :: BotName -> ({ botName :: BotName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (AliasName) } -> { botName :: BotName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (AliasName) }) -> GetBotAliasesRequest
+newGetBotAliasesRequest' :: BotName -> ({ botName :: BotName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (AliasName) } -> { botName :: BotName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (AliasName) }) -> GetBotAliasesRequest
 ```
 
 Constructs GetBotAliasesRequest's fields from required parameters
@@ -1394,7 +1394,7 @@ Constructs GetBotAliasesRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotAliasesResponse
-  = GetBotAliasesResponse { "BotAliases" :: NullOrUndefined (BotAliasMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetBotAliasesResponse { "BotAliases" :: Maybe (BotAliasMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1417,7 +1417,7 @@ Constructs GetBotAliasesResponse from required parameters
 #### `newGetBotAliasesResponse'`
 
 ``` purescript
-newGetBotAliasesResponse' :: ({ "BotAliases" :: NullOrUndefined (BotAliasMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { "BotAliases" :: NullOrUndefined (BotAliasMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetBotAliasesResponse
+newGetBotAliasesResponse' :: ({ "BotAliases" :: Maybe (BotAliasMetadataList), nextToken :: Maybe (NextToken) } -> { "BotAliases" :: Maybe (BotAliasMetadataList), nextToken :: Maybe (NextToken) }) -> GetBotAliasesResponse
 ```
 
 Constructs GetBotAliasesResponse's fields from required parameters
@@ -1458,7 +1458,7 @@ Constructs GetBotChannelAssociationRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotChannelAssociationResponse
-  = GetBotChannelAssociationResponse { name :: NullOrUndefined (BotChannelName), description :: NullOrUndefined (Description), botAlias :: NullOrUndefined (AliasName), botName :: NullOrUndefined (BotName), createdDate :: NullOrUndefined (Timestamp), "type" :: NullOrUndefined (ChannelType), botConfiguration :: NullOrUndefined (ChannelConfigurationMap), status :: NullOrUndefined (ChannelStatus), failureReason :: NullOrUndefined (String) }
+  = GetBotChannelAssociationResponse { name :: Maybe (BotChannelName), description :: Maybe (Description), botAlias :: Maybe (AliasName), botName :: Maybe (BotName), createdDate :: Maybe (Timestamp), "type" :: Maybe (ChannelType), botConfiguration :: Maybe (ChannelConfigurationMap), status :: Maybe (ChannelStatus), failureReason :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1481,7 +1481,7 @@ Constructs GetBotChannelAssociationResponse from required parameters
 #### `newGetBotChannelAssociationResponse'`
 
 ``` purescript
-newGetBotChannelAssociationResponse' :: ({ name :: NullOrUndefined (BotChannelName), description :: NullOrUndefined (Description), botAlias :: NullOrUndefined (AliasName), botName :: NullOrUndefined (BotName), createdDate :: NullOrUndefined (Timestamp), "type" :: NullOrUndefined (ChannelType), botConfiguration :: NullOrUndefined (ChannelConfigurationMap), status :: NullOrUndefined (ChannelStatus), failureReason :: NullOrUndefined (String) } -> { name :: NullOrUndefined (BotChannelName), description :: NullOrUndefined (Description), botAlias :: NullOrUndefined (AliasName), botName :: NullOrUndefined (BotName), createdDate :: NullOrUndefined (Timestamp), "type" :: NullOrUndefined (ChannelType), botConfiguration :: NullOrUndefined (ChannelConfigurationMap), status :: NullOrUndefined (ChannelStatus), failureReason :: NullOrUndefined (String) }) -> GetBotChannelAssociationResponse
+newGetBotChannelAssociationResponse' :: ({ name :: Maybe (BotChannelName), description :: Maybe (Description), botAlias :: Maybe (AliasName), botName :: Maybe (BotName), createdDate :: Maybe (Timestamp), "type" :: Maybe (ChannelType), botConfiguration :: Maybe (ChannelConfigurationMap), status :: Maybe (ChannelStatus), failureReason :: Maybe (String) } -> { name :: Maybe (BotChannelName), description :: Maybe (Description), botAlias :: Maybe (AliasName), botName :: Maybe (BotName), createdDate :: Maybe (Timestamp), "type" :: Maybe (ChannelType), botConfiguration :: Maybe (ChannelConfigurationMap), status :: Maybe (ChannelStatus), failureReason :: Maybe (String) }) -> GetBotChannelAssociationResponse
 ```
 
 Constructs GetBotChannelAssociationResponse's fields from required parameters
@@ -1490,7 +1490,7 @@ Constructs GetBotChannelAssociationResponse's fields from required parameters
 
 ``` purescript
 newtype GetBotChannelAssociationsRequest
-  = GetBotChannelAssociationsRequest { botName :: BotName, botAlias :: AliasNameOrListAll, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (BotChannelName) }
+  = GetBotChannelAssociationsRequest { botName :: BotName, botAlias :: AliasNameOrListAll, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (BotChannelName) }
 ```
 
 ##### Instances
@@ -1513,7 +1513,7 @@ Constructs GetBotChannelAssociationsRequest from required parameters
 #### `newGetBotChannelAssociationsRequest'`
 
 ``` purescript
-newGetBotChannelAssociationsRequest' :: AliasNameOrListAll -> BotName -> ({ botName :: BotName, botAlias :: AliasNameOrListAll, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (BotChannelName) } -> { botName :: BotName, botAlias :: AliasNameOrListAll, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (BotChannelName) }) -> GetBotChannelAssociationsRequest
+newGetBotChannelAssociationsRequest' :: AliasNameOrListAll -> BotName -> ({ botName :: BotName, botAlias :: AliasNameOrListAll, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (BotChannelName) } -> { botName :: BotName, botAlias :: AliasNameOrListAll, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (BotChannelName) }) -> GetBotChannelAssociationsRequest
 ```
 
 Constructs GetBotChannelAssociationsRequest's fields from required parameters
@@ -1522,7 +1522,7 @@ Constructs GetBotChannelAssociationsRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotChannelAssociationsResponse
-  = GetBotChannelAssociationsResponse { botChannelAssociations :: NullOrUndefined (BotChannelAssociationList), nextToken :: NullOrUndefined (NextToken) }
+  = GetBotChannelAssociationsResponse { botChannelAssociations :: Maybe (BotChannelAssociationList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1545,7 +1545,7 @@ Constructs GetBotChannelAssociationsResponse from required parameters
 #### `newGetBotChannelAssociationsResponse'`
 
 ``` purescript
-newGetBotChannelAssociationsResponse' :: ({ botChannelAssociations :: NullOrUndefined (BotChannelAssociationList), nextToken :: NullOrUndefined (NextToken) } -> { botChannelAssociations :: NullOrUndefined (BotChannelAssociationList), nextToken :: NullOrUndefined (NextToken) }) -> GetBotChannelAssociationsResponse
+newGetBotChannelAssociationsResponse' :: ({ botChannelAssociations :: Maybe (BotChannelAssociationList), nextToken :: Maybe (NextToken) } -> { botChannelAssociations :: Maybe (BotChannelAssociationList), nextToken :: Maybe (NextToken) }) -> GetBotChannelAssociationsResponse
 ```
 
 Constructs GetBotChannelAssociationsResponse's fields from required parameters
@@ -1586,7 +1586,7 @@ Constructs GetBotRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotResponse
-  = GetBotResponse { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean) }
+  = GetBotResponse { name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -1609,7 +1609,7 @@ Constructs GetBotResponse from required parameters
 #### `newGetBotResponse'`
 
 ``` purescript
-newGetBotResponse' :: ({ name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean) } -> { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean) }) -> GetBotResponse
+newGetBotResponse' :: ({ name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean) } -> { name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean) }) -> GetBotResponse
 ```
 
 Constructs GetBotResponse's fields from required parameters
@@ -1618,7 +1618,7 @@ Constructs GetBotResponse's fields from required parameters
 
 ``` purescript
 newtype GetBotVersionsRequest
-  = GetBotVersionsRequest { name :: BotName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }
+  = GetBotVersionsRequest { name :: BotName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1641,7 +1641,7 @@ Constructs GetBotVersionsRequest from required parameters
 #### `newGetBotVersionsRequest'`
 
 ``` purescript
-newGetBotVersionsRequest' :: BotName -> ({ name :: BotName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) } -> { name :: BotName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }) -> GetBotVersionsRequest
+newGetBotVersionsRequest' :: BotName -> ({ name :: BotName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) } -> { name :: BotName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }) -> GetBotVersionsRequest
 ```
 
 Constructs GetBotVersionsRequest's fields from required parameters
@@ -1650,7 +1650,7 @@ Constructs GetBotVersionsRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotVersionsResponse
-  = GetBotVersionsResponse { bots :: NullOrUndefined (BotMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetBotVersionsResponse { bots :: Maybe (BotMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1673,7 +1673,7 @@ Constructs GetBotVersionsResponse from required parameters
 #### `newGetBotVersionsResponse'`
 
 ``` purescript
-newGetBotVersionsResponse' :: ({ bots :: NullOrUndefined (BotMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { bots :: NullOrUndefined (BotMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetBotVersionsResponse
+newGetBotVersionsResponse' :: ({ bots :: Maybe (BotMetadataList), nextToken :: Maybe (NextToken) } -> { bots :: Maybe (BotMetadataList), nextToken :: Maybe (NextToken) }) -> GetBotVersionsResponse
 ```
 
 Constructs GetBotVersionsResponse's fields from required parameters
@@ -1682,7 +1682,7 @@ Constructs GetBotVersionsResponse's fields from required parameters
 
 ``` purescript
 newtype GetBotsRequest
-  = GetBotsRequest { nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (BotName) }
+  = GetBotsRequest { nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (BotName) }
 ```
 
 ##### Instances
@@ -1705,7 +1705,7 @@ Constructs GetBotsRequest from required parameters
 #### `newGetBotsRequest'`
 
 ``` purescript
-newGetBotsRequest' :: ({ nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (BotName) } -> { nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (BotName) }) -> GetBotsRequest
+newGetBotsRequest' :: ({ nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (BotName) } -> { nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (BotName) }) -> GetBotsRequest
 ```
 
 Constructs GetBotsRequest's fields from required parameters
@@ -1714,7 +1714,7 @@ Constructs GetBotsRequest's fields from required parameters
 
 ``` purescript
 newtype GetBotsResponse
-  = GetBotsResponse { bots :: NullOrUndefined (BotMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetBotsResponse { bots :: Maybe (BotMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1737,7 +1737,7 @@ Constructs GetBotsResponse from required parameters
 #### `newGetBotsResponse'`
 
 ``` purescript
-newGetBotsResponse' :: ({ bots :: NullOrUndefined (BotMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { bots :: NullOrUndefined (BotMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetBotsResponse
+newGetBotsResponse' :: ({ bots :: Maybe (BotMetadataList), nextToken :: Maybe (NextToken) } -> { bots :: Maybe (BotMetadataList), nextToken :: Maybe (NextToken) }) -> GetBotsResponse
 ```
 
 Constructs GetBotsResponse's fields from required parameters
@@ -1778,7 +1778,7 @@ Constructs GetBuiltinIntentRequest's fields from required parameters
 
 ``` purescript
 newtype GetBuiltinIntentResponse
-  = GetBuiltinIntentResponse { signature :: NullOrUndefined (BuiltinIntentSignature), supportedLocales :: NullOrUndefined (LocaleList), slots :: NullOrUndefined (BuiltinIntentSlotList) }
+  = GetBuiltinIntentResponse { signature :: Maybe (BuiltinIntentSignature), supportedLocales :: Maybe (LocaleList), slots :: Maybe (BuiltinIntentSlotList) }
 ```
 
 ##### Instances
@@ -1801,7 +1801,7 @@ Constructs GetBuiltinIntentResponse from required parameters
 #### `newGetBuiltinIntentResponse'`
 
 ``` purescript
-newGetBuiltinIntentResponse' :: ({ signature :: NullOrUndefined (BuiltinIntentSignature), supportedLocales :: NullOrUndefined (LocaleList), slots :: NullOrUndefined (BuiltinIntentSlotList) } -> { signature :: NullOrUndefined (BuiltinIntentSignature), supportedLocales :: NullOrUndefined (LocaleList), slots :: NullOrUndefined (BuiltinIntentSlotList) }) -> GetBuiltinIntentResponse
+newGetBuiltinIntentResponse' :: ({ signature :: Maybe (BuiltinIntentSignature), supportedLocales :: Maybe (LocaleList), slots :: Maybe (BuiltinIntentSlotList) } -> { signature :: Maybe (BuiltinIntentSignature), supportedLocales :: Maybe (LocaleList), slots :: Maybe (BuiltinIntentSlotList) }) -> GetBuiltinIntentResponse
 ```
 
 Constructs GetBuiltinIntentResponse's fields from required parameters
@@ -1810,7 +1810,7 @@ Constructs GetBuiltinIntentResponse's fields from required parameters
 
 ``` purescript
 newtype GetBuiltinIntentsRequest
-  = GetBuiltinIntentsRequest { locale :: NullOrUndefined (Locale), signatureContains :: NullOrUndefined (String), nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }
+  = GetBuiltinIntentsRequest { locale :: Maybe (Locale), signatureContains :: Maybe (String), nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1833,7 +1833,7 @@ Constructs GetBuiltinIntentsRequest from required parameters
 #### `newGetBuiltinIntentsRequest'`
 
 ``` purescript
-newGetBuiltinIntentsRequest' :: ({ locale :: NullOrUndefined (Locale), signatureContains :: NullOrUndefined (String), nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) } -> { locale :: NullOrUndefined (Locale), signatureContains :: NullOrUndefined (String), nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }) -> GetBuiltinIntentsRequest
+newGetBuiltinIntentsRequest' :: ({ locale :: Maybe (Locale), signatureContains :: Maybe (String), nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) } -> { locale :: Maybe (Locale), signatureContains :: Maybe (String), nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }) -> GetBuiltinIntentsRequest
 ```
 
 Constructs GetBuiltinIntentsRequest's fields from required parameters
@@ -1842,7 +1842,7 @@ Constructs GetBuiltinIntentsRequest's fields from required parameters
 
 ``` purescript
 newtype GetBuiltinIntentsResponse
-  = GetBuiltinIntentsResponse { intents :: NullOrUndefined (BuiltinIntentMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetBuiltinIntentsResponse { intents :: Maybe (BuiltinIntentMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1865,7 +1865,7 @@ Constructs GetBuiltinIntentsResponse from required parameters
 #### `newGetBuiltinIntentsResponse'`
 
 ``` purescript
-newGetBuiltinIntentsResponse' :: ({ intents :: NullOrUndefined (BuiltinIntentMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { intents :: NullOrUndefined (BuiltinIntentMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetBuiltinIntentsResponse
+newGetBuiltinIntentsResponse' :: ({ intents :: Maybe (BuiltinIntentMetadataList), nextToken :: Maybe (NextToken) } -> { intents :: Maybe (BuiltinIntentMetadataList), nextToken :: Maybe (NextToken) }) -> GetBuiltinIntentsResponse
 ```
 
 Constructs GetBuiltinIntentsResponse's fields from required parameters
@@ -1874,7 +1874,7 @@ Constructs GetBuiltinIntentsResponse's fields from required parameters
 
 ``` purescript
 newtype GetBuiltinSlotTypesRequest
-  = GetBuiltinSlotTypesRequest { locale :: NullOrUndefined (Locale), signatureContains :: NullOrUndefined (String), nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }
+  = GetBuiltinSlotTypesRequest { locale :: Maybe (Locale), signatureContains :: Maybe (String), nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -1897,7 +1897,7 @@ Constructs GetBuiltinSlotTypesRequest from required parameters
 #### `newGetBuiltinSlotTypesRequest'`
 
 ``` purescript
-newGetBuiltinSlotTypesRequest' :: ({ locale :: NullOrUndefined (Locale), signatureContains :: NullOrUndefined (String), nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) } -> { locale :: NullOrUndefined (Locale), signatureContains :: NullOrUndefined (String), nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }) -> GetBuiltinSlotTypesRequest
+newGetBuiltinSlotTypesRequest' :: ({ locale :: Maybe (Locale), signatureContains :: Maybe (String), nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) } -> { locale :: Maybe (Locale), signatureContains :: Maybe (String), nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }) -> GetBuiltinSlotTypesRequest
 ```
 
 Constructs GetBuiltinSlotTypesRequest's fields from required parameters
@@ -1906,7 +1906,7 @@ Constructs GetBuiltinSlotTypesRequest's fields from required parameters
 
 ``` purescript
 newtype GetBuiltinSlotTypesResponse
-  = GetBuiltinSlotTypesResponse { slotTypes :: NullOrUndefined (BuiltinSlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetBuiltinSlotTypesResponse { slotTypes :: Maybe (BuiltinSlotTypeMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1929,7 +1929,7 @@ Constructs GetBuiltinSlotTypesResponse from required parameters
 #### `newGetBuiltinSlotTypesResponse'`
 
 ``` purescript
-newGetBuiltinSlotTypesResponse' :: ({ slotTypes :: NullOrUndefined (BuiltinSlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { slotTypes :: NullOrUndefined (BuiltinSlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetBuiltinSlotTypesResponse
+newGetBuiltinSlotTypesResponse' :: ({ slotTypes :: Maybe (BuiltinSlotTypeMetadataList), nextToken :: Maybe (NextToken) } -> { slotTypes :: Maybe (BuiltinSlotTypeMetadataList), nextToken :: Maybe (NextToken) }) -> GetBuiltinSlotTypesResponse
 ```
 
 Constructs GetBuiltinSlotTypesResponse's fields from required parameters
@@ -1970,7 +1970,7 @@ Constructs GetExportRequest's fields from required parameters
 
 ``` purescript
 newtype GetExportResponse
-  = GetExportResponse { name :: NullOrUndefined (Name), version :: NullOrUndefined (NumericalVersion), resourceType :: NullOrUndefined (ResourceType), exportType :: NullOrUndefined (ExportType), exportStatus :: NullOrUndefined (ExportStatus), failureReason :: NullOrUndefined (String), url :: NullOrUndefined (String) }
+  = GetExportResponse { name :: Maybe (Name), version :: Maybe (NumericalVersion), resourceType :: Maybe (ResourceType), exportType :: Maybe (ExportType), exportStatus :: Maybe (ExportStatus), failureReason :: Maybe (String), url :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1993,7 +1993,7 @@ Constructs GetExportResponse from required parameters
 #### `newGetExportResponse'`
 
 ``` purescript
-newGetExportResponse' :: ({ name :: NullOrUndefined (Name), version :: NullOrUndefined (NumericalVersion), resourceType :: NullOrUndefined (ResourceType), exportType :: NullOrUndefined (ExportType), exportStatus :: NullOrUndefined (ExportStatus), failureReason :: NullOrUndefined (String), url :: NullOrUndefined (String) } -> { name :: NullOrUndefined (Name), version :: NullOrUndefined (NumericalVersion), resourceType :: NullOrUndefined (ResourceType), exportType :: NullOrUndefined (ExportType), exportStatus :: NullOrUndefined (ExportStatus), failureReason :: NullOrUndefined (String), url :: NullOrUndefined (String) }) -> GetExportResponse
+newGetExportResponse' :: ({ name :: Maybe (Name), version :: Maybe (NumericalVersion), resourceType :: Maybe (ResourceType), exportType :: Maybe (ExportType), exportStatus :: Maybe (ExportStatus), failureReason :: Maybe (String), url :: Maybe (String) } -> { name :: Maybe (Name), version :: Maybe (NumericalVersion), resourceType :: Maybe (ResourceType), exportType :: Maybe (ExportType), exportStatus :: Maybe (ExportStatus), failureReason :: Maybe (String), url :: Maybe (String) }) -> GetExportResponse
 ```
 
 Constructs GetExportResponse's fields from required parameters
@@ -2034,7 +2034,7 @@ Constructs GetImportRequest's fields from required parameters
 
 ``` purescript
 newtype GetImportResponse
-  = GetImportResponse { name :: NullOrUndefined (Name), resourceType :: NullOrUndefined (ResourceType), mergeStrategy :: NullOrUndefined (MergeStrategy), importId :: NullOrUndefined (String), importStatus :: NullOrUndefined (ImportStatus), failureReason :: NullOrUndefined (StringList), createdDate :: NullOrUndefined (Timestamp) }
+  = GetImportResponse { name :: Maybe (Name), resourceType :: Maybe (ResourceType), mergeStrategy :: Maybe (MergeStrategy), importId :: Maybe (String), importStatus :: Maybe (ImportStatus), failureReason :: Maybe (StringList), createdDate :: Maybe (Timestamp) }
 ```
 
 ##### Instances
@@ -2057,7 +2057,7 @@ Constructs GetImportResponse from required parameters
 #### `newGetImportResponse'`
 
 ``` purescript
-newGetImportResponse' :: ({ name :: NullOrUndefined (Name), resourceType :: NullOrUndefined (ResourceType), mergeStrategy :: NullOrUndefined (MergeStrategy), importId :: NullOrUndefined (String), importStatus :: NullOrUndefined (ImportStatus), failureReason :: NullOrUndefined (StringList), createdDate :: NullOrUndefined (Timestamp) } -> { name :: NullOrUndefined (Name), resourceType :: NullOrUndefined (ResourceType), mergeStrategy :: NullOrUndefined (MergeStrategy), importId :: NullOrUndefined (String), importStatus :: NullOrUndefined (ImportStatus), failureReason :: NullOrUndefined (StringList), createdDate :: NullOrUndefined (Timestamp) }) -> GetImportResponse
+newGetImportResponse' :: ({ name :: Maybe (Name), resourceType :: Maybe (ResourceType), mergeStrategy :: Maybe (MergeStrategy), importId :: Maybe (String), importStatus :: Maybe (ImportStatus), failureReason :: Maybe (StringList), createdDate :: Maybe (Timestamp) } -> { name :: Maybe (Name), resourceType :: Maybe (ResourceType), mergeStrategy :: Maybe (MergeStrategy), importId :: Maybe (String), importStatus :: Maybe (ImportStatus), failureReason :: Maybe (StringList), createdDate :: Maybe (Timestamp) }) -> GetImportResponse
 ```
 
 Constructs GetImportResponse's fields from required parameters
@@ -2098,7 +2098,7 @@ Constructs GetIntentRequest's fields from required parameters
 
 ``` purescript
 newtype GetIntentResponse
-  = GetIntentResponse { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String) }
+  = GetIntentResponse { name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2121,7 +2121,7 @@ Constructs GetIntentResponse from required parameters
 #### `newGetIntentResponse'`
 
 ``` purescript
-newGetIntentResponse' :: ({ name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String) } -> { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String) }) -> GetIntentResponse
+newGetIntentResponse' :: ({ name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String) } -> { name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String) }) -> GetIntentResponse
 ```
 
 Constructs GetIntentResponse's fields from required parameters
@@ -2130,7 +2130,7 @@ Constructs GetIntentResponse's fields from required parameters
 
 ``` purescript
 newtype GetIntentVersionsRequest
-  = GetIntentVersionsRequest { name :: IntentName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }
+  = GetIntentVersionsRequest { name :: IntentName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -2153,7 +2153,7 @@ Constructs GetIntentVersionsRequest from required parameters
 #### `newGetIntentVersionsRequest'`
 
 ``` purescript
-newGetIntentVersionsRequest' :: IntentName -> ({ name :: IntentName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) } -> { name :: IntentName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }) -> GetIntentVersionsRequest
+newGetIntentVersionsRequest' :: IntentName -> ({ name :: IntentName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) } -> { name :: IntentName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }) -> GetIntentVersionsRequest
 ```
 
 Constructs GetIntentVersionsRequest's fields from required parameters
@@ -2162,7 +2162,7 @@ Constructs GetIntentVersionsRequest's fields from required parameters
 
 ``` purescript
 newtype GetIntentVersionsResponse
-  = GetIntentVersionsResponse { intents :: NullOrUndefined (IntentMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetIntentVersionsResponse { intents :: Maybe (IntentMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -2185,7 +2185,7 @@ Constructs GetIntentVersionsResponse from required parameters
 #### `newGetIntentVersionsResponse'`
 
 ``` purescript
-newGetIntentVersionsResponse' :: ({ intents :: NullOrUndefined (IntentMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { intents :: NullOrUndefined (IntentMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetIntentVersionsResponse
+newGetIntentVersionsResponse' :: ({ intents :: Maybe (IntentMetadataList), nextToken :: Maybe (NextToken) } -> { intents :: Maybe (IntentMetadataList), nextToken :: Maybe (NextToken) }) -> GetIntentVersionsResponse
 ```
 
 Constructs GetIntentVersionsResponse's fields from required parameters
@@ -2194,7 +2194,7 @@ Constructs GetIntentVersionsResponse's fields from required parameters
 
 ``` purescript
 newtype GetIntentsRequest
-  = GetIntentsRequest { nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (IntentName) }
+  = GetIntentsRequest { nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (IntentName) }
 ```
 
 ##### Instances
@@ -2217,7 +2217,7 @@ Constructs GetIntentsRequest from required parameters
 #### `newGetIntentsRequest'`
 
 ``` purescript
-newGetIntentsRequest' :: ({ nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (IntentName) } -> { nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (IntentName) }) -> GetIntentsRequest
+newGetIntentsRequest' :: ({ nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (IntentName) } -> { nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (IntentName) }) -> GetIntentsRequest
 ```
 
 Constructs GetIntentsRequest's fields from required parameters
@@ -2226,7 +2226,7 @@ Constructs GetIntentsRequest's fields from required parameters
 
 ``` purescript
 newtype GetIntentsResponse
-  = GetIntentsResponse { intents :: NullOrUndefined (IntentMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetIntentsResponse { intents :: Maybe (IntentMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -2249,7 +2249,7 @@ Constructs GetIntentsResponse from required parameters
 #### `newGetIntentsResponse'`
 
 ``` purescript
-newGetIntentsResponse' :: ({ intents :: NullOrUndefined (IntentMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { intents :: NullOrUndefined (IntentMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetIntentsResponse
+newGetIntentsResponse' :: ({ intents :: Maybe (IntentMetadataList), nextToken :: Maybe (NextToken) } -> { intents :: Maybe (IntentMetadataList), nextToken :: Maybe (NextToken) }) -> GetIntentsResponse
 ```
 
 Constructs GetIntentsResponse's fields from required parameters
@@ -2290,7 +2290,7 @@ Constructs GetSlotTypeRequest's fields from required parameters
 
 ``` purescript
 newtype GetSlotTypeResponse
-  = GetSlotTypeResponse { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy) }
+  = GetSlotTypeResponse { name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy) }
 ```
 
 ##### Instances
@@ -2313,7 +2313,7 @@ Constructs GetSlotTypeResponse from required parameters
 #### `newGetSlotTypeResponse'`
 
 ``` purescript
-newGetSlotTypeResponse' :: ({ name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy) } -> { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy) }) -> GetSlotTypeResponse
+newGetSlotTypeResponse' :: ({ name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy) } -> { name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy) }) -> GetSlotTypeResponse
 ```
 
 Constructs GetSlotTypeResponse's fields from required parameters
@@ -2322,7 +2322,7 @@ Constructs GetSlotTypeResponse's fields from required parameters
 
 ``` purescript
 newtype GetSlotTypeVersionsRequest
-  = GetSlotTypeVersionsRequest { name :: SlotTypeName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }
+  = GetSlotTypeVersionsRequest { name :: SlotTypeName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -2345,7 +2345,7 @@ Constructs GetSlotTypeVersionsRequest from required parameters
 #### `newGetSlotTypeVersionsRequest'`
 
 ``` purescript
-newGetSlotTypeVersionsRequest' :: SlotTypeName -> ({ name :: SlotTypeName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) } -> { name :: SlotTypeName, nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults) }) -> GetSlotTypeVersionsRequest
+newGetSlotTypeVersionsRequest' :: SlotTypeName -> ({ name :: SlotTypeName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) } -> { name :: SlotTypeName, nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults) }) -> GetSlotTypeVersionsRequest
 ```
 
 Constructs GetSlotTypeVersionsRequest's fields from required parameters
@@ -2354,7 +2354,7 @@ Constructs GetSlotTypeVersionsRequest's fields from required parameters
 
 ``` purescript
 newtype GetSlotTypeVersionsResponse
-  = GetSlotTypeVersionsResponse { slotTypes :: NullOrUndefined (SlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetSlotTypeVersionsResponse { slotTypes :: Maybe (SlotTypeMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -2377,7 +2377,7 @@ Constructs GetSlotTypeVersionsResponse from required parameters
 #### `newGetSlotTypeVersionsResponse'`
 
 ``` purescript
-newGetSlotTypeVersionsResponse' :: ({ slotTypes :: NullOrUndefined (SlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { slotTypes :: NullOrUndefined (SlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetSlotTypeVersionsResponse
+newGetSlotTypeVersionsResponse' :: ({ slotTypes :: Maybe (SlotTypeMetadataList), nextToken :: Maybe (NextToken) } -> { slotTypes :: Maybe (SlotTypeMetadataList), nextToken :: Maybe (NextToken) }) -> GetSlotTypeVersionsResponse
 ```
 
 Constructs GetSlotTypeVersionsResponse's fields from required parameters
@@ -2386,7 +2386,7 @@ Constructs GetSlotTypeVersionsResponse's fields from required parameters
 
 ``` purescript
 newtype GetSlotTypesRequest
-  = GetSlotTypesRequest { nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (SlotTypeName) }
+  = GetSlotTypesRequest { nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (SlotTypeName) }
 ```
 
 ##### Instances
@@ -2409,7 +2409,7 @@ Constructs GetSlotTypesRequest from required parameters
 #### `newGetSlotTypesRequest'`
 
 ``` purescript
-newGetSlotTypesRequest' :: ({ nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (SlotTypeName) } -> { nextToken :: NullOrUndefined (NextToken), maxResults :: NullOrUndefined (MaxResults), nameContains :: NullOrUndefined (SlotTypeName) }) -> GetSlotTypesRequest
+newGetSlotTypesRequest' :: ({ nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (SlotTypeName) } -> { nextToken :: Maybe (NextToken), maxResults :: Maybe (MaxResults), nameContains :: Maybe (SlotTypeName) }) -> GetSlotTypesRequest
 ```
 
 Constructs GetSlotTypesRequest's fields from required parameters
@@ -2418,7 +2418,7 @@ Constructs GetSlotTypesRequest's fields from required parameters
 
 ``` purescript
 newtype GetSlotTypesResponse
-  = GetSlotTypesResponse { slotTypes :: NullOrUndefined (SlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) }
+  = GetSlotTypesResponse { slotTypes :: Maybe (SlotTypeMetadataList), nextToken :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -2441,7 +2441,7 @@ Constructs GetSlotTypesResponse from required parameters
 #### `newGetSlotTypesResponse'`
 
 ``` purescript
-newGetSlotTypesResponse' :: ({ slotTypes :: NullOrUndefined (SlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) } -> { slotTypes :: NullOrUndefined (SlotTypeMetadataList), nextToken :: NullOrUndefined (NextToken) }) -> GetSlotTypesResponse
+newGetSlotTypesResponse' :: ({ slotTypes :: Maybe (SlotTypeMetadataList), nextToken :: Maybe (NextToken) } -> { slotTypes :: Maybe (SlotTypeMetadataList), nextToken :: Maybe (NextToken) }) -> GetSlotTypesResponse
 ```
 
 Constructs GetSlotTypesResponse's fields from required parameters
@@ -2482,7 +2482,7 @@ Constructs GetUtterancesViewRequest's fields from required parameters
 
 ``` purescript
 newtype GetUtterancesViewResponse
-  = GetUtterancesViewResponse { botName :: NullOrUndefined (BotName), utterances :: NullOrUndefined (ListsOfUtterances) }
+  = GetUtterancesViewResponse { botName :: Maybe (BotName), utterances :: Maybe (ListsOfUtterances) }
 ```
 
 ##### Instances
@@ -2505,7 +2505,7 @@ Constructs GetUtterancesViewResponse from required parameters
 #### `newGetUtterancesViewResponse'`
 
 ``` purescript
-newGetUtterancesViewResponse' :: ({ botName :: NullOrUndefined (BotName), utterances :: NullOrUndefined (ListsOfUtterances) } -> { botName :: NullOrUndefined (BotName), utterances :: NullOrUndefined (ListsOfUtterances) }) -> GetUtterancesViewResponse
+newGetUtterancesViewResponse' :: ({ botName :: Maybe (BotName), utterances :: Maybe (ListsOfUtterances) } -> { botName :: Maybe (BotName), utterances :: Maybe (ListsOfUtterances) }) -> GetUtterancesViewResponse
 ```
 
 Constructs GetUtterancesViewResponse's fields from required parameters
@@ -2596,7 +2596,7 @@ Encode IntentList
 
 ``` purescript
 newtype IntentMetadata
-  = IntentMetadata { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) }
+  = IntentMetadata { name :: Maybe (IntentName), description :: Maybe (Description), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) }
 ```
 
 <p>Provides information about an intent.</p>
@@ -2621,7 +2621,7 @@ Constructs IntentMetadata from required parameters
 #### `newIntentMetadata'`
 
 ``` purescript
-newIntentMetadata' :: ({ name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) } -> { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) }) -> IntentMetadata
+newIntentMetadata' :: ({ name :: Maybe (IntentName), description :: Maybe (Description), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) } -> { name :: Maybe (IntentName), description :: Maybe (Description), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) }) -> IntentMetadata
 ```
 
 Constructs IntentMetadata's fields from required parameters
@@ -2678,7 +2678,7 @@ Encode IntentUtteranceList
 
 ``` purescript
 newtype InternalFailureException
-  = InternalFailureException { message :: NullOrUndefined (String) }
+  = InternalFailureException { message :: Maybe (String) }
 ```
 
 <p>An internal Amazon Lex error occurred. Try your request again.</p>
@@ -2703,7 +2703,7 @@ Constructs InternalFailureException from required parameters
 #### `newInternalFailureException'`
 
 ``` purescript
-newInternalFailureException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> InternalFailureException
+newInternalFailureException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> InternalFailureException
 ```
 
 Constructs InternalFailureException's fields from required parameters
@@ -2728,7 +2728,7 @@ Encode LambdaARN
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }
+  = LimitExceededException { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }
 ```
 
 <p>The request exceeded a limit. Try your request again.</p>
@@ -2753,7 +2753,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) } -> { retryAfterSeconds :: NullOrUndefined (String), message :: NullOrUndefined (String) }) -> LimitExceededException
+newLimitExceededException' :: ({ retryAfterSeconds :: Maybe (String), message :: Maybe (String) } -> { retryAfterSeconds :: Maybe (String), message :: Maybe (String) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -2858,7 +2858,7 @@ Encode MergeStrategy
 
 ``` purescript
 newtype Message
-  = Message { contentType :: ContentType, content :: ContentString, groupNumber :: NullOrUndefined (GroupNumber) }
+  = Message { contentType :: ContentType, content :: ContentString, groupNumber :: Maybe (GroupNumber) }
 ```
 
 <p>The message object that provides the message text and its type.</p>
@@ -2883,7 +2883,7 @@ Constructs Message from required parameters
 #### `newMessage'`
 
 ``` purescript
-newMessage' :: ContentString -> ContentType -> ({ contentType :: ContentType, content :: ContentString, groupNumber :: NullOrUndefined (GroupNumber) } -> { contentType :: ContentType, content :: ContentString, groupNumber :: NullOrUndefined (GroupNumber) }) -> Message
+newMessage' :: ContentString -> ContentType -> ({ contentType :: ContentType, content :: ContentString, groupNumber :: Maybe (GroupNumber) } -> { contentType :: ContentType, content :: ContentString, groupNumber :: Maybe (GroupNumber) }) -> Message
 ```
 
 Constructs Message's fields from required parameters
@@ -2956,7 +2956,7 @@ Encode NextToken
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { message :: NullOrUndefined (String) }
+  = NotFoundException { message :: Maybe (String) }
 ```
 
 <p>The resource specified in the request was not found. Check the resource and try again.</p>
@@ -2981,7 +2981,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> NotFoundException
+newNotFoundException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -3006,7 +3006,7 @@ Encode NumericalVersion
 
 ``` purescript
 newtype PreconditionFailedException
-  = PreconditionFailedException { message :: NullOrUndefined (String) }
+  = PreconditionFailedException { message :: Maybe (String) }
 ```
 
 <p> The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.</p>
@@ -3031,7 +3031,7 @@ Constructs PreconditionFailedException from required parameters
 #### `newPreconditionFailedException'`
 
 ``` purescript
-newPreconditionFailedException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> PreconditionFailedException
+newPreconditionFailedException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> PreconditionFailedException
 ```
 
 Constructs PreconditionFailedException's fields from required parameters
@@ -3072,7 +3072,7 @@ Encode ProcessBehavior
 
 ``` purescript
 newtype Prompt
-  = Prompt { messages :: MessageList, maxAttempts :: PromptMaxAttempts, responseCard :: NullOrUndefined (ResponseCard) }
+  = Prompt { messages :: MessageList, maxAttempts :: PromptMaxAttempts, responseCard :: Maybe (ResponseCard) }
 ```
 
 <p>Obtains information from the user. To define a prompt, provide one or more messages and specify the number of attempts to get information from the user. If you provide more than one message, Amazon Lex chooses one of the messages to use to prompt the user. For more information, see <a>how-it-works</a>.</p>
@@ -3097,7 +3097,7 @@ Constructs Prompt from required parameters
 #### `newPrompt'`
 
 ``` purescript
-newPrompt' :: PromptMaxAttempts -> MessageList -> ({ messages :: MessageList, maxAttempts :: PromptMaxAttempts, responseCard :: NullOrUndefined (ResponseCard) } -> { messages :: MessageList, maxAttempts :: PromptMaxAttempts, responseCard :: NullOrUndefined (ResponseCard) }) -> Prompt
+newPrompt' :: PromptMaxAttempts -> MessageList -> ({ messages :: MessageList, maxAttempts :: PromptMaxAttempts, responseCard :: Maybe (ResponseCard) } -> { messages :: MessageList, maxAttempts :: PromptMaxAttempts, responseCard :: Maybe (ResponseCard) }) -> Prompt
 ```
 
 Constructs Prompt's fields from required parameters
@@ -3122,7 +3122,7 @@ Encode PromptMaxAttempts
 
 ``` purescript
 newtype PutBotAliasRequest
-  = PutBotAliasRequest { name :: AliasName, description :: NullOrUndefined (Description), botVersion :: Version, botName :: BotName, checksum :: NullOrUndefined (String) }
+  = PutBotAliasRequest { name :: AliasName, description :: Maybe (Description), botVersion :: Version, botName :: BotName, checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -3145,7 +3145,7 @@ Constructs PutBotAliasRequest from required parameters
 #### `newPutBotAliasRequest'`
 
 ``` purescript
-newPutBotAliasRequest' :: BotName -> Version -> AliasName -> ({ name :: AliasName, description :: NullOrUndefined (Description), botVersion :: Version, botName :: BotName, checksum :: NullOrUndefined (String) } -> { name :: AliasName, description :: NullOrUndefined (Description), botVersion :: Version, botName :: BotName, checksum :: NullOrUndefined (String) }) -> PutBotAliasRequest
+newPutBotAliasRequest' :: BotName -> Version -> AliasName -> ({ name :: AliasName, description :: Maybe (Description), botVersion :: Version, botName :: BotName, checksum :: Maybe (String) } -> { name :: AliasName, description :: Maybe (Description), botVersion :: Version, botName :: BotName, checksum :: Maybe (String) }) -> PutBotAliasRequest
 ```
 
 Constructs PutBotAliasRequest's fields from required parameters
@@ -3154,7 +3154,7 @@ Constructs PutBotAliasRequest's fields from required parameters
 
 ``` purescript
 newtype PutBotAliasResponse
-  = PutBotAliasResponse { name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) }
+  = PutBotAliasResponse { name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) }
 ```
 
 ##### Instances
@@ -3177,7 +3177,7 @@ Constructs PutBotAliasResponse from required parameters
 #### `newPutBotAliasResponse'`
 
 ``` purescript
-newPutBotAliasResponse' :: ({ name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) } -> { name :: NullOrUndefined (AliasName), description :: NullOrUndefined (Description), botVersion :: NullOrUndefined (Version), botName :: NullOrUndefined (BotName), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), checksum :: NullOrUndefined (String) }) -> PutBotAliasResponse
+newPutBotAliasResponse' :: ({ name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) } -> { name :: Maybe (AliasName), description :: Maybe (Description), botVersion :: Maybe (Version), botName :: Maybe (BotName), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), checksum :: Maybe (String) }) -> PutBotAliasResponse
 ```
 
 Constructs PutBotAliasResponse's fields from required parameters
@@ -3186,7 +3186,7 @@ Constructs PutBotAliasResponse's fields from required parameters
 
 ``` purescript
 newtype PutBotRequest
-  = PutBotRequest { name :: BotName, description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), processBehavior :: NullOrUndefined (ProcessBehavior), locale :: Locale, childDirected :: Boolean, createVersion :: NullOrUndefined (Boolean) }
+  = PutBotRequest { name :: BotName, description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), processBehavior :: Maybe (ProcessBehavior), locale :: Locale, childDirected :: Boolean, createVersion :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3209,7 +3209,7 @@ Constructs PutBotRequest from required parameters
 #### `newPutBotRequest'`
 
 ``` purescript
-newPutBotRequest' :: Boolean -> Locale -> BotName -> ({ name :: BotName, description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), processBehavior :: NullOrUndefined (ProcessBehavior), locale :: Locale, childDirected :: Boolean, createVersion :: NullOrUndefined (Boolean) } -> { name :: BotName, description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), processBehavior :: NullOrUndefined (ProcessBehavior), locale :: Locale, childDirected :: Boolean, createVersion :: NullOrUndefined (Boolean) }) -> PutBotRequest
+newPutBotRequest' :: Boolean -> Locale -> BotName -> ({ name :: BotName, description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), processBehavior :: Maybe (ProcessBehavior), locale :: Locale, childDirected :: Boolean, createVersion :: Maybe (Boolean) } -> { name :: BotName, description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), processBehavior :: Maybe (ProcessBehavior), locale :: Locale, childDirected :: Boolean, createVersion :: Maybe (Boolean) }) -> PutBotRequest
 ```
 
 Constructs PutBotRequest's fields from required parameters
@@ -3218,7 +3218,7 @@ Constructs PutBotRequest's fields from required parameters
 
 ``` purescript
 newtype PutBotResponse
-  = PutBotResponse { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean), createVersion :: NullOrUndefined (Boolean) }
+  = PutBotResponse { name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean), createVersion :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3241,7 +3241,7 @@ Constructs PutBotResponse from required parameters
 #### `newPutBotResponse'`
 
 ``` purescript
-newPutBotResponse' :: ({ name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean), createVersion :: NullOrUndefined (Boolean) } -> { name :: NullOrUndefined (BotName), description :: NullOrUndefined (Description), intents :: NullOrUndefined (IntentList), clarificationPrompt :: NullOrUndefined (Prompt), abortStatement :: NullOrUndefined (Statement), status :: NullOrUndefined (Status), failureReason :: NullOrUndefined (String), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), idleSessionTTLInSeconds :: NullOrUndefined (SessionTTL), voiceId :: NullOrUndefined (String), checksum :: NullOrUndefined (String), version :: NullOrUndefined (Version), locale :: NullOrUndefined (Locale), childDirected :: NullOrUndefined (Boolean), createVersion :: NullOrUndefined (Boolean) }) -> PutBotResponse
+newPutBotResponse' :: ({ name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean), createVersion :: Maybe (Boolean) } -> { name :: Maybe (BotName), description :: Maybe (Description), intents :: Maybe (IntentList), clarificationPrompt :: Maybe (Prompt), abortStatement :: Maybe (Statement), status :: Maybe (Status), failureReason :: Maybe (String), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), idleSessionTTLInSeconds :: Maybe (SessionTTL), voiceId :: Maybe (String), checksum :: Maybe (String), version :: Maybe (Version), locale :: Maybe (Locale), childDirected :: Maybe (Boolean), createVersion :: Maybe (Boolean) }) -> PutBotResponse
 ```
 
 Constructs PutBotResponse's fields from required parameters
@@ -3250,7 +3250,7 @@ Constructs PutBotResponse's fields from required parameters
 
 ``` purescript
 newtype PutIntentRequest
-  = PutIntentRequest { name :: IntentName, description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), checksum :: NullOrUndefined (String), createVersion :: NullOrUndefined (Boolean) }
+  = PutIntentRequest { name :: IntentName, description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), checksum :: Maybe (String), createVersion :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3273,7 +3273,7 @@ Constructs PutIntentRequest from required parameters
 #### `newPutIntentRequest'`
 
 ``` purescript
-newPutIntentRequest' :: IntentName -> ({ name :: IntentName, description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), checksum :: NullOrUndefined (String), createVersion :: NullOrUndefined (Boolean) } -> { name :: IntentName, description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), checksum :: NullOrUndefined (String), createVersion :: NullOrUndefined (Boolean) }) -> PutIntentRequest
+newPutIntentRequest' :: IntentName -> ({ name :: IntentName, description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), checksum :: Maybe (String), createVersion :: Maybe (Boolean) } -> { name :: IntentName, description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), checksum :: Maybe (String), createVersion :: Maybe (Boolean) }) -> PutIntentRequest
 ```
 
 Constructs PutIntentRequest's fields from required parameters
@@ -3282,7 +3282,7 @@ Constructs PutIntentRequest's fields from required parameters
 
 ``` purescript
 newtype PutIntentResponse
-  = PutIntentResponse { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), createVersion :: NullOrUndefined (Boolean) }
+  = PutIntentResponse { name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), createVersion :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3305,7 +3305,7 @@ Constructs PutIntentResponse from required parameters
 #### `newPutIntentResponse'`
 
 ``` purescript
-newPutIntentResponse' :: ({ name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), createVersion :: NullOrUndefined (Boolean) } -> { name :: NullOrUndefined (IntentName), description :: NullOrUndefined (Description), slots :: NullOrUndefined (SlotList), sampleUtterances :: NullOrUndefined (IntentUtteranceList), confirmationPrompt :: NullOrUndefined (Prompt), rejectionStatement :: NullOrUndefined (Statement), followUpPrompt :: NullOrUndefined (FollowUpPrompt), conclusionStatement :: NullOrUndefined (Statement), dialogCodeHook :: NullOrUndefined (CodeHook), fulfillmentActivity :: NullOrUndefined (FulfillmentActivity), parentIntentSignature :: NullOrUndefined (BuiltinIntentSignature), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), createVersion :: NullOrUndefined (Boolean) }) -> PutIntentResponse
+newPutIntentResponse' :: ({ name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), createVersion :: Maybe (Boolean) } -> { name :: Maybe (IntentName), description :: Maybe (Description), slots :: Maybe (SlotList), sampleUtterances :: Maybe (IntentUtteranceList), confirmationPrompt :: Maybe (Prompt), rejectionStatement :: Maybe (Statement), followUpPrompt :: Maybe (FollowUpPrompt), conclusionStatement :: Maybe (Statement), dialogCodeHook :: Maybe (CodeHook), fulfillmentActivity :: Maybe (FulfillmentActivity), parentIntentSignature :: Maybe (BuiltinIntentSignature), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), createVersion :: Maybe (Boolean) }) -> PutIntentResponse
 ```
 
 Constructs PutIntentResponse's fields from required parameters
@@ -3314,7 +3314,7 @@ Constructs PutIntentResponse's fields from required parameters
 
 ``` purescript
 newtype PutSlotTypeRequest
-  = PutSlotTypeRequest { name :: SlotTypeName, description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy), createVersion :: NullOrUndefined (Boolean) }
+  = PutSlotTypeRequest { name :: SlotTypeName, description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy), createVersion :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3337,7 +3337,7 @@ Constructs PutSlotTypeRequest from required parameters
 #### `newPutSlotTypeRequest'`
 
 ``` purescript
-newPutSlotTypeRequest' :: SlotTypeName -> ({ name :: SlotTypeName, description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy), createVersion :: NullOrUndefined (Boolean) } -> { name :: SlotTypeName, description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy), createVersion :: NullOrUndefined (Boolean) }) -> PutSlotTypeRequest
+newPutSlotTypeRequest' :: SlotTypeName -> ({ name :: SlotTypeName, description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy), createVersion :: Maybe (Boolean) } -> { name :: SlotTypeName, description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy), createVersion :: Maybe (Boolean) }) -> PutSlotTypeRequest
 ```
 
 Constructs PutSlotTypeRequest's fields from required parameters
@@ -3346,7 +3346,7 @@ Constructs PutSlotTypeRequest's fields from required parameters
 
 ``` purescript
 newtype PutSlotTypeResponse
-  = PutSlotTypeResponse { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy), createVersion :: NullOrUndefined (Boolean) }
+  = PutSlotTypeResponse { name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy), createVersion :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3369,7 +3369,7 @@ Constructs PutSlotTypeResponse from required parameters
 #### `newPutSlotTypeResponse'`
 
 ``` purescript
-newPutSlotTypeResponse' :: ({ name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy), createVersion :: NullOrUndefined (Boolean) } -> { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), enumerationValues :: NullOrUndefined (EnumerationValues), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version), checksum :: NullOrUndefined (String), valueSelectionStrategy :: NullOrUndefined (SlotValueSelectionStrategy), createVersion :: NullOrUndefined (Boolean) }) -> PutSlotTypeResponse
+newPutSlotTypeResponse' :: ({ name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy), createVersion :: Maybe (Boolean) } -> { name :: Maybe (SlotTypeName), description :: Maybe (Description), enumerationValues :: Maybe (EnumerationValues), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version), checksum :: Maybe (String), valueSelectionStrategy :: Maybe (SlotValueSelectionStrategy), createVersion :: Maybe (Boolean) }) -> PutSlotTypeResponse
 ```
 
 Constructs PutSlotTypeResponse's fields from required parameters
@@ -3394,7 +3394,7 @@ Encode ReferenceType
 
 ``` purescript
 newtype ResourceInUseException
-  = ResourceInUseException { referenceType :: NullOrUndefined (ReferenceType), exampleReference :: NullOrUndefined (ResourceReference) }
+  = ResourceInUseException { referenceType :: Maybe (ReferenceType), exampleReference :: Maybe (ResourceReference) }
 ```
 
 <p>The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.</p> <p>The body of the exception contains a JSON object that describes the resource.</p> <p> <code>{ "resourceType": BOT | BOTALIAS | BOTCHANNEL | INTENT,</code> </p> <p> <code>"resourceReference": {</code> </p> <p> <code>"name": <i>string</i>, "version": <i>string</i> } }</code> </p>
@@ -3419,7 +3419,7 @@ Constructs ResourceInUseException from required parameters
 #### `newResourceInUseException'`
 
 ``` purescript
-newResourceInUseException' :: ({ referenceType :: NullOrUndefined (ReferenceType), exampleReference :: NullOrUndefined (ResourceReference) } -> { referenceType :: NullOrUndefined (ReferenceType), exampleReference :: NullOrUndefined (ResourceReference) }) -> ResourceInUseException
+newResourceInUseException' :: ({ referenceType :: Maybe (ReferenceType), exampleReference :: Maybe (ResourceReference) } -> { referenceType :: Maybe (ReferenceType), exampleReference :: Maybe (ResourceReference) }) -> ResourceInUseException
 ```
 
 Constructs ResourceInUseException's fields from required parameters
@@ -3428,7 +3428,7 @@ Constructs ResourceInUseException's fields from required parameters
 
 ``` purescript
 newtype ResourceReference
-  = ResourceReference { name :: NullOrUndefined (Name), version :: NullOrUndefined (Version) }
+  = ResourceReference { name :: Maybe (Name), version :: Maybe (Version) }
 ```
 
 <p>Describes the resource that refers to the resource that you are attempting to delete. This object is returned as part of the <code>ResourceInUseException</code> exception. </p>
@@ -3453,7 +3453,7 @@ Constructs ResourceReference from required parameters
 #### `newResourceReference'`
 
 ``` purescript
-newResourceReference' :: ({ name :: NullOrUndefined (Name), version :: NullOrUndefined (Version) } -> { name :: NullOrUndefined (Name), version :: NullOrUndefined (Version) }) -> ResourceReference
+newResourceReference' :: ({ name :: Maybe (Name), version :: Maybe (Version) } -> { name :: Maybe (Name), version :: Maybe (Version) }) -> ResourceReference
 ```
 
 Constructs ResourceReference's fields from required parameters
@@ -3510,7 +3510,7 @@ Encode SessionTTL
 
 ``` purescript
 newtype Slot
-  = Slot { name :: SlotName, description :: NullOrUndefined (Description), slotConstraint :: SlotConstraint, slotType :: NullOrUndefined (CustomOrBuiltinSlotTypeName), slotTypeVersion :: NullOrUndefined (Version), valueElicitationPrompt :: NullOrUndefined (Prompt), priority :: NullOrUndefined (Priority), sampleUtterances :: NullOrUndefined (SlotUtteranceList), responseCard :: NullOrUndefined (ResponseCard) }
+  = Slot { name :: SlotName, description :: Maybe (Description), slotConstraint :: SlotConstraint, slotType :: Maybe (CustomOrBuiltinSlotTypeName), slotTypeVersion :: Maybe (Version), valueElicitationPrompt :: Maybe (Prompt), priority :: Maybe (Priority), sampleUtterances :: Maybe (SlotUtteranceList), responseCard :: Maybe (ResponseCard) }
 ```
 
 <p>Identifies the version of a specific slot.</p>
@@ -3535,7 +3535,7 @@ Constructs Slot from required parameters
 #### `newSlot'`
 
 ``` purescript
-newSlot' :: SlotName -> SlotConstraint -> ({ name :: SlotName, description :: NullOrUndefined (Description), slotConstraint :: SlotConstraint, slotType :: NullOrUndefined (CustomOrBuiltinSlotTypeName), slotTypeVersion :: NullOrUndefined (Version), valueElicitationPrompt :: NullOrUndefined (Prompt), priority :: NullOrUndefined (Priority), sampleUtterances :: NullOrUndefined (SlotUtteranceList), responseCard :: NullOrUndefined (ResponseCard) } -> { name :: SlotName, description :: NullOrUndefined (Description), slotConstraint :: SlotConstraint, slotType :: NullOrUndefined (CustomOrBuiltinSlotTypeName), slotTypeVersion :: NullOrUndefined (Version), valueElicitationPrompt :: NullOrUndefined (Prompt), priority :: NullOrUndefined (Priority), sampleUtterances :: NullOrUndefined (SlotUtteranceList), responseCard :: NullOrUndefined (ResponseCard) }) -> Slot
+newSlot' :: SlotName -> SlotConstraint -> ({ name :: SlotName, description :: Maybe (Description), slotConstraint :: SlotConstraint, slotType :: Maybe (CustomOrBuiltinSlotTypeName), slotTypeVersion :: Maybe (Version), valueElicitationPrompt :: Maybe (Prompt), priority :: Maybe (Priority), sampleUtterances :: Maybe (SlotUtteranceList), responseCard :: Maybe (ResponseCard) } -> { name :: SlotName, description :: Maybe (Description), slotConstraint :: SlotConstraint, slotType :: Maybe (CustomOrBuiltinSlotTypeName), slotTypeVersion :: Maybe (Version), valueElicitationPrompt :: Maybe (Prompt), priority :: Maybe (Priority), sampleUtterances :: Maybe (SlotUtteranceList), responseCard :: Maybe (ResponseCard) }) -> Slot
 ```
 
 Constructs Slot's fields from required parameters
@@ -3592,7 +3592,7 @@ Encode SlotName
 
 ``` purescript
 newtype SlotTypeMetadata
-  = SlotTypeMetadata { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) }
+  = SlotTypeMetadata { name :: Maybe (SlotTypeName), description :: Maybe (Description), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) }
 ```
 
 <p>Provides information about a slot type..</p>
@@ -3617,7 +3617,7 @@ Constructs SlotTypeMetadata from required parameters
 #### `newSlotTypeMetadata'`
 
 ``` purescript
-newSlotTypeMetadata' :: ({ name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) } -> { name :: NullOrUndefined (SlotTypeName), description :: NullOrUndefined (Description), lastUpdatedDate :: NullOrUndefined (Timestamp), createdDate :: NullOrUndefined (Timestamp), version :: NullOrUndefined (Version) }) -> SlotTypeMetadata
+newSlotTypeMetadata' :: ({ name :: Maybe (SlotTypeName), description :: Maybe (Description), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) } -> { name :: Maybe (SlotTypeName), description :: Maybe (Description), lastUpdatedDate :: Maybe (Timestamp), createdDate :: Maybe (Timestamp), version :: Maybe (Version) }) -> SlotTypeMetadata
 ```
 
 Constructs SlotTypeMetadata's fields from required parameters
@@ -3722,7 +3722,7 @@ Constructs StartImportRequest's fields from required parameters
 
 ``` purescript
 newtype StartImportResponse
-  = StartImportResponse { name :: NullOrUndefined (Name), resourceType :: NullOrUndefined (ResourceType), mergeStrategy :: NullOrUndefined (MergeStrategy), importId :: NullOrUndefined (String), importStatus :: NullOrUndefined (ImportStatus), createdDate :: NullOrUndefined (Timestamp) }
+  = StartImportResponse { name :: Maybe (Name), resourceType :: Maybe (ResourceType), mergeStrategy :: Maybe (MergeStrategy), importId :: Maybe (String), importStatus :: Maybe (ImportStatus), createdDate :: Maybe (Timestamp) }
 ```
 
 ##### Instances
@@ -3745,7 +3745,7 @@ Constructs StartImportResponse from required parameters
 #### `newStartImportResponse'`
 
 ``` purescript
-newStartImportResponse' :: ({ name :: NullOrUndefined (Name), resourceType :: NullOrUndefined (ResourceType), mergeStrategy :: NullOrUndefined (MergeStrategy), importId :: NullOrUndefined (String), importStatus :: NullOrUndefined (ImportStatus), createdDate :: NullOrUndefined (Timestamp) } -> { name :: NullOrUndefined (Name), resourceType :: NullOrUndefined (ResourceType), mergeStrategy :: NullOrUndefined (MergeStrategy), importId :: NullOrUndefined (String), importStatus :: NullOrUndefined (ImportStatus), createdDate :: NullOrUndefined (Timestamp) }) -> StartImportResponse
+newStartImportResponse' :: ({ name :: Maybe (Name), resourceType :: Maybe (ResourceType), mergeStrategy :: Maybe (MergeStrategy), importId :: Maybe (String), importStatus :: Maybe (ImportStatus), createdDate :: Maybe (Timestamp) } -> { name :: Maybe (Name), resourceType :: Maybe (ResourceType), mergeStrategy :: Maybe (MergeStrategy), importId :: Maybe (String), importStatus :: Maybe (ImportStatus), createdDate :: Maybe (Timestamp) }) -> StartImportResponse
 ```
 
 Constructs StartImportResponse's fields from required parameters
@@ -3754,7 +3754,7 @@ Constructs StartImportResponse's fields from required parameters
 
 ``` purescript
 newtype Statement
-  = Statement { messages :: MessageList, responseCard :: NullOrUndefined (ResponseCard) }
+  = Statement { messages :: MessageList, responseCard :: Maybe (ResponseCard) }
 ```
 
 <p>A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey. </p>
@@ -3779,7 +3779,7 @@ Constructs Statement from required parameters
 #### `newStatement'`
 
 ``` purescript
-newStatement' :: MessageList -> ({ messages :: MessageList, responseCard :: NullOrUndefined (ResponseCard) } -> { messages :: MessageList, responseCard :: NullOrUndefined (ResponseCard) }) -> Statement
+newStatement' :: MessageList -> ({ messages :: MessageList, responseCard :: Maybe (ResponseCard) } -> { messages :: MessageList, responseCard :: Maybe (ResponseCard) }) -> Statement
 ```
 
 Constructs Statement's fields from required parameters
@@ -3884,7 +3884,7 @@ Encode Utterance
 
 ``` purescript
 newtype UtteranceData
-  = UtteranceData { utteranceString :: NullOrUndefined (UtteranceString), count :: NullOrUndefined (Count), distinctUsers :: NullOrUndefined (Count), firstUtteredDate :: NullOrUndefined (Timestamp), lastUtteredDate :: NullOrUndefined (Timestamp) }
+  = UtteranceData { utteranceString :: Maybe (UtteranceString), count :: Maybe (Count), distinctUsers :: Maybe (Count), firstUtteredDate :: Maybe (Timestamp), lastUtteredDate :: Maybe (Timestamp) }
 ```
 
 <p>Provides information about a single utterance that was made to your bot. </p>
@@ -3909,7 +3909,7 @@ Constructs UtteranceData from required parameters
 #### `newUtteranceData'`
 
 ``` purescript
-newUtteranceData' :: ({ utteranceString :: NullOrUndefined (UtteranceString), count :: NullOrUndefined (Count), distinctUsers :: NullOrUndefined (Count), firstUtteredDate :: NullOrUndefined (Timestamp), lastUtteredDate :: NullOrUndefined (Timestamp) } -> { utteranceString :: NullOrUndefined (UtteranceString), count :: NullOrUndefined (Count), distinctUsers :: NullOrUndefined (Count), firstUtteredDate :: NullOrUndefined (Timestamp), lastUtteredDate :: NullOrUndefined (Timestamp) }) -> UtteranceData
+newUtteranceData' :: ({ utteranceString :: Maybe (UtteranceString), count :: Maybe (Count), distinctUsers :: Maybe (Count), firstUtteredDate :: Maybe (Timestamp), lastUtteredDate :: Maybe (Timestamp) } -> { utteranceString :: Maybe (UtteranceString), count :: Maybe (Count), distinctUsers :: Maybe (Count), firstUtteredDate :: Maybe (Timestamp), lastUtteredDate :: Maybe (Timestamp) }) -> UtteranceData
 ```
 
 Constructs UtteranceData's fields from required parameters
@@ -3918,7 +3918,7 @@ Constructs UtteranceData's fields from required parameters
 
 ``` purescript
 newtype UtteranceList
-  = UtteranceList { botVersion :: NullOrUndefined (Version), utterances :: NullOrUndefined (ListOfUtterance) }
+  = UtteranceList { botVersion :: Maybe (Version), utterances :: Maybe (ListOfUtterance) }
 ```
 
 <p>Provides a list of utterances that have been made to a specific version of your bot. The list contains a maximum of 100 utterances.</p>
@@ -3943,7 +3943,7 @@ Constructs UtteranceList from required parameters
 #### `newUtteranceList'`
 
 ``` purescript
-newUtteranceList' :: ({ botVersion :: NullOrUndefined (Version), utterances :: NullOrUndefined (ListOfUtterance) } -> { botVersion :: NullOrUndefined (Version), utterances :: NullOrUndefined (ListOfUtterance) }) -> UtteranceList
+newUtteranceList' :: ({ botVersion :: Maybe (Version), utterances :: Maybe (ListOfUtterance) } -> { botVersion :: Maybe (Version), utterances :: Maybe (ListOfUtterance) }) -> UtteranceList
 ```
 
 Constructs UtteranceList's fields from required parameters

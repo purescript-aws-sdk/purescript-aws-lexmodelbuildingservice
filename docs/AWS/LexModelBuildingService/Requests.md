@@ -27,7 +27,7 @@ createSlotTypeVersion :: forall eff. Service -> CreateSlotTypeVersionRequest -> 
 #### `deleteBot`
 
 ``` purescript
-deleteBot :: forall eff. Service -> DeleteBotRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteBot :: forall eff. Service -> DeleteBotRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes all versions of the bot, including the <code>$LATEST</code> version. To delete a specific version of the bot, use the <a>DeleteBotVersion</a> operation.</p> <p>If a bot has an alias, you can't delete it. Instead, the <code>DeleteBot</code> operation returns a <code>ResourceInUseException</code> exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the <code>DeleteBot</code> operation is successful.</p> <p>This operation requires permissions for the <code>lex:DeleteBot</code> action.</p>
@@ -35,7 +35,7 @@ deleteBot :: forall eff. Service -> DeleteBotRequest -> Aff (exception :: EXCEPT
 #### `deleteBotAlias`
 
 ``` purescript
-deleteBotAlias :: forall eff. Service -> DeleteBotAliasRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteBotAlias :: forall eff. Service -> DeleteBotAliasRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes an alias for the specified bot. </p> <p>You can't delete an alias that is used in the association between a bot and a messaging channel. If an alias is used in a channel association, the <code>DeleteBot</code> operation returns a <code>ResourceInUseException</code> exception that includes a reference to the channel association that refers to the bot. You can remove the reference to the alias by deleting the channel association. If you get the same exception again, delete the referring association until the <code>DeleteBotAlias</code> operation is successful.</p>
@@ -43,7 +43,7 @@ deleteBotAlias :: forall eff. Service -> DeleteBotAliasRequest -> Aff (exception
 #### `deleteBotChannelAssociation`
 
 ``` purescript
-deleteBotChannelAssociation :: forall eff. Service -> DeleteBotChannelAssociationRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteBotChannelAssociation :: forall eff. Service -> DeleteBotChannelAssociationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the association between an Amazon Lex bot and a messaging platform.</p> <p>This operation requires permission for the <code>lex:DeleteBotChannelAssociation</code> action.</p>
@@ -51,7 +51,7 @@ deleteBotChannelAssociation :: forall eff. Service -> DeleteBotChannelAssociatio
 #### `deleteBotVersion`
 
 ``` purescript
-deleteBotVersion :: forall eff. Service -> DeleteBotVersionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteBotVersion :: forall eff. Service -> DeleteBotVersionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a specific version of a bot. To delete all versions of a bot, use the <a>DeleteBot</a> operation. </p> <p>This operation requires permissions for the <code>lex:DeleteBotVersion</code> action.</p>
@@ -59,7 +59,7 @@ deleteBotVersion :: forall eff. Service -> DeleteBotVersionRequest -> Aff (excep
 #### `deleteIntent`
 
 ``` purescript
-deleteIntent :: forall eff. Service -> DeleteIntentRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteIntent :: forall eff. Service -> DeleteIntentRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes all versions of the intent, including the <code>$LATEST</code> version. To delete a specific version of the intent, use the <a>DeleteIntentVersion</a> operation.</p> <p> You can delete a version of an intent only if it is not referenced. To delete an intent that is referred to in one or more bots (see <a>how-it-works</a>), you must remove those references first. </p> <note> <p> If you get the <code>ResourceInUseException</code> exception, it provides an example reference that shows where the intent is referenced. To remove the reference to the intent, either update the bot or delete it. If you get the same exception when you attempt to delete the intent again, repeat until the intent has no references and the call to <code>DeleteIntent</code> is successful. </p> </note> <p> This operation requires permission for the <code>lex:DeleteIntent</code> action. </p>
@@ -67,7 +67,7 @@ deleteIntent :: forall eff. Service -> DeleteIntentRequest -> Aff (exception :: 
 #### `deleteIntentVersion`
 
 ``` purescript
-deleteIntentVersion :: forall eff. Service -> DeleteIntentVersionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteIntentVersion :: forall eff. Service -> DeleteIntentVersionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a specific version of an intent. To delete all versions of a intent, use the <a>DeleteIntent</a> operation. </p> <p>This operation requires permissions for the <code>lex:DeleteIntentVersion</code> action.</p>
@@ -75,7 +75,7 @@ deleteIntentVersion :: forall eff. Service -> DeleteIntentVersionRequest -> Aff 
 #### `deleteSlotType`
 
 ``` purescript
-deleteSlotType :: forall eff. Service -> DeleteSlotTypeRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteSlotType :: forall eff. Service -> DeleteSlotTypeRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes all versions of the slot type, including the <code>$LATEST</code> version. To delete a specific version of the slot type, use the <a>DeleteSlotTypeVersion</a> operation.</p> <p> You can delete a version of a slot type only if it is not referenced. To delete a slot type that is referred to in one or more intents, you must remove those references first. </p> <note> <p> If you get the <code>ResourceInUseException</code> exception, the exception provides an example reference that shows the intent where the slot type is referenced. To remove the reference to the slot type, either update the intent or delete it. If you get the same exception when you attempt to delete the slot type again, repeat until the slot type has no references and the <code>DeleteSlotType</code> call is successful. </p> </note> <p>This operation requires permission for the <code>lex:DeleteSlotType</code> action.</p>
@@ -83,7 +83,7 @@ deleteSlotType :: forall eff. Service -> DeleteSlotTypeRequest -> Aff (exception
 #### `deleteSlotTypeVersion`
 
 ``` purescript
-deleteSlotTypeVersion :: forall eff. Service -> DeleteSlotTypeVersionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteSlotTypeVersion :: forall eff. Service -> DeleteSlotTypeVersionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes a specific version of a slot type. To delete all versions of a slot type, use the <a>DeleteSlotType</a> operation. </p> <p>This operation requires permissions for the <code>lex:DeleteSlotTypeVersion</code> action.</p>
@@ -91,7 +91,7 @@ deleteSlotTypeVersion :: forall eff. Service -> DeleteSlotTypeVersionRequest -> 
 #### `deleteUtterances`
 
 ``` purescript
-deleteUtterances :: forall eff. Service -> DeleteUtterancesRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteUtterances :: forall eff. Service -> DeleteUtterancesRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes stored utterances.</p> <p>Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input.</p> <p>Use the <code>DeleteStoredUtterances</code> operation to manually delete stored utterances for a specific user.</p> <p>This operation requires permissions for the <code>lex:DeleteUtterances</code> action.</p>
